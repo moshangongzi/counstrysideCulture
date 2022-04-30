@@ -1,13 +1,55 @@
 {
   "pages":[
-    "pages/index/index"
+    "pages/index/index",
+    "pages/study/study",
+    "pages/public/public",
+    "pages/dynamic/dynamic",
+    "pages/my/my"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#d83232",
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle":"black"
   },
-  "style": "v2",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath":  "pages/index/index",
+        "text": "首页",
+        "iconPath": "./icons/shouye.png",
+        "selectedIconPath": "./icons/select-shouye.png"
+      },
+      {
+        "pagePath":  "pages/study/study",
+        "text": "学习",
+        "iconPath": "./icons/xuexi-copy.png",
+        "selectedIconPath": "./icons/select-xuexi-copy.png"
+      },
+      {
+        "pagePath":  "pages/public/public",
+        "text": "发布",
+        "iconPath": "./icons/dongtai.png",
+        "selectedIconPath": "./icons/select-dongtai.png"
+      },
+      {
+        "pagePath": "pages/dynamic/dynamic",
+        "text": "动态",
+        "iconPath": "./icons/dongtai1-copy.png",
+        "selectedIconPath": "./icons/select-dongtai1-copy.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "./icons/gerenzhongxin.png",
+        "selectedIconPath": "./icons/select-gerenzhongxin.png"
+      }
+  ]
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-search": "@vant/weapp/search/index"
+  },
   "sitemapLocation": "sitemap.json"
 }

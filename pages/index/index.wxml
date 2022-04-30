@@ -1,0 +1,41 @@
+<!-- 搜索框 -->
+<view>
+    <van-search custom-class='search_custom' field-class='search_field' value="{{ value }}" background="#d83232" placeholder="请输入搜索关键词" shape="round" show-action bind:search="onSearch" bind:cancel="onCancel" />
+</view>
+<!-- 轮播图 -->
+<view class="index_swiper">
+    <swiper autoplay indicator-dots circular>
+        <swiper-item>
+            <navigator>
+                <image mode="widthFix" src="./index/1.jpg"></image>
+            </navigator>
+        </swiper-item>
+        <swiper-item>
+            <navigator>
+                <image mode="widthFix" src="./index/2.jpg"></image>
+            </navigator>
+        </swiper-item>
+        <swiper-item>
+            <navigator>
+                <image mode="widthFix" src="./index/3.jpg"></image>
+            </navigator>
+        </swiper-item>
+    </swiper>
+</view>
+<!-- 分栏部分 -->
+<view class="icon">
+    <view class="tui">
+        <image src="./index/tui.png" />
+    </view>
+    <view class="fa">
+        <image src="./index/fa.png" />
+    </view>
+    <view class="wen">
+        <image src="./index/wen.png" />
+    </view>
+</view>
+<!-- 内容 -->
+<view class="container">
+    <view class="list">1</view>
+    <view class="list">1</view>
+</view>
