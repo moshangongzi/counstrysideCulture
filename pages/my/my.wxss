@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-/* pages/my/my.wxss */
-=======
+
 page {
     background-color: #f7f8fa;
 }
@@ -49,4 +47,4 @@ page {
     padding: 30rpx;
     border-radius: 10rpx;
 }
->>>>>>> my
+

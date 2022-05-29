@@ -1,19 +1,10 @@
 // pages/my/my.js
 Page({
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> my
     /**
      * 页面的初始数据
      */
     data: {
-<<<<<<< HEAD
-
-    },
-
-=======
         username:'',
         userimg:'',
         loginShow:true,
@@ -27,7 +18,7 @@ Page({
         })
         console.log(this.data.username)
       },    
->>>>>>> my
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -35,28 +26,16 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-<<<<<<< HEAD
-=======
   
->>>>>>> my
+
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-<<<<<<< HEAD
 
-=======
     // const userinfo=wx.getStorageSync("userinfo");
     // const collect=wx.getStorageSync("collect")||[];      
     // this.setData({userinfo,collectNums:collect.length});
->>>>>>> my
     },
 
     /**
