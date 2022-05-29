@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/detail/detail",
     "pages/study/study",
     "pages/public/public",
     "pages/dynamic/dynamic",

@@ -1,41 +1,51 @@
-<!-- 搜索框 -->
-<view>
-    <van-search custom-class='search_custom' field-class='search_field' value="{{ value }}" background="#d83232" placeholder="请输入搜索关键词" shape="round" show-action bind:search="onSearch" bind:cancel="onCancel" />
-</view>
-<!-- 轮播图 -->
-<view class="index_swiper">
-    <swiper autoplay indicator-dots circular>
-        <swiper-item>
-            <navigator>
-                <image mode="widthFix" src="./index/1.jpg"></image>
-            </navigator>
-        </swiper-item>
-        <swiper-item>
-            <navigator>
-                <image mode="widthFix" src="./index/2.jpg"></image>
-            </navigator>
-        </swiper-item>
-        <swiper-item>
-            <navigator>
-                <image mode="widthFix" src="./index/3.jpg"></image>
-            </navigator>
-        </swiper-item>
-    </swiper>
-</view>
-<!-- 分栏部分 -->
-<view class="icon">
-    <view class="tui">
-        <image src="./index/tui.png" />
+<view class='index'>
+    <!-- 导航栏 -->
+    <view class='header'>
+        <view class='header-panel one-px-border'>
+            <block wx:for='{{headerTitleName}}' wx:key='{{item.nameID}}'>
+                <view data-id='{{item.nameID}}' data-url='{{item.nameUrl}}' data-newstype='{{item.newsType}}' class="header-title {{item.nameID == tapID? 'header-title-active':''}}" bindtap='headerTitleClick'>
+                    {{item.name}}
+                </view>
+            </block>
+        </view>
     </view>
-    <view class="fa">
-        <image src="./index/fa.png" />
-    </view>
-    <view class="wen">
-        <image src="./index/wen.png" />
-    </view>
-</view>
-<!-- 内容 -->
-<view class="container">
-    <view class="list">1</view>
-    <view class="list">1</view>
+    <view class="nav-blank"></view>
+    <!-- 主体内容 -->
+    <scroll-view-refresh-load class='scroll-view-refresh-load-component' refreshing="{{refreshing}}" bindpulldownrefresh="onPulldownrefresh_SV">
+        <view class='content'>
+            <!-- 轮播图 -->
+            <view class='content-top-pic'>
+                <swiper class="swiper" bindchange='handleSwiperChange' autoplay="true" interval="30000" duration="300">
+                    <block wx:for="{{topPic}}" wx:key='{{item.ID}}' wx:if="{{topPic && topPic.length > 0}}">
+                        <swiper-item bindtap='viewDetail' data-newsurl='{{item.url}}'>
+                            <image src="{{item.thumbnail_pic_s}}" class="slide-image" mode="aspectFill" />
+                        </swiper-item>
+                    </block>
+                </swiper>
+                <view class="swiper-index">{{swiperIndex}}</view>
+            </view>
+            <!-- 新闻列表 -->
+            <view class='content-list'>
+                <block wx:for='{{contentNewsList}}' wx:key='{{item.newsID}}' wx:if="{{contentNewsList && contentNewsList.length > 0}}">
+                    <view class='list-item' bindtap='viewDetail' data-newsurl='{{item.url}}' data-newstitle='{{item.title}}' data-newsauthor='{{item.author_name}}'>
+                        <view class='list-item-content one-px-border'>
+                            <view class='list-item-left' style="display: {{item.thumbnail_pic_s?'block':'none'}}">
+                                <image src='{{item.thumbnail_pic_s}}'></image>
+                            </view>
+                            <view class='list-item-right'>
+                                <view class='article-title'>{{item.title}}</view>
+                                <view class='article-source'>{{item.author_name}}</view>
+                                <view class='article-editTime'>{{item.date}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view class="footer" wx:if="{{showCopyright}}">
+            <view class="footer-component">
+                <component-copyright></component-copyright>
+            </view>
+        </view>
+    </scroll-view-refresh-load>
 </view>

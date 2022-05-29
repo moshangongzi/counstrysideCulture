@@ -1,8 +1,8 @@
 {
     "description": "项目配置文件",
-    "cloudfunctionRoot": "cloud",
+    "cloudfunctionRoot": "cloud/",
     "setting": {
-        "urlCheck": true,
+        "urlCheck": false,
         "coverView": true,
         "es6": true,
         "postcss": true,
@@ -27,12 +27,52 @@
             }
         ],
         "minifyWXSS": true,
+        "minifyWXML": true,
+        "useStaticServer": true,
         "showES6CompileOption": false,
-        "minifyWXML": true
+        "checkInvalidKey": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "disableUseStrict": false,
+        "useCompilerPlugins": false
     },
     "compileType": "miniprogram",
     "libVersion": "2.24.0",
     "appid": "wx042dec96f25e877a",
     "projectname": "miniprogram-92",
-    "condition": {}
+    "condition": {
+        "plugin": {
+            "current": -1,
+            "list": []
+        },
+        "game": {
+            "current": -1,
+            "list": []
+        },
+        "gamePlugin": {
+            "current": -1,
+            "list": []
+        },
+        "miniprogram": {
+            "current": -1,
+            "list": []
+        }
+    },
+    "scripts": {},
+    "packOptions": {
+        "ignore": [],
+        "include": []
+    },
+    "watchOptions": {
+        "ignore": []
+    },
+    "debugOptions": {
+        "hidedInDevtools": []
+    },
+    "staticServerOptions": {
+        "servePath": ""
+    }
 }
