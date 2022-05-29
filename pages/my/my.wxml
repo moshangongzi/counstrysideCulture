@@ -1,2 +1,27 @@
+<<<<<<< HEAD
 <!--pages/my/my.wxml-->
 <text>pages/my/my.wxml</text>
+=======
+<view class="user">
+  <view wx:if="{{!loginShow}}">
+    <image src="{{userimg}}" class="bg" mode="aspectFill"></image>
+    <view class="con">
+      <view class="headimg">
+        <image src="{{userimg}}"></image>
+      </view>
+      <view class="uname">{{username}}</view>
+      <view class="rank">LV7</view>
+    </view>
+  </view>
+  <view class="login_btn" wx:if="{{loginShow}}">
+    <van-button round type="info" color="#d83232" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">请点击登录</van-button>
+  </view>
+</view>
+
+<view>
+  用户选择：1
+</view>
+<view>
+  用户选择：2
+</view>
+>>>>>>> my
