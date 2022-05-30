@@ -1,2 +1,45 @@
-<!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="user">
+  <view wx:if="{{!loginShow}}">
+    <image src="{{userimg}}" class="bg" mode="aspectFill"></image>
+    <view class="con">
+      <view class="headimg">
+        <image src="{{userimg}}"></image>
+      </view>
+      <view class="uname">{{username}}</view>
+      <button class="edit" style="margin: 10px;padding: 0px;">编辑资料</button>
+    </view>
+  </view>
+  <view class="login_btn" wx:if="{{loginShow}}">
+    <van-button round type="info" color="#d83232" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">请点击登录</van-button>
+  </view>
+</view>
+
+<!-- 菜单 -->
+<view class="menu_list">
+  <view class="menu_item" wx:for="{{menu}}" wx:key="id">
+    <image src="{{item.icon}}"></image>
+    <text>{{item.text}}</text>
+  </view>
+</view>
+
+<!-- 常用功能 -->
+<view class="often">
+  <text>常用功能</text> 
+  <view class="often_list">
+    <view class="often_item" wx:for="{{often}}" wx:key="id">
+      <image src="{{item.icon}}"></image>
+      <text>{{item.text}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- 辅助功能 -->
+<view class="assist">
+<text>辅助功能</text> 
+  <view class="assist_list">
+    <view class="assist_item" wx:for="{{assist}}" wx:key="id">
+      <image src="{{item.icon}}"></image>
+      <text>{{item.text}}</text>
+    </view>
+  </view>
+</view>

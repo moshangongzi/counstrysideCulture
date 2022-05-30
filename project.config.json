@@ -3,22 +3,33 @@
     "cloudfunctionRoot": "cloud/",
     "setting": {
         "urlCheck": false,
-        "coverView": true,
         "es6": true,
+        "enhance": true,
         "postcss": true,
-        "compileHotReLoad": false,
-        "lazyloadPlaceholderEnable": false,
         "preloadBackgroundData": false,
         "minified": true,
+        "newFeature": false,
+        "coverView": true,
+        "nodeModules": false,
         "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
         "uglifyFileName": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": true,
         "uploadWithSourceMap": true,
-        "useIsolateContext": true,
-        "enhance": true,
+        "compileHotReLoad": false,
+        "lazyloadPlaceholderEnable": false,
         "useMultiFrameRuntime": true,
         "useApiHook": true,
         "useApiHostProcess": true,
-        "showShadowRootInWxmlPanel": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "useIsolateContext": true,
+        "userConfirmedBundleSwitch": false,
         "packNpmManually": true,
         "packNpmRelationList": [
             {
@@ -27,52 +38,15 @@
             }
         ],
         "minifyWXSS": true,
-        "minifyWXML": true,
-        "useStaticServer": true,
-        "showES6CompileOption": false,
-        "checkInvalidKey": true,
-        "babelSetting": {
-            "ignore": [],
-            "disablePlugins": [],
-            "outputPath": ""
-        },
         "disableUseStrict": false,
-        "useCompilerPlugins": false
+        "minifyWXML": true,
+        "showES6CompileOption": false,
+        "useCompilerPlugins": false,
+        "ignoreUploadUnusedFiles": false
     },
     "compileType": "miniprogram",
     "libVersion": "2.24.0",
     "appid": "wx042dec96f25e877a",
-    "projectname": "miniprogram-92",
-    "condition": {
-        "plugin": {
-            "current": -1,
-            "list": []
-        },
-        "game": {
-            "current": -1,
-            "list": []
-        },
-        "gamePlugin": {
-            "current": -1,
-            "list": []
-        },
-        "miniprogram": {
-            "current": -1,
-            "list": []
-        }
-    },
-    "scripts": {},
-    "packOptions": {
-        "ignore": [],
-        "include": []
-    },
-    "watchOptions": {
-        "ignore": []
-    },
-    "debugOptions": {
-        "hidedInDevtools": []
-    },
-    "staticServerOptions": {
-        "servePath": ""
-    }
+    "projectname": "countrysideCulture",
+    "condition": {}
 }
