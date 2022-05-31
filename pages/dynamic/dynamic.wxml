@@ -1,2 +1,58 @@
-<!--pages/dynamic/dynamic.wxml-->
-<text>pages/dynamic/dynamic.wxml</text>
+<view>
+    <!-- 顶部导航栏 -->
+    <view class="dynamic-dance-nav" style="height: {{navHeight}}px; padding-top: {{menuHeight}}px;">
+        <block wx:for="{{navTitleName}}" wx:key="{{item.id}}">
+            <view data-id='{{item.id}}' class="nav-item {{item.id == navTitleID? 'nav-title-active':''}}" bindtap='navTitleNameClick'>
+                {{item.name}}
+            </view>
+        </block>
+    </view>
+
+    <!-- 动态 -->
+    <view style="display: {{navTitleID===1?'block':'none'}};">
+        <!-- 发布照片 上传视频 -->
+        <view class="fabu-pic-shipin">
+            <view class="fubu-pic">
+                <image mode="heightFix" src="./icons/tupian.png"></image>
+                <text>发布照片</text>
+            </view>
+            <view class="fubu-shipin">
+                <image mode="heightFix" src="./icons/icon-shipinguanli.png"></image>
+                <text>上传视频</text>
+            </view>
+        </view>
+        <!-- 最新动态 -->
+        <view class="latest-dynamic">
+            <view class="latest-dynamic-text">最新动态</view>
+            <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="{{item.id}}">
+                <!-- 用户头像 -->
+                <view class="user-info">
+                    <image mode="aspectFill" src="{{item.user.avater_url}}"></image>
+                    <view class="user-nickname">{{item.user.nickName}}</view>
+                    <view class="public-time">{{item.public_time}}分钟前</view>
+                </view>
+                <!-- 动态 -->
+                <view class="latest-dynamic-con">
+                    <text class="latest-dynamic-con-text">{{item.text}}</text>
+                    <image mode="aspectFill" src="{{item.img_video_url}}"></image>
+                    <view class="dianzan-fenxiang">
+                        <view class="dainzan">
+                            <image mode="aspectFit" src="./icons/dianzan.png"></image>
+                            <text>评论（{{item.dianzan}}）</text>
+                        </view>
+                        <view class="fenxiang">
+                            <image mode="aspectFit" src="./icons/fenxiang.png"></image>
+                            <text>分享</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+
+    <!-- 我的舞队 -->
+    <view style="display: {{navTitleID===2?'block':'none'}};">
+
+    </view>
+</view>

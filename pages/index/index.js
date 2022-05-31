@@ -150,7 +150,7 @@ Page({
     ],
     swiperIndex: '1/4',
     topPic: [],
-    tapID: 2, // 判断是否选中
+    tapID: 1, // 判断是否选中
     contentNewsList: [],
     showCopyright: false,
     refreshing: false
