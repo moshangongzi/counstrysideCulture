@@ -22,8 +22,50 @@
                     "scene": null
                 },
                 {
-                    "name": "",
-                    "pathName": "pages/login/login",
+                    "name": "管理舞团",
+                    "pathName": "pages/often/myDanceTeam/myDanceTeam",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "活动",
+                    "pathName": "pages/often/myActivity/myActivity",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "成员列表",
+                    "pathName": "pages/often/memberList/memberList",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "编辑",
+                    "pathName": "pages/my/edit/edit",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "消息",
+                    "pathName": "pages/assist/message/message",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "设置",
+                    "pathName": "pages/assist/setUp/setUp",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "证书",
+                    "pathName": "pages/menu/cert/cert",
                     "query": "",
                     "scene": null,
                     "launchMode": "default"

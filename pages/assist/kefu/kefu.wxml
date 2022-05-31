@@ -1,0 +1,21 @@
+<text class="online">
+    在线时间：周一至周五9:00-17:00
+</text>
+
+<text class="Tcontent">
+ 尊敬的各位会员：\n
+ 如果您在平台有遇到问题，或反馈意见，可通过以下方式联系我们处理解决
+</text>
+ 
+<view class="text">
+    <text class="red">客服微信号：</text>
+    <text>1234561</text>
+</view>
+<view class="text">
+    <text class="red">客服电话：</text>
+    <text>17680460153</text>
+</view>
+<view class="text">
+    <text class="red">微信公众号：</text>
+    <text>最炫广场舞</text>
+</view>

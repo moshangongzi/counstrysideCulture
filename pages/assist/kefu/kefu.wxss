@@ -1,0 +1,22 @@
+text {
+  display: inline-block;
+  font-size: 43rpx;
+}
+
+.online {
+  margin: 15rpx;
+  font-size: 47rpx;
+  font-weight: 700;
+}
+
+.Tcontent {
+  font-size: 35rpx;
+  color: rgb(100, 100, 100);
+  margin: 15rpx;
+}
+.red {
+  color: rgb(230,10,10);
+}
+.text {
+  margin: 40rpx 25rpx;
+}

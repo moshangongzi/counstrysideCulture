@@ -4,7 +4,18 @@
         "pages/detail/detail",
         "pages/public/public",
         "pages/dynamic/dynamic",
-        "pages/my/my"
+        "pages/my/my",
+        "pages/my/edit/edit",
+        "pages/menu/myDynamic/myDynamic",
+        "pages/menu/space/space",
+        "pages/menu/cert/cert",
+        "pages/often/myActivity/myActivity",
+        "pages/often/myDanceTeam/myDanceTeam",
+        "pages/often/myCollection/myCollection",
+        "pages/assist/kefu/kefu",
+        "pages/assist/setUp/setUp",
+        "pages/assist/message/message",
+        "pages/often/memberList/memberList"
 
     ],
     "window": {
@@ -20,7 +31,7 @@
                 "iconPath": "./icons/shouye.png",
                 "selectedIconPath": "./icons/select-shouye.png"
             },
-            
+
             {
                 "pagePath": "pages/public/public",
                 "text": "发布",

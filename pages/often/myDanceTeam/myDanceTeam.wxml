@@ -1,0 +1,29 @@
+<van-tabs sticky animated>
+  <van-tab title="我加入的">
+    <view wx:if="{{isShow}}">
+      <navigator class="ditem" wx:for="{{dance}}" wx:key="id" url="../../menu/space/space">
+        <view class="dimg">
+          <image src="{{item.imgSrc}}"></image>
+        </view>
+        <text>{{item.dname}}</text>
+      </navigator>
+    </view>
+    <view wx:if="{{!isShow}}">
+      <van-empty image="search" description="暂无相关内容" />
+    </view>
+  </van-tab>
+  <van-tab title="我管理的">
+    <view wx:if="{{isShow}}">
+      <navigator class="ditem" wx:for="{{dance}}" wx:key="id" url="../memberList/memberList">
+        <view class="dimg">
+          <image src="{{item.imgSrc}}"></image>
+        </view>
+        <text>{{item.dname}}</text>
+        <button>管理</button>
+      </navigator>
+    </view>
+    <view wx:if="{{!isShow}}">
+      <van-empty image="search" description="暂无相关内容" />
+    </view>
+  </van-tab>
+</van-tabs>

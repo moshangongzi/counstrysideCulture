@@ -1,0 +1,17 @@
+Page {
+    background-color: #f7f7f7;
+}
+
+.id {
+    margin-top: 50rpx;
+}
+
+.bind,
+.text,
+.btn {
+    margin-top: 20rpx;
+}
+.btn {
+    background-color: #fff;
+    color: #e62929;
+}

@@ -1,0 +1,42 @@
+<view class="usermsg">
+    <van-cell-group inset>
+        <van-cell center title="头像" size="large">
+            <span class="headimg">
+                <image src="{{headimg}}"></image>
+            </span>
+        </van-cell>
+
+        <van-cell title="昵称" size="large">
+            {{username}}
+        </van-cell>
+
+        <van-cell title="设置背景" size="large" is-link />
+
+        <van-cell title="性别" size="large" title-width="370rpx">
+            <van-radio-group direction="horizontal">
+                <van-radio name="nv">女</van-radio>
+                <van-radio name="name">男</van-radio>
+            </van-radio-group>
+        </van-cell>
+
+        <van-cell title="生日" size="large" bind:click="showPopup" value="{{date}}" />
+        <van-popup show="{{show}}" position="bottom" custom-style="height: 50%;" bind:close="onClose">
+            <van-datetime-picker type="date" bind:confirm="onConfirm" formatter="{{formatter}}" min-date="{{minDate}}" max-date="{{maxDate}}" value="{{Initial}}" />
+        </van-popup>
+
+        <van-cell title="QQ号" size="large">
+            <input type="number" placeholder="请在此输入QQ号" />
+        </van-cell>
+        <van-cell title="电话号码" size="large">
+            <input type="number" placeholder="请在此输入电话" />
+        </van-cell>
+        <van-cell title="地址" size="large">
+            <input type="text" placeholder="请在此输入地址" />
+        </van-cell>
+        <van-cell title="自我介绍" size="large" />
+        <view style="background-color: #fff;">
+            <textarea class="textarea" placeholder="   请在此输入自我介绍" />
+        </view>
+    </van-cell-group>
+</view>
+<button class="save" type="warn">保存</button>

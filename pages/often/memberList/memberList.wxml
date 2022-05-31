@@ -1,0 +1,12 @@
+<view wx:if="{{isShow}}">
+      <navigator class="item" wx:for="{{memberList}}" wx:key="id" >
+        <view class="img">
+          <image src="{{item.imgSrc}}"></image>
+        </view>
+        <text>{{item.name}}</text>
+        <button>删除</button>
+      </navigator>
+    </view>
+    <view wx:if="{{!isShow}}">
+      <van-empty image="search" description="暂无相关内容" />
+    </view>

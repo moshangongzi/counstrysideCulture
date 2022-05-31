@@ -7,46 +7,55 @@ Page({
         menu: [
             {
                 id: 1,
-                icon: '../../icons/my/签到.png',
-                text: '今日签到'
+                icon: '../../icons/my/我的动态.png',
+                text: '我的动态',
+                pageName:'myDynamic'
             }, {
                 id: 2,
                 icon: '../../icons/my/空间.png',
-                text: '舞团空间'
+                text: '舞团空间',
+                pageName:'space'
             }, {
                 id: 3,
                 icon: '../../icons/my/证书.png',
-                text: '荣誉证书'
+                text: '荣誉证书',
+                pageName:'cert'
             },
         ],
         often: [
             {
                 id: 1,
                 icon: '../../icons/my/活动.png',
-                text: '我的活动'
+                text: '我的活动',
+                pageName:'myActivity'
             }, {
                 id: 2,
                 icon: '../../icons/my/团队.png',
-                text: '我的舞团'
+                text: '我的舞团',
+                pageName:'myDanceTeam'
             }, {
                 id: 3,
                 icon: '../../icons/my/收藏.png',
-                text: '我的收藏'
+                text: '我的收藏',
+                pageName:'myCollection'
             }
         ],
         assist: [
             {
                 id: 1,
                 icon: '../../icons/my/客服.png',
-                text: '客服帮助'
+                text: '客服帮助',
+                pageName:'kefu'
             }, {
                 id: 2,
                 icon: '../../icons/my/消息.png',
-                text: '我的消息'
+                text: '我的消息',
+                pageName:'message'
             }, {
                 id: 3,
                 icon: '../../icons/my/设置.png',
-                text: '设置'
+                text: '设置',
+                pageName:'setUp'
             },
         ],
     },
