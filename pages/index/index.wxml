@@ -1,6 +1,7 @@
+<navBar/>
 <view class='index'>
     <!-- 导航栏 -->
-    <view class='header'>
+    <view class='header' >
         <view class='header-panel'>
             <block wx:for='{{headerTitleName}}' wx:key='{{item.id}}'>
                 <view data-id='{{item.id}}' class="header-title {{item.id == tapID? 'header-title-active':''}}" bindtap='headerTitleClick'>

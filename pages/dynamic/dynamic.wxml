@@ -9,14 +9,14 @@
     </view>
 
     <!-- 动态 -->
-    <view style="display: {{navTitleID===1?'block':'none'}};">
+    <view class="dynamic" style="display: {{navTitleID===1?'block':'none'}};">
         <!-- 发布照片 上传视频 -->
         <view class="fabu-pic-shipin">
-            <view class="fubu-pic">
+            <view class="fabu-pic" bindtap="fabuPicClick">
                 <image mode="heightFix" src="./icons/tupian.png"></image>
                 <text>发布照片</text>
             </view>
-            <view class="fubu-shipin">
+            <view class="fabu-shipin" bindtap="fabuVidClick">
                 <image mode="heightFix" src="./icons/icon-shipinguanli.png"></image>
                 <text>上传视频</text>
             </view>
@@ -38,7 +38,7 @@
                     <view class="dianzan-fenxiang">
                         <view class="dainzan">
                             <image mode="aspectFit" src="./icons/dianzan.png"></image>
-                            <text>评论（{{item.dianzan}}）</text>
+                            <text>点赞（{{item.dianzan}}）</text>
                         </view>
                         <view class="fenxiang">
                             <image mode="aspectFit" src="./icons/fenxiang.png"></image>

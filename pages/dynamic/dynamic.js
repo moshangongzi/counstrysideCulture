@@ -3,8 +3,8 @@ Page({
 
     data: {
         navTitleName: [
-            { id: 1,name: '动态',  },
-            { id: 2,name: '我的舞队',  },
+            { id: 1, name: '动态', },
+            { id: 2, name: '我的舞队', },
         ],
         dynamicList: [
             {
@@ -18,7 +18,7 @@ Page({
                 },
                 img_video_url: './images/banner2.jpg',
                 dianzan: 11
-                
+
             }
         ],
         navTitleID: 1,
@@ -40,7 +40,17 @@ Page({
         console.log(e);
         this.setData({ navTitleID: e.target.dataset.id })
         console.log(this.data.navTitleID);
-      },
+    },
+    fabuPicClick: function(e) {
+        wx.navigateTo({
+          url: '../public/publicPic/publicPic',
+        })
+    },
+    fabuVidClick: function(e) {
+        wx.navigateTo({
+            url: '../public/publicVid/publicVid',
+          })
+    },
 
     /**
      * 生命周期函数--监听页面初次渲染完成

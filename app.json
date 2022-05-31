@@ -1,9 +1,11 @@
 {
     "pages": [
         "pages/dynamic/dynamic",
+        "pages/public/publicPic/publicPic",
         "pages/index/index",
         "pages/detail/detail",
         "pages/public/public",
+        "pages/public/publicVid/publicVid",
         "pages/my/my"
 
     ],

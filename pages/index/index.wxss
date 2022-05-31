@@ -1,5 +1,6 @@
 .index {
   height: 100%;
+  margin-top: 64px;
 }
 
 ::-webkit-scrollbar {
@@ -18,7 +19,7 @@
   overflow-y: hidden;
   background-color: #fefefe;
   position: fixed;
-  top: 0;
+  top: 64px;
   left: 0;
   z-index: 10;
 }

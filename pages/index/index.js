@@ -3,7 +3,7 @@
 // const request = require('../../utils/request.js')
 // const extractArticleInfo = require('./utils/getArticleTime.js')
 // const shuffle = require('./utils/shuffle.js')
-
+const App = getApp()
 Page({
   data: {
     headerTitleName: [
@@ -153,7 +153,8 @@ Page({
     tapID: 1, // 判断是否选中
     contentNewsList: [],
     showCopyright: false,
-    refreshing: false
+    refreshing: false,
+    navHeight: ''
   },
 
   onLoad: function () {
@@ -162,6 +163,9 @@ Page({
     //     showCopyright: true
     //   })
     // })
+    this.setData({
+      navHeight: App.globalData.navHeight,
+    })
   },
 
   // headerBar 点击
