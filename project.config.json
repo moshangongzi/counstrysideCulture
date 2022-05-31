@@ -48,5 +48,19 @@
     "libVersion": "2.24.0",
     "appid": "wx042dec96f25e877a",
     "projectname": "countrysideCulture",
-    "condition": {}
+    "condition": {},
+    "scripts": {},
+    "packOptions": {
+        "ignore": [],
+        "include": []
+    },
+    "watchOptions": {
+        "ignore": []
+    },
+    "debugOptions": {
+        "hidedInDevtools": []
+    },
+    "staticServerOptions": {
+        "servePath": ""
+    }
 }
