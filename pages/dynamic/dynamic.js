@@ -4,7 +4,7 @@ Page({
     data: {
         navTitleName: [
             { id: 1, name: '动态', },
-            { id: 2, name: '我的舞队', },
+            { id: 2, name: '我的舞团', },
         ],
         dynamicList: [
             {
@@ -21,7 +21,49 @@ Page({
 
             }
         ],
-        navTitleID: 1,
+        // 舞团信息
+        danceTeamInfo: {
+            id: 1,
+            teamName: '最炫民族风',
+            teamIcon: './images/activity.jpg',
+            teamInfo: [
+                {
+                    name: '作品',
+                    number: 5
+                },
+                {
+                    name: '成员',
+                    number: 2
+                },
+                {
+                    name: '全国排名',
+                    number: 168431
+                },
+                {
+                    name: '访客',
+                    number: 523
+                },
+            ],
+            member: [
+                {
+                    id: 1,
+                    memberIcon: './images/activity1.jpg',
+                    memberNickName: '最美舞者',
+                    status: 0,
+                },
+                {
+                    id: 2,
+                    memberIcon: './images/activity2.jpg',
+                    memberNickName: '最帅舞者',
+                    status: 1,
+                }
+            ]
+        },
+        swiperList: [
+            { id: 1, imgUrl: './images/banner.jpg' },
+            { id: 2, imgUrl: './images/banner1.jpg' },
+        ],
+        navTitleID: 2,
         navHeight: '',
         menuHeight: ''
     },
@@ -41,15 +83,15 @@ Page({
         this.setData({ navTitleID: e.target.dataset.id })
         console.log(this.data.navTitleID);
     },
-    fabuPicClick: function(e) {
+    fabuPicClick: function (e) {
         wx.navigateTo({
-          url: '../public/publicPic/publicPic',
+            url: '../public/publicPic/publicPic',
         })
     },
-    fabuVidClick: function(e) {
+    fabuVidClick: function (e) {
         wx.navigateTo({
             url: '../public/publicVid/publicVid',
-          })
+        })
     },
 
     /**
