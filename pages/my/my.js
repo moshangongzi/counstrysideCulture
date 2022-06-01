@@ -7,35 +7,35 @@ Page({
         menu: [
             {
                 id: 1,
-                icon: '../../icons/my/我的动态.png',
+                icon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/my/%E6%88%91%E7%9A%84%E5%8A%A8%E6%80%81.png',
                 text: '我的动态',
-                pageName:'myDynamic'
+                jump:'/pages/menu/myDynamic/myDynamic'
             }, {
                 id: 2,
-                icon: '../../icons/my/空间.png',
+                icon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/my/%E7%A9%BA%E9%97%B4.png',
                 text: '舞团空间',
-                pageName:'space'
+                jump:'/pages/dynamic/dynamic'
             }, {
                 id: 3,
-                icon: '../../icons/my/证书.png',
+                icon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/my/%E8%AF%81%E4%B9%A6.png',
                 text: '荣誉证书',
-                pageName:'cert'
+                jump:'/pages/menu/cert/cert'
             },
         ],
         often: [
             {
                 id: 1,
-                icon: '../../icons/my/活动.png',
+                icon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/my/%E6%B4%BB%E5%8A%A8.png',
                 text: '我的活动',
                 pageName:'myActivity'
             }, {
                 id: 2,
-                icon: '../../icons/my/团队.png',
+                icon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/my/%E5%9B%A2%E9%98%9F.png',
                 text: '我的舞团',
                 pageName:'myDanceTeam'
             }, {
                 id: 3,
-                icon: '../../icons/my/收藏.png',
+                icon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/my/%E6%94%B6%E8%97%8F.png',
                 text: '我的收藏',
                 pageName:'myCollection'
             }
@@ -43,17 +43,17 @@ Page({
         assist: [
             {
                 id: 1,
-                icon: '../../icons/my/客服.png',
+                icon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/my/%E5%AE%A2%E6%9C%8D.png',
                 text: '客服帮助',
                 pageName:'kefu'
             }, {
                 id: 2,
-                icon: '../../icons/my/消息.png',
+                icon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/my/%E6%B6%88%E6%81%AF.png',
                 text: '我的消息',
                 pageName:'message'
             }, {
                 id: 3,
-                icon: '../../icons/my/设置.png',
+                icon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/my/%E8%AE%BE%E7%BD%AE.png',
                 text: '设置',
                 pageName:'setUp'
             },

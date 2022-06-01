@@ -34,7 +34,8 @@
             "list": []
         },
         "miniprogram": {
-            "list": [{
+            "list": [
+                {
                     "name": "",
                     "pathName": "pages/my/my",
                     "query": "",
@@ -96,5 +97,68 @@
     "disableUseStrict": false,
     "useCompilerPlugins": false,
     "minifyWXML": true,
-    "condition": {}
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "",
+                    "pathName": "pages/my/my",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "管理舞团",
+                    "pathName": "pages/often/myDanceTeam/myDanceTeam",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "活动",
+                    "pathName": "pages/often/myActivity/myActivity",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "成员列表",
+                    "pathName": "pages/often/memberList/memberList",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "编辑",
+                    "pathName": "pages/my/edit/edit",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "活动详情",
+                    "pathName": "pages/index/actDetail/actDetail",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/index/index",
+                    "query": "",
+                    "scene": null,
+                    "launchMode": "default"
+                }
+            ]
+        }
+    }
 }

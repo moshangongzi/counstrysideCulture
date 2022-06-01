@@ -1,0 +1,25 @@
+<image class="img" src="{{actImg}}" mode="aspectFill" />
+<view class="header">
+  <view class="title">{{title}}</view>
+  <view class="static">
+    <span>费用：免费</span>
+    <span>已报名：200</span>
+    <span>2.1万人参加</span>
+  </view>
+</view>
+<view class="actInfo">
+  <van-cell-group inset>
+    <van-cell icon="underway-o" title="时间" value="{{time}}" size="large" title-width="100rpx" />
+    <van-cell icon="location-o" title="地点" value="{{place}}" size="large" title-width="100rpx" />
+    <van-cell icon="friends-o" title="限额" value="{{limit}}" size="large" title-width="100rpx" />
+    <van-cell icon="phone-o" title="电话" value="{{tel}}" size="large" title-width="100rpx" />
+    <van-cell icon="user-o" title="主办方" value="{{sponsor}}" size="large" title-width="100rpx" />
+  </van-cell-group>
+</view>
+
+<view class="introduction">
+  <view class="t"> 活动介绍</view>
+  <view class="c">{{introduction}}</view>
+</view>
+
+<button class="footer" type="warn">我要参加</button>
