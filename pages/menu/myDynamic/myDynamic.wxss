@@ -1,1 +1,82 @@
-/* pages/my/qiandao/qiandao.wxss */
+.user-avatar {
+    position: relative;
+    width: 100%;
+    height: 600rpx;
+    margin-top: 64rpx;
+}
+
+.user-avatar .user-avatar-bg {
+    width: 100%;
+    height: 100%;
+    filter: blur(11rpx);
+    -webkit-filter: blur(11rpx);
+}
+
+.user-avatar .user-avatar-small {
+    position: absolute;
+    bottom: -75rpx;
+    right: 32rpx;
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 10rpx;
+    z-index: 99;
+}
+
+.latest-dynamic {
+    height: 100%;
+}
+
+.latest-dynamic-text {
+    margin-left: 25rpx;
+    font-weight: 700;
+}
+
+.latest-dynamic-list {
+    margin: 25rpx 25rpx 0 25rpx;
+}
+
+.latest-dynamic-con {
+    margin-top: 75rpx;
+    height: 400rpx;
+}
+
+.latest-dynamic-con-text {
+    font-size: 35rpx;
+}
+
+.latest-dynamic-con-img {
+    width: 100%;
+    height: 100%;
+    margin-top: 20rpx;
+}
+
+.public-time {
+    margin-bottom: 35rpx;
+    font-size: 38rpx;
+    font-weight: 700;
+} 
+
+.dianzan-pic {
+    position: relative;
+    width: 100%;
+    height: 80rpx;
+}
+
+.dianzan {
+    position: absolute;
+    right: 0;
+    width: 220rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 30rpx;
+}
+
+.dianzan .dianzan-img {
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 10rpx;
+    vertical-align: middle;
+}
+
+
+

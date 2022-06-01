@@ -26,6 +26,7 @@
 .dynamic {
     margin-top: 64px;
 }
+
 .fabu-pic-shipin {
     display: flex;
     justify-content: space-around;
@@ -114,7 +115,9 @@
     height: 80rpx;
     /* background-color: pink; */
 }
-.dainzan,.fenxiang {
+
+.dainzan,
+.fenxiang {
     display: flex;
     align-items: center;
     font-size: 30rpx;
@@ -126,4 +129,211 @@
     vertical-align: top;
     margin: 0rpx;
     margin-right: 20rpx;
+}
+
+/* 我的舞团 */
+.my-dance-team {
+    margin-top: 64px;
+}
+
+.teamName {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 132rpx;
+    padding: 8rpx;
+    /* background-color: skyblue; */
+}
+
+.teamName image {
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 55rpx;
+}
+
+.teamName button {
+    width: 106rpx;
+    height: 60rpx;
+    padding: 0rpx;
+    margin-right: 25rpx;
+    z-index: -99;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    outline: none;
+    border: 1rpx solid #bbbbbb;
+    background: transparent;
+}
+
+.teamName text {
+    margin-left: 25rpx;
+    font-size: 35rpx;
+    font-weight: 700;
+}
+
+.teamName button::after {
+    border: none;
+}
+
+.team-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 145rpx;
+    font-size: 30rpx;
+    /* background-color: pink; */
+}
+
+.team-info-item {
+    text-align: center;
+}
+
+.team-info-number {
+    display: block;
+    font-size: 34rpx;
+    font-weight: 700;
+}
+
+.team-memory {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 150rpx;
+    /* background-color: skyblue; */
+}
+
+.team-memory-item {
+    text-align: center;
+}
+
+.team-memory-item text {
+    font-size: 30rpx;
+}
+
+.team-memory .team-memory-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 55rpx;
+}
+
+.team-memory .team-memory-icon1 {
+    background-color: #d7edfa;
+}
+
+.team-memory .team-memory-icon2 {
+    background-color: #f5c3db;
+}
+
+.team-memory .team-memory-icon3 {
+    background-color: #f0c7c2;
+}
+
+.team-memory image {
+    width: 55rpx;
+    height: 55rpx;
+}
+
+.team-memory .team-memory-icon3 image {
+    width: 63rpx;
+    height: 63rpx;
+}
+
+.swiper-view {
+    height: 300rpx;
+    margin: 15rpx;
+    margin-top: 20rpx;
+    border-radius: 8rpx;
+    overflow: hidden;
+}
+
+.team-member-sum {
+    display: flex;
+    align-items: center;
+    height: 110rpx;
+    margin-left: 15rpx;
+    border-bottom: 1rpx solid #f2f2f2;
+    font-size: 42rpx;
+    font-weight: 700;
+    /* background-color: pink; */
+}
+
+.team-member-sum image {
+    width: 65rpx;
+    height: 65rpx;
+    margin-right: 25rpx;
+}
+
+.team-member-counts {
+    font-size: 30rpx;
+    font-weight: 400;
+}
+
+.team-member-items {
+    height: 255rpx;
+    border-bottom: 25rpx solid #f2f2f2;
+    /* background-color: pink; */
+}
+
+.team-member-item {
+    position: relative;
+    display: inline-block;
+    width: 205rpx;
+    height: 205rpx;
+    margin: 25rpx;
+    box-shadow: 5rpx 5rpx 15rpx #e6dede;
+    border-radius: 15rpx;
+    text-align: center;
+    line-height: 205rpx;
+    /* background-color: pink; */
+}
+
+.team-member-item .team-member-item-pic {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150rpx;
+    height: 150rpx;
+    line-height: 62rpx;
+    /* background-color: pink; */
+}
+
+.team-leader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 64rpx;
+    height: 40rpx;
+    border-top-left-radius: 15rpx;
+    border-bottom-right-radius: 15rpx;
+    font-size: 24rpx;
+    line-height: 40rpx;
+    color: #fff;
+    background-color: #d83232;
+}
+
+.team-member-item image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50rpx;
+    vertical-align: middle;
+}
+
+.team-member-item text {
+    display: block;
+    font-size: 30rpx;
+}
+
+.team-dynamic {
+    margin-top: 36rpx;
+}
+
+.team-dynamic-category {
+    margin-left: 15rpx;
+}
+
+.team-dynamic-category text {
+margin-right: 40rpx;
 }

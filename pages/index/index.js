@@ -1,8 +1,3 @@
-// const appKey = 'fc35d7872c25744ab4669c7d9dbcf15e' // 用于访问新闻接口的appKey
-// const appKey = '27ecdb5376a3714e1211170e0d4e26ed' // 用于访问新闻接口的appKey
-// const request = require('../../utils/request.js')
-// const extractArticleInfo = require('./utils/getArticleTime.js')
-// const shuffle = require('./utils/shuffle.js')
 const App = getApp()
 Page({
   data: {

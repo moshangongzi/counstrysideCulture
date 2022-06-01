@@ -5,14 +5,40 @@ Page({
      * 页面的初始数据
      */
     data: {
+        username: '',
+        userimg: '',
+        dynamicList: [
+            {
+                id: 1,
+                text: '第3天，挑战赛：7天单人舞挑战赛，打卡签到，第3天，挑战赛：7天单人舞挑战赛，打卡签到，第3天，挑战赛：7天单人舞挑战赛，打卡签到，',
+                public_time: 10,
+                img_video_url: '/pages/dynamic/images/banner1.jpg',
+                dianzan: 11
 
+            }
+        ],
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.showUser()
+    },
+    showUser() {
+        var that = this;
+        wx.getStorage({
+            key: 'userinfo',
+            success(res) {
+                that.setData({
+                    username: res.data.username,
+                    userimg: res.data.userimg,
+                })
+                console.log('获取本地存储用户数据成功')
+            }, fail(res) {
+                console.log('获取失败', res)
+            }
+        })
     },
 
     /**
