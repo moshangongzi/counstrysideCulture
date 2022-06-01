@@ -19,7 +19,7 @@
 
 <!-- 菜单 -->
 <view class="menu_list">
-  <navigator url="/pages/menu/{{item.pageName}}/{{item.pageName}}" class="menu_item" wx:for="{{menu}}" wx:key="id">
+  <navigator url="{{item.jump}}" open-type="{{item.id===2?'switchTab':'navigate'}}" class="menu_item" wx:for="{{menu}}" wx:key="id">
     <image src="{{item.icon}}"></image>
     <text>{{item.text}}</text>
   </navigator>
