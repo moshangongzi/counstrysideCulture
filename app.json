@@ -7,7 +7,6 @@
         "pages/dynamic/dynamic",
         "pages/index/index",
         "pages/index/actDetail/actDetail",
-        "pages/detail/detail",
 
         "pages/my/my",
         "pages/my/edit/edit",
