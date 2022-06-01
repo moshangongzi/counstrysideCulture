@@ -1,11 +1,11 @@
 <view class="user">
   <view wx:if="{{!loginShow}}">
-    <image src="{{userimg}}" class="bg" mode="aspectFill"></image>
+    <image src="{{userImg}}" class="bg" mode="aspectFill"></image>
     <view class="con">
       <view class="headimg">
-        <image src="{{userimg}}"></image>
+        <image src="{{userImg}}"></image>
       </view>
-      <view class="uname">{{username}}</view>
+      <view class="uname">{{uname}}</view>
       <navigator url="/pages/my/edit/edit">
       <button class="edit" style="margin: 10px auto;padding: 0px;">编辑资料</button>
       </navigator>

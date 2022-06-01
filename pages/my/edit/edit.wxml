@@ -2,13 +2,11 @@
     <van-cell-group inset>
         <van-cell center title="头像" size="large">
             <span class="headimg">
-                <image src="{{headimg}}"></image>
+                <image src="{{userImg}}"></image>
             </span>
         </van-cell>
 
-        <van-cell title="昵称" size="large">
-            {{username}}
-        </van-cell>
+        <van-cell title="昵称" size="large">{{uname}}</van-cell>
 
         <van-cell title="设置背景" size="large" is-link />
 
