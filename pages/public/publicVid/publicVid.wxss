@@ -1,0 +1,64 @@
+Page {
+    background-color: #f2f2f2;
+}
+.publicPic {
+    margin-top: 70px;
+    background-color: #fff;
+    padding-bottom: 40rpx;
+}
+
+.publicPic-tip {
+    font-weight: 700;
+    font-size: 40rpx;
+}
+.publicPic-con {
+    margin: 25rpx;
+}
+.textarea-con {
+    /* width: 300rpx; */
+    width: 94%;
+    height: 300rpx;
+    padding: 20rpx;
+    margin-top: 25rpx;
+    border: 1rpx solid #e3e3e3;
+    border-radius: 5rpx;
+}
+
+.select-pic {
+    width: 290rpx;
+    height: 290rpx;
+    margin-top: 50rpx;
+    padding: 40rpx;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1rpx solid #e3e3e3;
+    border-radius: 8rpx;
+    color: #a5a0a0;
+}
+
+.select-pic image {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.select-pic text {
+    display: block;
+    margin-top: 25rpx;
+}
+
+.select-team {
+    display: flex;
+    align-items: center;
+    height: 130rpx;
+    margin-top: 80rpx;
+    padding-left: 10rpx;
+    background-color: #fff;
+}
+
+.select-team image {
+    position: relative;
+    top: 0rpx;
+    right: -524rpx;
+    width: 28rpx;
+    height: 28rpx;
+}

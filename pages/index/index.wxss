@@ -1,15 +1,17 @@
-page {
-  background-color: rgb(244, 243, 243);
-}
 .index {
   height: 100%;
+  margin-top: 64px;
 }
+
 ::-webkit-scrollbar {
   height: 0;
   width: 0;
 }
+
 /* 导航栏 */
 .header-panel {
+  display: flex;
+  justify-content: space-around;
   height: 80rpx;
   width: 100%;
   white-space: nowrap;
@@ -17,14 +19,12 @@ page {
   overflow-y: hidden;
   background-color: #fefefe;
   position: fixed;
-  top: 0;
+  top: 64px;
   left: 0;
   z-index: 10;
-  box-shadow: 0 0.5px 0 0 #ececec;
 }
+
 .header-title {
-  position: relative;
-  width: 120rpx;
   height: 80rpx;
   display: inline-block;
   line-height: 80rpx;
@@ -32,47 +32,39 @@ page {
   cursor: pointer;
   box-sizing: border-box;
   color: #232323;
-  /* border-bottom: 2rpx solid rgba(0, 0, 0, 0.2); */
   text-align: center;
 }
+
 .header-title-active {
-  /* border-bottom: 4rpx solid #C34943; */
-  color: #c34943;
+  color: #d83232;
   z-index: 99;
-  font-size: 34rpx;
+  font-size: 35rpx;
+  font-weight: 700;
+  border-bottom: 5rpx solid #d83232;
 }
+
 .nav-blank {
   height: 80rpx;
 }
-/* 导航栏 */
 
-/* 主体内容 */
+/* 推荐主体内容 */
 .scroll-view-refresh-load-component {
   height: calc(100vh - 80rpx);
 }
+
 .content-top-pic {
   position: relative;
   height: 300rpx;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  margin: 25rpx;
+  overflow: hidden;
+  border-radius: 12rpx;
 }
-.swiper-index {
-  position: absolute;
-  bottom: 10rpx;
-  right: 10rpx;
-  background-color: rgba(0, 0, 0, 0.6);
-  height: 40rpx;
-  width: 65rpx;
-  border-radius: 20rpx;
-  color: #fefefe;
-  line-height: 40rpx;
-  font-size: 24rpx;
-  text-align: center;
-}
+
 .swiper {
   height: 100%;
   width: 100%;
 }
+
 .swiper image {
   height: 100%;
   width: 100%;
@@ -84,37 +76,114 @@ page {
   z-index: 1;
   position: relative;
 }
+
 .list-item {
-  height: 180rpx;
+  height: 400rpx;
   width: 100%;
+  margin-bottom: 25rpx;
   box-sizing: border-box;
 }
+
 .list-item-content {
   position: relative;
   display: flex;
+  height: 100%;
   padding: 20rpx 30rpx 20rpx 30rpx;
-  overflow: hidden;
   box-sizing: border-box;
 }
-.list-item-left {
-  flex: 1;
-  height: 140rpx;
-  /* width: 186rpx; */
-  margin-right: 20rpx;
-  float: left;
-}
-.list-item-left image {
+
+.list-item-content image {
   width: 100%;
   height: 100%;
+  border-radius: 12rpx;
 }
-.list-item-right {
-  flex: 2;
-  float: left;
-  /* width: 484rpx; */
+
+.list-item-content .shipin-title {
+  position: absolute;
+  top: 35rpx;
+  left: 50rpx;
+  font-size: 45rpx;
+  color: #fff;
+}
+
+.list-item-content .shipin-bofangshu {
+  position: absolute;
+  top: 315rpx;
+  left: 554rpx;
+  font-size: 30rpx;
+  color: #fff;
+}
+
+/* 活动主体内容 */
+.activity-view {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: 100%;
+  margin-top: 30rpx;
+}
+
+.activity-view 
+.activity-view-item {
+  width: 332rpx;
+  height: 290rpx;
+  margin-bottom: 25rpx;
+  /* border: 1rpx solid red; */
+}
+
+.activity-view-item-pic {
+  width: 332rpx;
+  height: 223rpx;
+}
+
+.activity-view-item-pic image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+.activity-view-item-title {
+  margin-top: 5rpx;
+  font-size: 31rpx;
+}
+
+/* 分类主体内容 */
+.category-view {
+  height: 100%;
+  margin-top: 30rpx;
+}
+
+.category-view .first-cate-view {
+  width: 100%;
+  height: 40rpx;
+  margin-left: 30rpx;
+  padding-left: 8rpx;
+  line-height: 40rpx;
+  border-left: 8rpx solid #d83232;
+  font-size: 35rpx;
+}
+
+.category-view .second-cate-view {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.second-cate-view .second-cate-view-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140rpx;
   height: 140rpx;
-  position: relative;
+  margin: 25rpx 8rpx;
+  box-shadow: 5rpx 5rpx 10rpx rgb(244, 244, 247);
+  border-radius: 5rpx;
+  font-size: 31rpx;
+  color: #757579;
+  background-color: #fafafc;
 }
-.article-title {
+
+/* .article-title {
   font-size: 34rpx;
   color: #404040;
   overflow-y: hidden;
@@ -143,11 +212,14 @@ page {
   position: absolute;
   bottom: 0;
   left: 0;
-}
+} */
+
 .footer {
   overflow: hidden;
 }
+
 .footer-component {
   margin: 15rpx 0 30rpx;
 }
+
 /* 主体内容 */

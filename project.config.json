@@ -45,7 +45,7 @@
         "ignoreUploadUnusedFiles": false
     },
     "compileType": "miniprogram",
-    "libVersion": "2.24.0",
+    "libVersion": "2.24.4",
     "appid": "wx042dec96f25e877a",
     "projectname": "countrysideCulture",
     "condition": {}

@@ -1,0 +1,6 @@
+<view class="dynamic-dance-nav" style="height: {{navHeight}}px; padding-top: {{menuHeight}}px;">
+<image bindtap="clickBack" wx:if="{{showBackIcon}}" src="/icons/31fanhui1.png"></image>
+    <view class="nav-item nav-title-active" bindtap='navTitleNameClick'>
+        {{navBarTitle}}
+    </view>
+</view>

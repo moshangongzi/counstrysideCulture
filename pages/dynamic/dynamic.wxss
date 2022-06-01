@@ -1,1 +1,129 @@
-/* pages/dynamic/dynamic.wxss */
+.dynamic-dance-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 35rpx;
+    background-color: #d83232;
+}
+
+.dynamic-dance-nav .nav-item {
+    margin-right: 30rpx;
+}
+
+.nav-title-active {
+    z-index: 99;
+    font-size: 35rpx;
+    font-weight: 700;
+    border-bottom: 5rpx solid #d83232;
+}
+
+/* 发布照片 上传视频 */
+.dynamic {
+    margin-top: 64px;
+}
+.fabu-pic-shipin {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 150rpx;
+    /* background-color: pink; */
+}
+
+.fabu-pic,
+.fabu-shipin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 355rpx;
+    height: 100rpx;
+    margin-top: 30rpx;
+    font-size: 35rpx;
+    border-radius: 5rpx;
+    background-color: #f8f8f8;
+}
+
+.fabu-pic-shipin image {
+    display: inline-block;
+    width: 40%;
+    height: 40%;
+    margin-right: 15rpx;
+}
+
+/* 最新动态 */
+.latest-dynamic {
+    height: 100%;
+}
+
+.latest-dynamic-text {
+    margin-left: 25rpx;
+    font-weight: 700;
+}
+
+.latest-dynamic-list {
+    margin: 25rpx 25rpx 0 25rpx;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    height: 180rpx;
+}
+
+.user-info image {
+    width: 100rpx;
+    height: 100rpx;
+    margin-right: 25rpx;
+    border-radius: 50rpx;
+}
+
+.user-info .user-nickname {
+    color: #d83232;
+    font-weight: 700;
+    margin-right: 25rpx;
+}
+
+.user-info .public-time {
+    font-size: 24rpx;
+}
+
+.latest-dynamic-con {
+    margin-left: 120rpx;
+    height: 400rpx;
+    /* background-color: pink; */
+}
+
+.latest-dynamic-con-text {
+    font-size: 35rpx;
+}
+
+.latest-dynamic-con image {
+    width: 100%;
+    height: 100%;
+    margin-top: 20rpx;
+}
+
+.latest-dynamic-con .dianzan-fenxiang {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 80rpx;
+    /* background-color: pink; */
+}
+.dainzan,.fenxiang {
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+}
+
+.dianzan-fenxiang image {
+    width: 50rpx;
+    height: 50rpx;
+    vertical-align: top;
+    margin: 0rpx;
+    margin-right: 20rpx;
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "首页",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "scroll-view-refresh-load": "/components/scroll-view-refresh-load/scroll-view-refresh-load",
+    "navBar": "/components/navBar/navBar"
+  }
+}

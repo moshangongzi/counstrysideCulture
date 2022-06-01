@@ -1,0 +1,27 @@
+.dynamic-dance-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 35rpx;
+    background-color: #d83232;
+}
+
+.dynamic-dance-nav image {
+    position: absolute;
+    top: 80rpx;
+    left: 12rpx;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.nav-title-active {
+    z-index: 99;
+    font-size: 35rpx;
+    font-weight: 700;
+    border-bottom: 5rpx solid #d83232;
+}

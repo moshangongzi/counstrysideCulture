@@ -1,10 +1,31 @@
 {
-    "projectname": "constrysideCulture",
+    "projectname": "countrysideCulture",
     "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-    "setting": {},
-    "condition": {
-        "plugin": {
-            "list": []
+    "setting": {
+        "urlCheck": false,
+        "coverView": true,
+        "es6": true,
+        "postcss": true,
+        "compileHotReLoad": false,
+        "lazyloadPlaceholderEnable": false,
+        "preloadBackgroundData": false,
+        "minified": true,
+        "autoAudits": false,
+        "uglifyFileName": false,
+        "uploadWithSourceMap": true,
+        "enhance": true,
+        "useMultiFrameRuntime": true,
+        "showShadowRootInWxmlPanel": true,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "minifyWXSS": true,
+        "useStaticServer": true,
+        "showES6CompileOption": false,
+        "checkInvalidKey": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
         },
         "game": {
             "list": []
@@ -13,8 +34,7 @@
             "list": []
         },
         "miniprogram": {
-            "list": [
-                {
+            "list": [{
                     "name": "",
                     "pathName": "pages/my/my",
                     "query": "",
@@ -72,5 +92,9 @@
                 }
             ]
         }
-    }
+    },
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "minifyWXML": true,
+    "condition": {}
 }
