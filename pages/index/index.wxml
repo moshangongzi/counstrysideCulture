@@ -12,7 +12,7 @@
     </view>
     <view class="nav-blank"></view>
     <!-- 推荐主体内容 -->
-    <scroll-view-refresh-load style="display: {{tapID===1?'block':'none'}};" class='scroll-view-refresh-load-component' refreshing="{{refreshing}}" bindpulldownrefresh="onPulldownrefresh_SV">
+    <scroll-view-refresh-load style="display: {{tapID===1?'block':'none'}};" class='scroll-view-refresh-load-component'>
         <view class='content'>
             <!-- 轮播图 -->
             <view class='content-top-pic'>
@@ -27,7 +27,7 @@
             <!-- 推荐视频列表 -->
             <view class='content-list'>
                 <block wx:for='{{tuiJianList}}' wx:key='{{item.id}}' wx:if="{{tuiJianList && tuiJianList.length > 0}}">
-                    <view class='list-item' bindtap='viewDetail' data-newsurl='{{item.imgUrl}}' data-newstitle='{{item.title}}'>
+                    <view class='list-item'>
                         <view class='list-item-content'>
                             <image mode="aspectFill" src='{{item.imgUrl}}'></image>
                             <view class="shipin-title">{{item.title}}</view>
@@ -35,11 +35,6 @@
                         </view>
                     </view>
                 </block>
-            </view>
-        </view>
-        <view class="footer" wx:if="{{showCopyright}}">
-            <view class="footer-component">
-                <component-copyright></component-copyright>
             </view>
         </view>
     </scroll-view-refresh-load>

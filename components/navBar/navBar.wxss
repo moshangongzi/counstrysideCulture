@@ -8,6 +8,7 @@
     text-align: center;
     box-sizing: border-box;
     font-size: 35rpx;
+    z-index: 99;
     background-color: #d83232;
 }
 

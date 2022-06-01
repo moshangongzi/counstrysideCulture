@@ -1,1 +1,56 @@
-/* pages/public/public.wxss */
+Page {
+    background-color: #f4f4f4;
+}
+
+.pic-shipin {
+    margin-top: 70px;
+}
+
+.pic-shipin .tips {
+    font-size: 50rpx;
+    margin-left: 10rpx;
+}
+
+.shangchuan-shipin,
+.fabu-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300rpx;
+    margin: 25rpx;
+    box-sizing: border-box;
+    border-radius: 5rpx;
+    background-color: #fff;
+}
+
+.shangchuan-shipin image,
+.fabu-pic image {
+    width: 100rpx;
+    height: 100rpx;
+    margin-right: 25rpx;
+}
+
+.more .tips {
+    margin-left: 10rpx;
+    font-size: 40rpx;
+    color: #7a7272;
+}
+
+.canjia {
+    display: flex;
+     flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    width: 300rpx;
+    height: 290rpx;
+    margin-left: 25rpx;
+    margin-top: 25rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.canjia image {
+    width: 100rpx;
+    height: 100rpx;
+}
+
