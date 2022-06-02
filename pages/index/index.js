@@ -7,15 +7,15 @@ Page({
       { name: '分类', id: 3 },
     ],
     swiperList: [
-      { id: 1, imgUrl: '/images/index/banner.jpg' },
-      { id: 2, imgUrl: '/images/index/banner1.jpg' },
-      { id: 3, imgUrl: '/images/index/banner2.jpg' },
-      { id: 4, imgUrl: '/images/index/banner3.jpg' }
+      { id: 1, imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/banner.jpg?sign=442718cbffef7b5e91216bf88e49f387&t=1654148945' },
+      { id: 2, imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/banner1.jpg?sign=6479335791cbac973d259e1677a68864&t=1654148994' },
+      { id: 3, imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/banner2.jpg?sign=72a97ecd8b45e938efc252b74c32f952&t=1654149060' },
+      { id: 4, imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/banner3.jpg?sign=8e4cc878812860c89698862a851b91c7&t=1654149073' }
     ],
     tuiJianList: [
-      { id: 1, title: '红衣服', imgUrl: '/images/index/1.jpg', playCount: 6.5 },
-      { id: 2, title: '绿衣服', imgUrl: '/images/index/2.jpg', playCount: 9.6 },
-      { id: 3, title: '红衣服2', imgUrl: '/images/index/3.jpg', playCount: 8 }
+      { id: 1, title: '红衣服', imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/1.jpg?sign=9c65523fe9275c710e592e32bf6d987a&t=1654149105', playCount: 6.5 },
+      { id: 2, title: '绿衣服', imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/2.jpg?sign=d238263f59dc1e598732226494fb270b&t=1654149117', playCount: 9.6 },
+      { id: 3, title: '红衣服2', imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/3.jpg?sign=8428eb54254d7e485cc7c1283328acce&t=1654149128', playCount: 8 }
     ],
     categoryList: [
       {
@@ -125,22 +125,22 @@ Page({
       {
         id: 1,
         title: "2021中华广场舞大赛",
-        imgUrl: '/images/dynamic/activity.jpg'
+        imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/activity.jpg?sign=49b4b4168a4ddc8cd71b237c70e3b89d&t=1654149148'
       },
       {
         id: 2,
         title: "2022湖南省广场舞大赛",
-        imgUrl: '/images/dynamic/activity1.jpg'
+        imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/activity1.jpg?sign=dc68f592377d12320f50ef27a557b8e2&t=1654149159'
       },
       {
         id: 3,
         title: "社区广场舞大赛",
-        imgUrl: '/images/dynamic/activity2.jpg'
+        imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/activity2.jpg?sign=42b40c63f95a8b43619210f98604aec0&t=1654149170'
       },
       {
         id: 4,
         title: "2022全国广场舞总决赛",
-        imgUrl: '/images/dynamic/activity3.jpg'
+        imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/activity3.jpg?sign=934b593975dad174b29d2e6e03b463a9&t=1654149181'
       },
     ],
     swiperIndex: '1/4',

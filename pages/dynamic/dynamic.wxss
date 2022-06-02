@@ -66,13 +66,13 @@
 }
 
 .latest-dynamic-list {
-    margin: 25rpx 25rpx 0 25rpx;
+    margin: 25rpx 25rpx 150rpx 25rpx;
 }
 
 .user-info {
     display: flex;
     align-items: center;
-    height: 180rpx;
+    height: 135rpx;
 }
 
 .user-info image {
@@ -89,7 +89,9 @@
 }
 
 .user-info .public-time {
-    font-size: 24rpx;
+    margin-top: 5rpx;
+    margin-left: 5rpx;
+    font-size: 30rpx;
 }
 
 .latest-dynamic-con {
@@ -239,7 +241,6 @@
     width: 63rpx;
     height: 63rpx;
 }
-
 .swiper-view {
     height: 300rpx;
     margin: 15rpx;
@@ -271,6 +272,9 @@
 }
 
 .team-member-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     height: 255rpx;
     border-bottom: 25rpx solid #f2f2f2;
     /* background-color: pink; */
@@ -278,15 +282,22 @@
 
 .team-member-item {
     position: relative;
-    display: inline-block;
-    width: 205rpx;
-    height: 205rpx;
-    margin: 25rpx;
+    width: 204rpx;
+    height: 204rpx;
     box-shadow: 5rpx 5rpx 15rpx #e6dede;
     border-radius: 15rpx;
     text-align: center;
-    line-height: 205rpx;
+    line-height: 204rpx;
     /* background-color: pink; */
+}
+
+.invitate {
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 102rpx;
+    line-height: 180rpx;
+    box-shadow: none;
+    background-color: rgb(241, 241, 241);
 }
 
 .team-member-item .team-member-item-pic {

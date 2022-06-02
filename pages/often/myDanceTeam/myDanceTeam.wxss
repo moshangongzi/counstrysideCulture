@@ -16,6 +16,11 @@
     vertical-align: middle;
 }
 
+.ditem {
+    display: flex;
+    align-items: center;
+}
+
 .ditem text {
     display: inline-block;
     width: 325rpx;
@@ -24,11 +29,17 @@
 }
 
 .ditem button {
-    border: 1px solid #d83232;
+    width: 115rpx;
+    height: 73rpx;
+    padding: 0rpx;
+    /* margin-right: 25rpx; */
+    z-index: -99;
+    font-size: 30rpx;
+    line-height: 73rpx;
+    outline: none;
+    border: 1rpx solid #bbbbbb;
+    background: transparent;
+    /* border: 1px solid #d83232; */
     margin-left: 25rpx;
     display: inline-block;
-    width: 132rpx;
-    height: 90rpx;
-    vertical-align: middle;
-    color:#d83232;
 }

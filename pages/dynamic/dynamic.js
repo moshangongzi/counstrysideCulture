@@ -1,4 +1,5 @@
-const App = getApp()
+const App = getApp();
+const db = wx.cloud.database()
 Page({
 
     data: {
@@ -6,26 +7,12 @@ Page({
             { id: 1, name: '动态', },
             { id: 2, name: '我的舞团', },
         ],
-        dynamicList: [
-            {
-                id: 1,
-                text: '第3天，挑战赛：7天单人舞挑战赛，打卡签到，第3天，挑战赛：7天单人舞挑战赛，打卡签到，第3天，挑战赛：7天单人舞挑战赛，打卡签到，',
-                public_time: 10,
-                user: {
-                    id: 1,
-                    nickName: '花姐',
-                    avater_url: '/images/index/banner1.jpg'
-                },
-                img_video_url: '/images/index/banner2.jpg',
-                dianzan: 11
-
-            }
-        ],
+        dynamicList: [],
         // 舞团信息
         danceTeamInfo: {
             id: 1,
             teamName: '最炫民族风',
-            teamIcon: '/images/dynamic/activity.jpg',
+            teamIcon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/activity1.jpg?sign=c1e1505fa38eee71f775352be5b1ad2a&t=1654149347',
             teamInfo: [
                 {
                     name: '作品',
@@ -47,23 +34,23 @@ Page({
             member: [
                 {
                     id: 1,
-                    memberIcon: '/images/dynamic/activity1.jpg',
+                    memberIcon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/activity1.jpg?sign=35ffbaf83f6b7c7aed0cff89c0f51e82&t=1654149364',
                     memberNickName: '最美舞者',
                     status: 0,
                 },
                 {
                     id: 2,
-                    memberIcon: '/images/dynamic/activity2.jpg',
+                    memberIcon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/activity1.jpg?sign=35ffbaf83f6b7c7aed0cff89c0f51e82&t=1654149364',
                     memberNickName: '最帅舞者',
                     status: 1,
                 }
             ]
         },
         swiperList: [
-            { id: 1, imgUrl: '/images/index/banner.jpg' },
-            { id: 2, imgUrl: '/images/index/banner1.jpg' },
+            { id: 1, imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/banner1.jpg?sign=f043c8067fac26fedf75e0c1be1f88ba&t=1654149383' },
+            { id: 2, imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/banner3.jpg?sign=c1f219fe5f28f00495494d36e748debf&t=1654149391' },
         ],
-        navTitleID: 1,
+        navTitleID: 2,
         navHeight: '',
         menuHeight: ''
     },
@@ -75,6 +62,30 @@ Page({
         this.setData({
             navHeight: App.globalData.navHeight,
             menuHeight: App.globalData.menuHeight
+        })
+    },
+
+    onShow: function () {
+        // this.showDynamic()
+        //  1、获取数据库allUserDynamics中的所有数据，存入dynamicList
+         db.collection('allUserDynamics').get().then(res => {
+            // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
+            console.log(res.data)
+            this.setData({
+                dynamicList: res.data
+            })
+        })
+    },
+
+    // 动态数据渲染
+    showDynamic: function () {
+        // 1、获取数据库allUserDynamics中的所有数据，存入dynamicList
+        db.collection('allUserDynamics').get().then(res => {
+            // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
+            console.log(res.data)
+            this.setData({
+                dynamicList: res.data
+            })
         })
     },
 
@@ -94,52 +105,26 @@ Page({
         })
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
+    // 点赞
+    dianZanClick: function (e) {
+        let dz = null
+        console.log(e.currentTarget.dataset.id);
+        db.collection('allUserDynamics').doc(e.currentTarget.dataset.id).get()
+            .then(res => {
+                // console.log(res.data)
+                dz = res.data.dianzan + 1
+                console.log(dz);
+                db.collection('allUserDynamics').doc(e.currentTarget.dataset.id).update({
+                    // data 传入需要局部更新的数据
+                    data: {
+                        // 表示将 done 字段置为 true
+                        dianzan: dz
+                    },
+                    success: res => {
+                        console.log(res)
+                        this.showDynamic()
+                    }
+                })
+            })
     }
 })

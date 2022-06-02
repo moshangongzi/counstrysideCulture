@@ -13,35 +13,37 @@
         <!-- 发布照片 上传视频 -->
         <view class="fabu-pic-shipin">
             <view class="fabu-pic" bindtap="fabuPicClick">
-                <image mode="heightFix" src="/icons/dynamic/tupian.png"></image>
+                <image mode="heightFix" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/tupian.png?sign=155d270c38616900d2674570c02ca477&t=1654149488"></image>
                 <text>发布照片</text>
             </view>
             <view class="fabu-shipin" bindtap="fabuVidClick">
-                <image mode="heightFix" src="/icons/dynamic/icon-shipinguanli.png"></image>
+                <image mode="heightFix" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/icon-shipinguanli.png?sign=a2b05e28a5926a652dc6f3f9ca016172&t=1654149502"></image>
                 <text>上传视频</text>
             </view>
         </view>
         <!-- 最新动态 -->
         <view class="latest-dynamic">
             <view class="latest-dynamic-text">最新动态</view>
-            <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="{{item.id}}">
+            <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="{{item._id}}">
                 <!-- 用户头像 -->
                 <view class="user-info">
-                    <image mode="aspectFill" src="{{item.user.avater_url}}"></image>
-                    <view class="user-nickname">{{item.user.nickName}}</view>
-                    <view class="public-time">{{item.public_time}}分钟前</view>
+                    <image mode="aspectFill" src="{{item.userImg}}"></image>
+                    <view class="nickname-time">
+                        <view class="user-nickname">{{item.uname}}</view>
+                        <view class="public-time">{{item.time}}</view>
+                    </view>
                 </view>
                 <!-- 动态 -->
                 <view class="latest-dynamic-con">
-                    <text class="latest-dynamic-con-text">{{item.text}}</text>
-                    <image mode="aspectFill" src="{{item.img_video_url}}"></image>
+                    <text class="latest-dynamic-con-text">{{item.con}}</text>
+                    <image mode="aspectFill" src="{{item.tempFilePaths}}"></image>
                     <view class="dianzan-fenxiang">
-                        <view class="dainzan">
-                            <image mode="aspectFit" src="/icons/dynamic/dianzan.png"></image>
+                        <view class="dainzan" bindtap="dianZanClick" data-id="{{item._id}}">
+                            <image mode="aspectFit" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/dianzan.png?sign=eebe3bb3f097dc656bf959f659108a44&t=1654149516"></image>
                             <text>点赞（{{item.dianzan}}）</text>
                         </view>
                         <view class="fenxiang">
-                            <image mode="aspectFit" src="/icons/dynamic/fenxiang.png"></image>
+                            <image mode="aspectFit" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/fenxiang.png?sign=3bcb3c514ee3dc4ddb0516cfa0d336c4&t=1654149527"></image>
                             <text>分享</text>
                         </view>
                     </view>
@@ -69,13 +71,13 @@
         <view class="team-memory">
             <view class="team-memory-item">
                 <view class="team-memory-icon team-memory-icon1">
-                    <image src="/icons/dynamic/icon-shipinguanli.png"></image>
+                    <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/icon-shipinguanli.png?sign=0f3926f090626ed4683053652338fd74&t=1654149545"></image>
                 </view>
                 <text>视频</text>
             </view>
             <view class="team-memory-item">
                 <view class="team-memory-icon team-memory-icon2">
-                    <image src="/icons/dynamic/tupian.png"></image>
+                    <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/tupian.png?sign=3ece70559f73eb5f41b26be07c30a758&t=1654149555"></image>
                 </view>
                 <text>相册</text>
             </view>
@@ -99,7 +101,7 @@
         <!-- 团队成员 邀请团队成员 -->
         <view class="team-member">
             <view class="team-member-sum">
-                <image src="/icons/dynamic/tuandui.png"></image>
+                <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/tuandui.png?sign=3c355bac764d568bfccefad980650141&t=1654149575"></image>
                 <text>团队成员</text>
                 <text class="team-member-counts">（2人）</text>
             </view>
@@ -110,6 +112,10 @@
                         <image mode="aspectFill" src="{{item.memberIcon}}"></image>
                         <text>{{item.memberNickName}}</text>
                     </view>
+                </view>
+                <!-- 邀请成员 -->
+                <view class="team-member-item invitate">
+                 <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/jiajianzujianjiahao.png?sign=9945d88dc9c431569c17e62943f92460&t=1654173313"></image>
                 </view>
             </view>
 

@@ -4,18 +4,22 @@
     <view class="publicPic-con">
         <text class="publicPic-tip">请输入您要发布的内容</text>
         <form action="">
-            <textarea class="textarea-con" type="text" placeholder="请输入内容..."></textarea>
+            <textarea class="textarea-con" bindinput="bindInput" type="text" placeholder="请输入内容..."></textarea>
         </form>
         <!-- 选择图片 -->
-        <view class="select-pic">
-            <image src="/icons/public/shipin.png"></image>
+        <view class="select-pic" bindtap="chooseVideo">
+            <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/public/shipin.png?sign=c98cc0b90562fbf61e4a59af172a11a0&t=1654171110"></image>
             <text>上传视频</text>
         </view>
     </view>
-
 </view>
-<!-- 选择自己的舞队 -->
+<!-- 所在舞团 -->
 <view class="select-team">
-    <text>选择舞队</text>
-    <image src="/icons/public/jiantou.png"></image>
+    <text>所在舞团</text>
+    <text class="tname">{{tname}}</text>
+</view>
+
+<!-- 确认发布 -->
+<view class="confirm-public">
+    <button bindtap="confirmPublic">确认发布</button>
 </view>

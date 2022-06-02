@@ -14,7 +14,7 @@
             <image class="latest-dynamic-con-img" mode="aspectFill" src="{{item.img_video_url}}"></image>
             <view class="dianzan-pic">
                 <view class="dianzan">
-                    <image class="dianzan-img" mode="aspectFit" src="/icons/dynamic/dianzan.png"></image>
+                    <image class="dianzan-img" mode="aspectFit" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/dianzan.png?sign=b0c48eb5304f953e01f8f808760d4250&t=1654149673"></image>
                     <text>点赞（{{item.dianzan}}）</text>
                 </view>
             </view>
