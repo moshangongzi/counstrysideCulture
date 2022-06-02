@@ -4,6 +4,6 @@ const cloud = require('wx-server-sdk')
 cloud.init()
 
 // 云函数入口函数
-exports.main = async (e, context) => {
-    return cloud.database().collection('user').doc(e.id).get()
+exports.main = async (event, context) => {
+    return cloud.database().collection('video').get()
 }

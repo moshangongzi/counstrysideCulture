@@ -4,7 +4,6 @@
     <text>{{username}}</text>
     <image class="user-avatar-small" src="{{userimg}}"></image>
 </view>
-
 <view class="latest-dynamic">
     <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="{{item.id}}">
         <!-- 动态 -->
@@ -18,7 +17,6 @@
                     <text>点赞（{{item.dianzan}}）</text>
                 </view>
             </view>
-
         </view>
     </view>
 </view>
