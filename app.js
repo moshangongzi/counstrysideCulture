@@ -1,5 +1,8 @@
 App({
-  globalData: {},
+  globalData: {
+    tapID: null,
+  },
+  
   onLaunch() {
     //  云开发环境初始化
     wx.cloud.init({
@@ -8,11 +11,11 @@ App({
 
     // 获取胶囊信息
     let menuButtonObject = wx.getMenuButtonBoundingClientRect()
-    console.log(menuButtonObject)
+    // console.log(menuButtonObject)
     // 获取设备信息
     wx.getSystemInfo({
       success: res => {
-        console.log(res)
+        // console.log(res)
         // 整个导航栏的高度
         let navHeight = menuButtonObject.top + menuButtonObject.height + (menuButtonObject.top - res.statusBarHeight) * 2
         // 导航栏的高度
@@ -30,7 +33,7 @@ App({
         this.globalData.menuBot = menuButtonObject.top - res.statusBarHeight
         // 整个设备的宽度
         this.globalData.windowWidth = res.windowWidth
-        console.log(this.globalData);
+        // console.log(this.globalData);
       },
       fail: err => {
         console.log(err)

@@ -12,7 +12,7 @@ Page({
                 id: 1,
                 text: '第3天，挑战赛：7天单人舞挑战赛，打卡签到，第3天，挑战赛：7天单人舞挑战赛，打卡签到，第3天，挑战赛：7天单人舞挑战赛，打卡签到，',
                 public_time: 10,
-                img_video_url: '/pages/dynamic/images/banner1.jpg',
+                img_video_url: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/activity.jpg?sign=ea788945ccf64124c471a96ae9093397&t=1654149642',
                 dianzan: 11
 
             }
@@ -31,8 +31,8 @@ Page({
             key: 'userinfo',
             success(res) {
                 that.setData({
-                    username: res.data.username,
-                    userimg: res.data.userimg,
+                    username: res.data.uname,
+                    userimg: res.data.userImg,
                 })
                 console.log('获取本地存储用户数据成功')
             }, fail(res) {

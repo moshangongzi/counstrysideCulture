@@ -50,15 +50,31 @@ Page {
     display: flex;
     align-items: center;
     height: 130rpx;
-    margin-top: 80rpx;
+    margin-top: 60rpx;
     padding-left: 10rpx;
     background-color: #fff;
 }
 
-.select-team image {
+.select-team .tname {
     position: relative;
     top: 0rpx;
-    right: -524rpx;
-    width: 28rpx;
-    height: 28rpx;
+    right: -393rpx;
+    font-size: 35rpx;
 }
+
+.confirm-public {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 150rpx;
+    background-color: #fff;
+}
+
+.confirm-public button {
+    width: 94%;
+    background-color: #d83232;
+}
+

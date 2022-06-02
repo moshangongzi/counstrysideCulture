@@ -12,9 +12,18 @@
     -webkit-filter: blur(11rpx);
 }
 
+.user-avatar text {
+    position: absolute;
+    bottom: 0rpx;
+    right: 200rpx;
+    color: white;
+    font-size: 35rpx;
+
+}
+
 .user-avatar .user-avatar-small {
     position: absolute;
-    bottom: -75rpx;
+    bottom: -60rpx;
     right: 32rpx;
     width: 150rpx;
     height: 150rpx;
