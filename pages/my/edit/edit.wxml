@@ -1,40 +1,42 @@
-<view class="usermsg">
-    <van-cell-group inset>
-        <van-cell center title="头像" size="large">
-            <span class="headimg">
-                <image src="{{userImg}}"></image>
-            </span>
-        </van-cell>
+<form bindsubmit="formSubmit">
+    <view class="usermsg">
+        <van-cell-group inset>
+            <van-cell center title="头像" size="large">
+                <span class="headimg">
+                    <image src="{{userImg}}"></image>
+                </span>
+            </van-cell>
 
-        <van-cell title="昵称" size="large">{{uname}}</van-cell>
+            <van-cell title="昵称" size="large"><input type="text" name="uname" value="{{uname}}" /></van-cell>
 
-        <van-cell title="设置背景" size="large" is-link />
+            <van-cell title="设置背景" size="large" is-link bind:click="bgTips" />
 
-        <van-cell title="性别" size="large" title-width="370rpx">
-            <van-radio-group direction="horizontal">
-                <van-radio name="nv">女</van-radio>
-                <van-radio name="name">男</van-radio>
-            </van-radio-group>
-        </van-cell>
+            <van-cell title="性别" size="large" title-width="330rpx">
+                <van-radio-group direction="horizontal" value="{{sex}}" name="sex">
+                    <van-radio name="0">女</van-radio>
+                    <van-radio name="1">男</van-radio>
+                </van-radio-group>
+            </van-cell>
 
-        <van-cell title="生日" size="large" bind:click="showPopup" value="{{date}}" />
-        <van-popup show="{{show}}" position="bottom" custom-style="height: 50%;" bind:close="onClose">
-            <van-datetime-picker type="date" bind:confirm="onConfirm" formatter="{{formatter}}" min-date="{{minDate}}" max-date="{{maxDate}}" value="{{Initial}}" />
-        </van-popup>
+            <van-cell title="生日" size="large" bind:click="showPopup" value="{{birthday}}" />
+            <van-popup show="{{show}}" position="bottom" name="birthday" custom-style="height: 50%;" bind:close="onClose">
+                <van-datetime-picker type="date" bind:confirm="onConfirm" formatter="{{formatter}}" min-date="{{minDate}}" max-date="{{maxDate}}" value="{{Initial}}" />
+            </van-popup>
 
-        <van-cell title="QQ号" size="large">
-            <input type="number" placeholder="请在此输入QQ号" />
-        </van-cell>
-        <van-cell title="电话号码" size="large">
-            <input type="number" placeholder="请在此输入电话" />
-        </van-cell>
-        <van-cell title="地址" size="large">
-            <input type="text" placeholder="请在此输入地址" />
-        </van-cell>
-        <van-cell title="自我介绍" size="large" />
-        <view style="background-color: #fff;">
-            <textarea class="textarea" placeholder="   请在此输入自我介绍" />
-        </view>
-    </van-cell-group>
-</view>
-<button class="save" type="warn">保存</button>
+            <van-cell title="QQ号" size="large">
+                <input value="{{qq}}" type="number" name="qq" placeholder="请在此输入QQ号" />
+            </van-cell>
+            <van-cell title="电话号码" size="large">
+                <input value="{{tel}}" type="number" name="tel" placeholder="请在此输入电话" />
+            </van-cell>
+            <van-cell title="地址" size="large">
+                <input value="{{address}}" type="text" name="address" placeholder="请在此输入地址" />
+            </van-cell>
+            <van-cell title="自我介绍" size="large" />
+            <view style="background-color: #fff;">
+                <textarea value="{{selfInfo}}" name="selfInfo" class="textarea" placeholder="   请在此输入自我介绍" />
+            </view>
+        </van-cell-group>
+    </view>
+    <button class="save" type="warn" formType="submit">保存</button>
+</form>

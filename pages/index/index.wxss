@@ -92,7 +92,7 @@
   box-sizing: border-box;
 }
 
-.list-item-content image {
+.list-item-content video {
   width: 100%;
   height: 100%;
   border-radius: 12rpx;
@@ -100,16 +100,17 @@
 
 .list-item-content .shipin-title {
   position: absolute;
+  width: 85%;
   top: 35rpx;
-  left: 50rpx;
-  font-size: 45rpx;
+  left: 57rpx;
+  font-size: 40rpx;
   color: #fff;
 }
 
 .list-item-content .shipin-bofangshu {
   position: absolute;
   top: 315rpx;
-  left: 554rpx;
+  left: 545rpx;
   font-size: 30rpx;
   color: #fff;
 }

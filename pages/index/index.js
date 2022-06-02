@@ -12,30 +12,27 @@ Page({
       { id: 3, imgUrl: './images/banner2.jpg' },
       { id: 4, imgUrl: './images/banner3.jpg' }
     ],
-    tuiJianList: [
-      { id: 1, title: '红衣服', imgUrl: './images/1.jpg', playCount: 6.5 },
-      { id: 2, title: '绿衣服', imgUrl: './images/2.jpg', playCount: 9.6 },
-      { id: 3, title: '红衣服2', imgUrl: './images/3.jpg', playCount: 8 }
-    ],
+    videoList: [],
+    randomArray: [],
     categoryList: [
       {
         id: 1,
         firstCateName: '广场舞',
         secondCate: [
           {
-            id: 1,
+            id: '1_1',
             name: '16步',
           },
           {
-            id: 2,
+            id: '1_2',
             name: '32步'
           },
           {
-            id: 3,
+            id: '1_3',
             name: '步子舞'
           },
           {
-            id: 4,
+            id: '1_4',
             name: '中三舞'
           }
         ]
@@ -45,35 +42,35 @@ Page({
         firstCateName: '健身',
         secondCate: [
           {
-            id: 1,
+            id: '2_1',
             name: '健身操',
           },
           {
-            id: 2,
+            id: '2_2',
             name: '瘦肚子舞'
           },
           {
-            id: 3,
+            id: '2_3',
             name: '形体'
           },
           {
-            id: 4,
+            id: '2_4',
             name: '懒人操'
           },
           {
-            id: 5,
+            id: '2_5',
             name: '颈椎舞',
           },
           {
-            id: 6,
+            id: '2_6',
             name: '瑜伽'
           },
           {
-            id: 7,
+            id: '2_7',
             name: '全身暴汗'
           },
           {
-            id: 8,
+            id: '2_8',
             name: '拍打操'
           },
         ]
@@ -83,39 +80,39 @@ Page({
         firstCateName: '流行舞',
         secondCate: [
           {
-            id: 1,
+            id: '3_1',
             name: '水兵舞',
           },
           {
-            id: 2,
+            id: '3_2',
             name: '鬼步舞'
           },
           {
-            id: 3,
+            id: '3_3',
             name: '爵士舞'
           },
           {
-            id: 4,
+            id: '3_4',
             name: '现代舞'
           },
           {
-            id: 5,
+            id: '3_5',
             name: '肚皮舞',
           },
           {
-            id: 6,
+            id: '3_6',
             name: '形体舞'
           },
           {
-            id: 7,
+            id: '3_7',
             name: '古典舞'
           },
           {
-            id: 8,
+            id: '3_8',
             name: '恰恰舞'
           },
           {
-            id: 9,
+            id: '3_9',
             name: '拉丁舞'
           },
         ]
@@ -152,7 +149,9 @@ Page({
   onLoad: function () {
     this.setData({
       navHeight: App.globalData.navHeight,
-    })
+    });
+    this.getVideo();
+    this.random()
   },
 
   // headerBar 点击
@@ -165,5 +164,26 @@ Page({
       swiperIndex: `${e.detail.current + 1}/4`
     })
   },
-  
+  random() {
+    for (var i = 0; i < 10; i++) {
+      this.setData({
+        ['randomArray['+i+']']: Math.floor(Math.random() * 37),
+      })
+    }
+  },
+  getVideo() {
+    wx.cloud.callFunction({
+      name: 'getVideo'
+    })
+      .then(res => {
+        this.setData({
+          videoList: res.result.data
+        })
+        // console.log('获取视频数据库成功', res.result.data)
+      })
+      .catch(res => {
+        console.log('获取视频数据库失败', res)
+      })
+  }
+
 })

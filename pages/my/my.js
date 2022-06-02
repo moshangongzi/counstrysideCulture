@@ -60,7 +60,7 @@ Page({
             },
         ],
     },
-    onLoad: function () {
+    onShow: function () {
         this.showUser()
     },
     showUser() {
@@ -113,21 +113,18 @@ Page({
     },
     //新增用户
     addUser() {
-        var openid = this.data.openid;
-        var uname = this.data.uname;
-        var userImg = this.data.userImg;
-        wx.cloud.callFunction({
-            name: 'addUser',
+        var that = this.data;
+        wx.cloud.database().collection('user').add({
             data: {
-                id: openid,
-                uname: uname,
-                userImg: userImg
+                _id: that.openid,
+                uname: that.uname,
+                userImg: that.userImg
             }
         }).then(res => {
-            console.log('调用添加用户函数成功', res)
+            console.log('添加用户成功', res)
         }).catch(res => {
-            console.log('调用添加用户函数失败', res)
+            console.log('添加用户失败', res)
         });
-        
+
     }
 })

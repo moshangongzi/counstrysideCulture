@@ -48,7 +48,6 @@
     "libVersion": "2.24.4",
     "appid": "wx042dec96f25e877a",
     "projectname": "countrysideCulture",
-    "condition": {},
     "scripts": {},
     "packOptions": {
         "ignore": [],
@@ -62,5 +61,6 @@
     },
     "staticServerOptions": {
         "servePath": ""
-    }
+    },
+    "condition": {}
 }

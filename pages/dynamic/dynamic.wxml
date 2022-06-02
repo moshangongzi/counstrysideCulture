@@ -1,129 +1,137 @@
-<view>
-    <!-- 顶部导航栏 -->
-    <view class="dynamic-dance-nav" style="height: {{navHeight}}px; padding-top: {{menuHeight}}px;">
-        <block wx:for="{{navTitleName}}" wx:key="{{item.id}}">
-            <view data-id='{{item.id}}' class="nav-item {{item.id == navTitleID? 'nav-title-active':''}}" bindtap='navTitleNameClick'>
-                {{item.name}}
-            </view>
-        </block>
-    </view>
+<block wx:if="{{!wx.getStorage('userinfo')}}">
+    <navigator url="/pages/my/my" open-type="switchTab">
+        <van-empty image="error" description="请先登录" />
+    </navigator>
+</block>
+<block wx:else>
 
-    <!-- 动态 -->
-    <view class="dynamic" style="display: {{navTitleID===1?'block':'none'}};">
-        <!-- 发布照片 上传视频 -->
-        <view class="fabu-pic-shipin">
-            <view class="fabu-pic" bindtap="fabuPicClick">
-                <image mode="heightFix" src="./icons/tupian.png"></image>
-                <text>发布照片</text>
-            </view>
-            <view class="fabu-shipin" bindtap="fabuVidClick">
-                <image mode="heightFix" src="./icons/icon-shipinguanli.png"></image>
-                <text>上传视频</text>
-            </view>
-        </view>
-        <!-- 最新动态 -->
-        <view class="latest-dynamic">
-            <view class="latest-dynamic-text">最新动态</view>
-            <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="{{item.id}}">
-                <!-- 用户头像 -->
-                <view class="user-info">
-                    <image mode="aspectFill" src="{{item.user.avater_url}}"></image>
-                    <view class="user-nickname">{{item.user.nickName}}</view>
-                    <view class="public-time">{{item.public_time}}分钟前</view>
+    <view>
+        <!-- 顶部导航栏 -->
+        <view class="dynamic-dance-nav" style="height: {{navHeight}}px; padding-top: {{menuHeight}}px;">
+            <block wx:for="{{navTitleName}}" wx:key="{{item.id}}">
+                <view data-id='{{item.id}}' class="nav-item {{item.id == navTitleID? 'nav-title-active':''}}" bindtap='navTitleNameClick'>
+                    {{item.name}}
                 </view>
-                <!-- 动态 -->
-                <view class="latest-dynamic-con">
-                    <text class="latest-dynamic-con-text">{{item.text}}</text>
-                    <image mode="aspectFill" src="{{item.img_video_url}}"></image>
-                    <view class="dianzan-fenxiang">
-                        <view class="dainzan">
-                            <image mode="aspectFit" src="./icons/dianzan.png"></image>
-                            <text>点赞（{{item.dianzan}}）</text>
-                        </view>
-                        <view class="fenxiang">
-                            <image mode="aspectFit" src="./icons/fenxiang.png"></image>
-                            <text>分享</text>
-                        </view>
-                    </view>
-                </view>
-            </view>
+            </block>
         </view>
-    </view>
 
-    <!-- 我的舞团 -->
-    <view class="my-dance-team" style="display: {{navTitleID===2?'block':'none'}};">
-        <!-- 舞团信息 -->
-        <view class="teamName">
-            <image mode="aspectFill" src="{{danceTeamInfo.teamIcon}}"></image>
-            <text>{{danceTeamInfo.teamName}}</text>
-            <button>管理</button>
-        </view>
-        <!-- 作品 成员人数 全国排名 -->
-        <view class="team-info">
-            <view class="team-info-item" wx:for="{{danceTeamInfo.teamInfo}}" wx:key="{{item.name}}">
-                <text class="team-info-number">{{item.number}}</text>
-                <text>{{item.name}}</text>
-            </view>
-        </view>
-        <!-- 视频 相册 荣誉证书 -->
-        <view class="team-memory">
-            <view class="team-memory-item">
-                <view class="team-memory-icon team-memory-icon1">
-                    <image src="./icons/icon-shipinguanli.png"></image>
+        <!-- 动态 -->
+        <view class="dynamic" style="display: {{navTitleID===1?'block':'none'}};">
+            <!-- 发布照片 上传视频 -->
+            <view class="fabu-pic-shipin">
+                <view class="fabu-pic" bindtap="fabuPicClick">
+                    <image mode="heightFix" src="./icons/tupian.png"></image>
+                    <text>发布照片</text>
                 </view>
-                <text>视频</text>
-            </view>
-            <view class="team-memory-item">
-                <view class="team-memory-icon team-memory-icon2">
-                    <image src="./icons/tupian.png"></image>
+                <view class="fabu-shipin" bindtap="fabuVidClick">
+                    <image mode="heightFix" src="./icons/icon-shipinguanli.png"></image>
+                    <text>上传视频</text>
                 </view>
-                <text>相册</text>
-            </view>
-            <view class="team-memory-item">
-                <view class="team-memory-icon team-memory-icon3">
-                    <image src="/icons/my/证书.png"></image>
-                </view>
-                <text>荣誉证书</text>
-            </view>
-        </view>
-        <!-- 轮播图 -->
-        <view class="swiper-view">
-            <swiper autoplay="true" interval="3000" circular="true" indicator-dots indicator-active-color="#d83232" indicator-color="#fff">
-                <block wx:for="{{swiperList}}" wx:key='{{item.id}}' wx:if="{{swiperList && swiperList.length > 0}}">
-                    <swiper-item>
-                        <image src="{{item.imgUrl}}" class="slide-image" mode="widthFix" />
-                    </swiper-item>
-                </block>
-            </swiper>
-        </view>
-        <!-- 团队成员 邀请团队成员 -->
-        <view class="team-member">
-            <view class="team-member-sum">
-                <image src="./icons/tuandui.png"></image>
-                <text>团队成员</text>
-                <text class="team-member-counts">（2人）</text>
-            </view>
-            <view class="team-member-items">
-                <view class="team-member-item" wx:for="{{danceTeamInfo.member}}" wx:key="{{item.id}}">
-                    <view class="team-leader" wx:if="{{!item.status}}">队长</view>
-                    <view class="team-member-item-pic">
-                        <image mode="aspectFill" src="{{item.memberIcon}}"></image>
-                        <text>{{item.memberNickName}}</text>
-                    </view>
-                </view>
-            </view>
-
-        </view>
-        <!-- 团队的舞团的动态 -->
-        <view class="team-dynamic">
-            <view class="team-dynamic-category">
-                <text>最新动态</text>
-                <text>视频</text>
             </view>
             <!-- 最新动态 -->
-            <view>1</view>
-            <!-- 视频 -->
-            <view>2</view>
+            <view class="latest-dynamic">
+                <view class="latest-dynamic-text">最新动态</view>
+                <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="{{item.id}}">
+                    <!-- 用户头像 -->
+                    <view class="user-info">
+                        <image mode="aspectFill" src="{{item.user.avater_url}}"></image>
+                        <view class="user-nickname">{{item.user.nickName}}</view>
+                        <view class="public-time">{{item.public_time}}分钟前</view>
+                    </view>
+                    <!-- 动态 -->
+                    <view class="latest-dynamic-con">
+                        <text class="latest-dynamic-con-text">{{item.text}}</text>
+                        <image mode="aspectFill" src="{{item.img_video_url}}"></image>
+                        <view class="dianzan-fenxiang">
+                            <view class="dainzan">
+                                <image mode="aspectFit" src="./icons/dianzan.png"></image>
+                                <text>点赞（{{item.dianzan}}）</text>
+                            </view>
+                            <view class="fenxiang">
+                                <image mode="aspectFit" src="./icons/fenxiang.png"></image>
+                                <text>分享</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <!-- 我的舞团 -->
+        <view class="my-dance-team" style="display: {{navTitleID===2?'block':'none'}};">
+            <!-- 舞团信息 -->
+            <view class="teamName">
+                <image mode="aspectFill" src="{{danceTeamInfo.teamIcon}}"></image>
+                <text>{{danceTeamInfo.teamName}}</text>
+                <button>管理</button>
+            </view>
+            <!-- 作品 成员人数 全国排名 -->
+            <view class="team-info">
+                <view class="team-info-item" wx:for="{{danceTeamInfo.teamInfo}}" wx:key="{{item.name}}">
+                    <text class="team-info-number">{{item.number}}</text>
+                    <text>{{item.name}}</text>
+                </view>
+            </view>
+            <!-- 视频 相册 荣誉证书 -->
+            <view class="team-memory">
+                <view class="team-memory-item">
+                    <view class="team-memory-icon team-memory-icon1">
+                        <image src="./icons/icon-shipinguanli.png"></image>
+                    </view>
+                    <text>视频</text>
+                </view>
+                <view class="team-memory-item">
+                    <view class="team-memory-icon team-memory-icon2">
+                        <image src="./icons/tupian.png"></image>
+                    </view>
+                    <text>相册</text>
+                </view>
+                <view class="team-memory-item">
+                    <view class="team-memory-icon team-memory-icon3">
+                        <image src="/icons/my/证书.png"></image>
+                    </view>
+                    <text>荣誉证书</text>
+                </view>
+            </view>
+            <!-- 轮播图 -->
+            <view class="swiper-view">
+                <swiper autoplay="true" interval="3000" circular="true" indicator-dots indicator-active-color="#d83232" indicator-color="#fff">
+                    <block wx:for="{{swiperList}}" wx:key='{{item.id}}' wx:if="{{swiperList && swiperList.length > 0}}">
+                        <swiper-item>
+                            <image src="{{item.imgUrl}}" class="slide-image" mode="widthFix" />
+                        </swiper-item>
+                    </block>
+                </swiper>
+            </view>
+            <!-- 团队成员 邀请团队成员 -->
+            <view class="team-member">
+                <view class="team-member-sum">
+                    <image src="./icons/tuandui.png"></image>
+                    <text>团队成员</text>
+                    <text class="team-member-counts">（2人）</text>
+                </view>
+                <view class="team-member-items">
+                    <view class="team-member-item" wx:for="{{danceTeamInfo.member}}" wx:key="{{item.id}}">
+                        <view class="team-leader" wx:if="{{!item.status}}">队长</view>
+                        <view class="team-member-item-pic">
+                            <image mode="aspectFill" src="{{item.memberIcon}}"></image>
+                            <text>{{item.memberNickName}}</text>
+                        </view>
+                    </view>
+                </view>
+
+            </view>
+            <!-- 团队的舞团的动态 -->
+            <view class="team-dynamic">
+                <view class="team-dynamic-category">
+                    <text>最新动态</text>
+                    <text>视频</text>
+                </view>
+                <!-- 最新动态 -->
+                <view>1</view>
+                <!-- 视频 -->
+                <view>2</view>
+            </view>
         </view>
     </view>
-</view>
+</block>

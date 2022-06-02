@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-empty": "@vant/weapp/empty/index"
+  },
   "navigationBarTitleText": "荣誉证书"
 }

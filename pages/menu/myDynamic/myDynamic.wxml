@@ -1,23 +1,30 @@
-<navBar navBarTitle="我的动态" showBackIcon="true" />
-<view class="user-avatar">
-    <image class="user-avatar-bg" src="{{userimg}}"></image>
-    <image class="user-avatar-small" src="{{userimg}}"></image>
-</view>
+<block wx:if="{{!wx.getStorage('userinfo')}}">
+    <navigator url="/pages/my/my" open-type="switchTab">
+        <van-empty image="error" description="请先登录" />
+    </navigator>
+</block>
+<block wx:else>
+    <navBar navBarTitle="我的动态" showBackIcon="true" />
+    <view class="user-avatar">
+        <image class="user-avatar-bg" src="{{userimg}}"></image>
+        <image class="user-avatar-small" src="{{userimg}}"></image>
+    </view>
 
-<view class="latest-dynamic">
-    <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="{{item.id}}">
-        <!-- 动态 -->
-        <view class="latest-dynamic-con">
-            <view class="public-time">{{item.public_time}}分钟前</view>
-            <text class="latest-dynamic-con-text">{{item.text}}</text>
-            <image class="latest-dynamic-con-img" mode="aspectFill" src="{{item.img_video_url}}"></image>
-            <view class="dianzan-pic">
-                <view class="dianzan">
-                    <image class="dianzan-img" mode="aspectFit" src="./icons/dianzan.png"></image>
-                    <text>点赞（{{item.dianzan}}）</text>
+    <view class="latest-dynamic">
+        <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="{{item.id}}">
+            <!-- 动态 -->
+            <view class="latest-dynamic-con">
+                <view class="public-time">{{item.public_time}}分钟前</view>
+                <text class="latest-dynamic-con-text">{{item.text}}</text>
+                <image class="latest-dynamic-con-img" mode="aspectFill" src="{{item.img_video_url}}"></image>
+                <view class="dianzan-pic">
+                    <view class="dianzan">
+                        <image class="dianzan-img" mode="aspectFit" src="./icons/dianzan.png"></image>
+                        <text>点赞（{{item.dianzan}}）</text>
+                    </view>
                 </view>
-            </view>
 
+            </view>
         </view>
     </view>
-</view>
+</block>
