@@ -1,8 +1,8 @@
 {
     "pages": [
-        "pages/dynamic/dynamic",
         "pages/index/index",
         "pages/index/actDetail/actDetail",
+        "pages/dynamic/dynamic",
         
         "pages/public/public",
         "pages/public/publicPic/publicPic",

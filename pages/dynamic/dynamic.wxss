@@ -345,6 +345,11 @@
     margin-left: 15rpx;
 }
 
+.team-dynamic-category-active {
+    font-size: 43rpx;
+    font-weight: 700;
+}
+
 .team-dynamic-category text {
 margin-right: 40rpx;
 }

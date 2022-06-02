@@ -36,7 +36,7 @@
                 <!-- 动态 -->
                 <view class="latest-dynamic-con">
                     <text class="latest-dynamic-con-text">{{item.con}}</text>
-                    <image mode="aspectFill" src="{{item.tempFilePaths}}"></image>
+                    <image wx:if="{{item.tempFilePaths}}" mode="aspectFill" src="{{item.tempFilePaths}}"></image>
                     <view class="dianzan-fenxiang">
                         <view class="dainzan" bindtap="dianZanClick" data-id="{{item._id}}">
                             <image mode="aspectFit" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/dianzan.png?sign=eebe3bb3f097dc656bf959f659108a44&t=1654149516"></image>
@@ -115,7 +115,7 @@
                 </view>
                 <!-- 邀请成员 -->
                 <view class="team-member-item invitate">
-                 <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/jiajianzujianjiahao.png?sign=9945d88dc9c431569c17e62943f92460&t=1654173313"></image>
+                    <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/jiajianzujianjiahao.png?sign=9945d88dc9c431569c17e62943f92460&t=1654173313"></image>
                 </view>
             </view>
 
@@ -123,13 +123,17 @@
         <!-- 团队的舞团的动态 -->
         <view class="team-dynamic">
             <view class="team-dynamic-category">
-                <text>最新动态</text>
-                <text>视频</text>
+                <text bindtap="activeClick" class="{{!activeFlag?'team-dynamic-category-active':''}}">最新动态</text>
+                <text bindtap="activeClick" class="{{activeFlag?'team-dynamic-category-active':''}}">视频</text>
             </view>
             <!-- 最新动态 -->
-            <view>1</view>
+            <view wx:if="{{!activeFlag}}">
+                <view>1</view>
+            </view>
             <!-- 视频 -->
-            <view>2</view>
+            <view wx:if="{{activeFlag}}">
+                <view>2</view>
+            </view>
         </view>
     </view>
 </view>
