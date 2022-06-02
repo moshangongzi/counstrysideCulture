@@ -13,11 +13,11 @@
         <!-- 发布照片 上传视频 -->
         <view class="fabu-pic-shipin">
             <view class="fabu-pic" bindtap="fabuPicClick">
-                <image mode="heightFix" src="./icons/tupian.png"></image>
+                <image mode="heightFix" src="/icons/dynamic/tupian.png"></image>
                 <text>发布照片</text>
             </view>
             <view class="fabu-shipin" bindtap="fabuVidClick">
-                <image mode="heightFix" src="./icons/icon-shipinguanli.png"></image>
+                <image mode="heightFix" src="/icons/dynamic/icon-shipinguanli.png"></image>
                 <text>上传视频</text>
             </view>
         </view>
@@ -37,11 +37,11 @@
                     <image mode="aspectFill" src="{{item.img_video_url}}"></image>
                     <view class="dianzan-fenxiang">
                         <view class="dainzan">
-                            <image mode="aspectFit" src="./icons/dianzan.png"></image>
+                            <image mode="aspectFit" src="/icons/dynamic/dianzan.png"></image>
                             <text>点赞（{{item.dianzan}}）</text>
                         </view>
                         <view class="fenxiang">
-                            <image mode="aspectFit" src="./icons/fenxiang.png"></image>
+                            <image mode="aspectFit" src="/icons/dynamic/fenxiang.png"></image>
                             <text>分享</text>
                         </view>
                     </view>
@@ -69,19 +69,19 @@
         <view class="team-memory">
             <view class="team-memory-item">
                 <view class="team-memory-icon team-memory-icon1">
-                    <image src="./icons/icon-shipinguanli.png"></image>
+                    <image src="/icons/dynamic/icon-shipinguanli.png"></image>
                 </view>
                 <text>视频</text>
             </view>
             <view class="team-memory-item">
                 <view class="team-memory-icon team-memory-icon2">
-                    <image src="./icons/tupian.png"></image>
+                    <image src="/icons/dynamic/tupian.png"></image>
                 </view>
                 <text>相册</text>
             </view>
             <view class="team-memory-item">
                 <view class="team-memory-icon team-memory-icon3">
-                    <image src="/icons/my/证书.png"></image>
+                    <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/my/%E8%AF%81%E4%B9%A6.png"></image>
                 </view>
                 <text>荣誉证书</text>
             </view>
@@ -99,7 +99,7 @@
         <!-- 团队成员 邀请团队成员 -->
         <view class="team-member">
             <view class="team-member-sum">
-                <image src="./icons/tuandui.png"></image>
+                <image src="/icons/dynamic/tuandui.png"></image>
                 <text>团队成员</text>
                 <text class="team-member-counts">（2人）</text>
             </view>

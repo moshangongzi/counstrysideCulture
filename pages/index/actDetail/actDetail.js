@@ -1,6 +1,6 @@
 Page({
     data: {
-        actImg:'../images/activity2.jpg',
+        actImg:'/images/index/activity2.jpg',
         title:'"全民健身-老有所乐"体育舞蹈进南京公益活动',
         time:'2022-04-28 ~ 2022-04-29',
         place:'南京市老体协体育舞蹈俱乐部',

@@ -14,9 +14,9 @@ Page({
                 user: {
                     id: 1,
                     nickName: '花姐',
-                    avater_url: './images/banner1.jpg'
+                    avater_url: '/images/index/banner1.jpg'
                 },
-                img_video_url: './images/banner2.jpg',
+                img_video_url: '/images/index/banner2.jpg',
                 dianzan: 11
 
             }
@@ -25,7 +25,7 @@ Page({
         danceTeamInfo: {
             id: 1,
             teamName: '最炫民族风',
-            teamIcon: './images/activity.jpg',
+            teamIcon: '/images/dynamic/activity.jpg',
             teamInfo: [
                 {
                     name: '作品',
@@ -47,23 +47,23 @@ Page({
             member: [
                 {
                     id: 1,
-                    memberIcon: './images/activity1.jpg',
+                    memberIcon: '/images/dynamic/activity1.jpg',
                     memberNickName: '最美舞者',
                     status: 0,
                 },
                 {
                     id: 2,
-                    memberIcon: './images/activity2.jpg',
+                    memberIcon: '/images/dynamic/activity2.jpg',
                     memberNickName: '最帅舞者',
                     status: 1,
                 }
             ]
         },
         swiperList: [
-            { id: 1, imgUrl: './images/banner.jpg' },
-            { id: 2, imgUrl: './images/banner1.jpg' },
+            { id: 1, imgUrl: '/images/index/banner.jpg' },
+            { id: 2, imgUrl: '/images/index/banner1.jpg' },
         ],
-        navTitleID: 2,
+        navTitleID: 1,
         navHeight: '',
         menuHeight: ''
     },

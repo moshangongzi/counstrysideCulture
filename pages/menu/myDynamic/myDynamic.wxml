@@ -1,6 +1,7 @@
 <navBar navBarTitle="我的动态" showBackIcon="true" />
 <view class="user-avatar">
     <image class="user-avatar-bg" src="{{userimg}}"></image>
+    <text>{{username}}</text>
     <image class="user-avatar-small" src="{{userimg}}"></image>
 </view>
 
@@ -13,7 +14,7 @@
             <image class="latest-dynamic-con-img" mode="aspectFill" src="{{item.img_video_url}}"></image>
             <view class="dianzan-pic">
                 <view class="dianzan">
-                    <image class="dianzan-img" mode="aspectFit" src="./icons/dianzan.png"></image>
+                    <image class="dianzan-img" mode="aspectFit" src="/icons/dynamic/dianzan.png"></image>
                     <text>点赞（{{item.dianzan}}）</text>
                 </view>
             </view>

@@ -7,15 +7,15 @@ Page({
       { name: '分类', id: 3 },
     ],
     swiperList: [
-      { id: 1, imgUrl: './images/banner.jpg' },
-      { id: 2, imgUrl: './images/banner1.jpg' },
-      { id: 3, imgUrl: './images/banner2.jpg' },
-      { id: 4, imgUrl: './images/banner3.jpg' }
+      { id: 1, imgUrl: '/images/index/banner.jpg' },
+      { id: 2, imgUrl: '/images/index/banner1.jpg' },
+      { id: 3, imgUrl: '/images/index/banner2.jpg' },
+      { id: 4, imgUrl: '/images/index/banner3.jpg' }
     ],
     tuiJianList: [
-      { id: 1, title: '红衣服', imgUrl: './images/1.jpg', playCount: 6.5 },
-      { id: 2, title: '绿衣服', imgUrl: './images/2.jpg', playCount: 9.6 },
-      { id: 3, title: '红衣服2', imgUrl: './images/3.jpg', playCount: 8 }
+      { id: 1, title: '红衣服', imgUrl: '/images/index/1.jpg', playCount: 6.5 },
+      { id: 2, title: '绿衣服', imgUrl: '/images/index/2.jpg', playCount: 9.6 },
+      { id: 3, title: '红衣服2', imgUrl: '/images/index/3.jpg', playCount: 8 }
     ],
     categoryList: [
       {
@@ -125,22 +125,22 @@ Page({
       {
         id: 1,
         title: "2021中华广场舞大赛",
-        imgUrl: './images/activity.jpg'
+        imgUrl: '/images/dynamic/activity.jpg'
       },
       {
         id: 2,
         title: "2022湖南省广场舞大赛",
-        imgUrl: './images/activity1.jpg'
+        imgUrl: '/images/dynamic/activity1.jpg'
       },
       {
         id: 3,
         title: "社区广场舞大赛",
-        imgUrl: './images/activity2.jpg'
+        imgUrl: '/images/dynamic/activity2.jpg'
       },
       {
         id: 4,
         title: "2022全国广场舞总决赛",
-        imgUrl: './images/activity3.jpg'
+        imgUrl: '/images/dynamic/activity3.jpg'
       },
     ],
     swiperIndex: '1/4',
@@ -153,6 +153,14 @@ Page({
     this.setData({
       navHeight: App.globalData.navHeight,
     })
+  },
+
+  onShow: function() {
+    if(App.globalData.tapID){
+      this.setData({
+        tapID:App.globalData.tapID,
+      })
+    }
   },
 
   // headerBar 点击

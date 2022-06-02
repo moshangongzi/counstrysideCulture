@@ -1,5 +1,8 @@
 App({
-  globalData: {},
+  globalData: {
+    tapID: null,
+  },
+  
   onLaunch() {
     //  云开发环境初始化
     wx.cloud.init({

@@ -8,7 +8,7 @@
         </form>
         <!-- 选择图片 -->
         <view class="select-pic">
-            <image src="../icons/shipin.png"></image>
+            <image src="/icons/public/shipin.png"></image>
             <text>上传视频</text>
         </view>
     </view>
@@ -17,5 +17,5 @@
 <!-- 选择自己的舞队 -->
 <view class="select-team">
     <text>选择舞队</text>
-    <image src="../icons/jiantou.png"></image>
+    <image src="/icons/public/jiantou.png"></image>
 </view>
