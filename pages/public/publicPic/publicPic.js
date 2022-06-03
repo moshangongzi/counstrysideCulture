@@ -93,21 +93,21 @@ Page({
     },
 
     // 将图片存入云存储
-    savePic:function(tempFilePaths) {
-        this.data.dynamicPicVidID +=1
+    savePic: function (tempFilePaths) {
+        this.data.dynamicPicVidID += 1
         let dID = this.data.dynamicPicVidID
         wx.cloud.uploadFile({
             cloudPath: `dynamicImages/dynamicImg${dID}.png`, // 上传至云端的路径
             filePath: tempFilePaths, // 小程序临时文件路径
             success: res => {
-              // 返回文件 ID
-              console.log(res.fileID)
-              this.setData({
-                'content.tempFilePaths': res.fileID,
-              })
+                // 返回文件 ID
+                console.log(res.fileID)
+                this.setData({
+                    'content.tempFilePaths': res.fileID,
+                })
             },
             fail: console.error
-          })
+        })
     },
 
     bindInput: function (e) {
@@ -126,19 +126,29 @@ Page({
         })
         console.log(this.data.content);
 
-        // 1、将content存入云数据库
+        // 1、判断内容是否为空，为空给出提示
+        if (!this.data.content.con) {
+            wx.showToast({
+                title: '内容不能为空',
+                icon: 'none',
+                duration: 2000
+            })
+            return
+        }
+
+        // 2、将content存入云数据库
         db.collection("allUserDynamics").add({
             // data 字段表示需新增的 JSON 数据
             data: that.data.content
-          })
-          .then(res => {
-            console.log(res)
-          })
-        // 2、跳转到动态页面
-          wx.switchTab({
+        })
+            .then(res => {
+                console.log(res)
+            })
+        // 3、跳转到动态页面
+        wx.switchTab({
             url: '/pages/dynamic/dynamic',
-          })
+        })
     },
 
-    
+
 })

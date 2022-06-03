@@ -6,140 +6,146 @@
         </view>
     </block>
 </view>
-    <block wx:if="{{state}}">
-        <navigator url="/pages/my/my" open-type="switchTab">
-            <van-empty image="error" description="请先登录" />
-        </navigator>
-    </block>
-    <block wx:else>
-        <view>
-            <!-- 动态 -->
-            <view class="dynamic" style="display: {{navTitleID===1?'block':'none'}};">
-                <!-- 发布照片 上传视频 -->
-                <view class="fabu-pic-shipin">
-                    <view class="fabu-pic" bindtap="fabuPicClick">
-                        <image mode="heightFix" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/tupian.png?sign=155d270c38616900d2674570c02ca477&t=1654149488"></image>
-                        <text>发布照片</text>
-                    </view>
-                    <view class="fabu-shipin" bindtap="fabuVidClick">
-                        <image mode="heightFix" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/icon-shipinguanli.png?sign=a2b05e28a5926a652dc6f3f9ca016172&t=1654149502"></image>
-                        <text>上传视频</text>
-                    </view>
+<block wx:if="{{state}}">
+    <navigator url="/pages/my/my" open-type="switchTab">
+        <van-empty image="error" description="请先登录" />
+    </navigator>
+</block>
+<block wx:else>
+    <view>
+        <!-- 动态 -->
+        <view class="dynamic" style="display: {{navTitleID===1?'block':'none'}};">
+            <!-- 发布照片 上传视频 -->
+            <view class="fabu-pic-shipin">
+                <view class="fabu-pic" bindtap="fabuPicClick">
+                    <image mode="heightFix" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/tupian.png?sign=155d270c38616900d2674570c02ca477&t=1654149488"></image>
+                    <text>发布照片</text>
                 </view>
-                <!-- 最新动态 -->
-                <view class="latest-dynamic">
-                    <view class="latest-dynamic-text">最新动态</view>
-                    <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="{{item._id}}">
-                        <!-- 用户头像 -->
-                        <view class="user-info">
-                            <image mode="aspectFill" src="{{item.userImg}}"></image>
-                            <view class="nickname-time">
-                                <view class="user-nickname">{{item.uname}}</view>
-                                <view class="public-time">{{item.time}}</view>
-                            </view>
+                <view class="fabu-shipin" bindtap="fabuVidClick">
+                    <image mode="heightFix" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/icon-shipinguanli.png?sign=a2b05e28a5926a652dc6f3f9ca016172&t=1654149502"></image>
+                    <text>上传视频</text>
+                </view>
+            </view>
+            <!-- 最新动态 -->
+            <view class="latest-dynamic">
+                <view class="latest-dynamic-text">最新动态</view>
+                <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="{{item._id}}">
+                    <!-- 用户头像 -->
+                    <view class="user-info">
+                        <image mode="aspectFill" src="{{item.userImg}}"></image>
+                        <view class="nickname-time">
+                            <view class="user-nickname">{{item.uname}}</view>
+                            <view class="public-time">{{item.time}}</view>
                         </view>
-                        <!-- 动态 -->
-                        <view class="latest-dynamic-con">
-                            <text class="latest-dynamic-con-text">{{item.con}}</text>
-                            <image wx:if="{{item.tempFilePaths}}" mode="aspectFill" src="{{item.tempFilePaths}}"></image>
-                            <view class="dianzan-fenxiang">
-                                <view class="dainzan" bindtap="dianZanClick" data-id="{{item._id}}">
-                                    <image mode="aspectFit" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/dianzan.png?sign=eebe3bb3f097dc656bf959f659108a44&t=1654149516"></image>
-                                    <text>点赞（{{item.dianzan}}）</text>
-                                </view>
-                                <view class="fenxiang">
-                                    <image mode="aspectFit" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/fenxiang.png?sign=3bcb3c514ee3dc4ddb0516cfa0d336c4&t=1654149527"></image>
-                                    <text>分享</text>
-                                </view>
+                    </view>
+                    <!-- 动态 -->
+                    <view class="latest-dynamic-con">
+                        <text class="latest-dynamic-con-text">{{item.con}}</text>
+                        <image wx:if="{{item.tempFilePaths}}" mode="aspectFill" src="{{item.tempFilePaths}}"></image>
+                        <view class="dianzan-fenxiang">
+                            <view class="dainzan" bindtap="dianZanClick" data-id="{{item._id}}">
+                                <image mode="aspectFit" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/dianzan.png?sign=eebe3bb3f097dc656bf959f659108a44&t=1654149516"></image>
+                                <text>点赞（{{item.dianzan}}）</text>
+                            </view>
+                            <view class="fenxiang">
+                                <image mode="aspectFit" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/fenxiang.png?sign=3bcb3c514ee3dc4ddb0516cfa0d336c4&t=1654149527"></image>
+                                <text>分享</text>
                             </view>
                         </view>
                     </view>
                 </view>
             </view>
-
-            <!-- 我的舞团 -->
-            <view class="my-dance-team" style="display: {{navTitleID===2?'block':'none'}};">
-                <!-- 舞团信息 -->
-                <view class="teamName">
-                    <image mode="aspectFill" src="{{danceTeamInfo.teamIcon}}"></image>
-                    <text>{{danceTeamInfo.teamName}}</text>
-                    <button>管理</button>
+            <!-- 邀请成员 -->
+            <view class="team-member-item invitate">
+                <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/jiajianzujianjiahao.png?sign=9945d88dc9c431569c17e62943f92460&t=1654173313"></image>
+            </view>
+        </view>
+        <!-- 我的舞团 -->
+        <view class="my-dance-team" style="display: {{navTitleID===2?'block':'none'}};">
+            <!-- 舞团信息 -->
+            <view class="teamName">
+                <image mode="aspectFill" src="{{danceTeamInfo.teamIcon}}"></image>
+                <text>{{danceTeamInfo.teamName}}</text>
+                <button>管理</button>
+            </view>
+            <!-- 作品 成员人数 全国排名 -->
+            <view class="team-info">
+                <view class="team-info-item" wx:for="{{danceTeamInfo.teamInfo}}" wx:key="{{item.name}}">
+                    <text class="team-info-number">{{item.number}}</text>
+                    <text>{{item.name}}</text>
                 </view>
-                <!-- 作品 成员人数 全国排名 -->
-                <view class="team-info">
-                    <view class="team-info-item" wx:for="{{danceTeamInfo.teamInfo}}" wx:key="{{item.name}}">
-                        <text class="team-info-number">{{item.number}}</text>
-                        <text>{{item.name}}</text>
+            </view>
+            <!-- 视频 相册 荣誉证书 -->
+            <view class="team-memory">
+                <view class="team-memory-item">
+                    <view class="team-memory-icon team-memory-icon1">
+                        <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/icon-shipinguanli.png?sign=0f3926f090626ed4683053652338fd74&t=1654149545"></image>
+                    </view>
+                    <text>视频</text>
+                </view>
+                <view class="team-memory-item">
+                    <view class="team-memory-icon team-memory-icon2">
+                        <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/tupian.png?sign=3ece70559f73eb5f41b26be07c30a758&t=1654149555"></image>
+                    </view>
+                    <text>相册</text>
+                </view>
+                <view class="team-memory-item">
+                    <view class="team-memory-icon team-memory-icon3">
+                        <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/my/%E8%AF%81%E4%B9%A6.png"></image>
+                    </view>
+                    <text>荣誉证书</text>
+                </view>
+            </view>
+            <!-- 轮播图 -->
+            <view class="swiper-view">
+                <swiper autoplay="true" interval="3000" circular="true" indicator-dots indicator-active-color="#d83232" indicator-color="#fff">
+                    <block wx:for="{{swiperList}}" wx:key='{{item.id}}' wx:if="{{swiperList && swiperList.length > 0}}">
+                        <swiper-item>
+                            <image src="{{item.imgUrl}}" class="slide-image" mode="widthFix" />
+                        </swiper-item>
+                    </block>
+                </swiper>
+            </view>
+            <!-- 团队成员 邀请团队成员 -->
+            <view class="team-member">
+                <view class="team-member-sum">
+                    <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/tuandui.png?sign=3c355bac764d568bfccefad980650141&t=1654149575"></image>
+                    <text>团队成员</text>
+                    <text class="team-member-counts">（2人）</text>
+                </view>
+                <view class="team-member-items">
+                    <view class="team-member-item" wx:for="{{danceTeamInfo.member}}" wx:key="{{item.id}}">
+                        <view class="team-leader" wx:if="{{!item.status}}">队长</view>
+                        <view class="team-member-item-pic">
+                            <image mode="aspectFill" src="{{item.memberIcon}}"></image>
+                            <text>{{item.memberNickName}}</text>
+                        </view>
+                    </view>
+                    <!-- 邀请成员 -->
+                    <view class="team-member-item invitate">
+                        <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/jiajianzujianjiahao.png?sign=9945d88dc9c431569c17e62943f92460&t=1654173313"></image>
                     </view>
                 </view>
-                <!-- 视频 相册 荣誉证书 -->
-                <view class="team-memory">
-                    <view class="team-memory-item">
-                        <view class="team-memory-icon team-memory-icon1">
-                            <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/icon-shipinguanli.png?sign=0f3926f090626ed4683053652338fd74&t=1654149545"></image>
-                        </view>
-                        <text>视频</text>
-                    </view>
-                    <view class="team-memory-item">
-                        <view class="team-memory-icon team-memory-icon2">
-                            <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/tupian.png?sign=3ece70559f73eb5f41b26be07c30a758&t=1654149555"></image>
-                        </view>
-                        <text>相册</text>
-                    </view>
-                    <view class="team-memory-item">
-                        <view class="team-memory-icon team-memory-icon3">
-                            <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/my/%E8%AF%81%E4%B9%A6.png"></image>
-                        </view>
-                        <text>荣誉证书</text>
-                    </view>
+            </view>
+            <!-- 团队的舞团的动态 -->
+            <view class="team-dynamic">
+                <view class="team-dynamic-category">
+                    <text bindtap="activeClick" class="{{!activeFlag?'team-dynamic-category-active':''}}">
+                        最新动态
+                    </text>
+                    <text bindtap="activeClick" class="{{activeFlag?'team-dynamic-category-active':''}}">
+                        视频
+                    </text>
                 </view>
-                <!-- 轮播图 -->
-                <view class="swiper-view">
-                    <swiper autoplay="true" interval="3000" circular="true" indicator-dots indicator-active-color="#d83232" indicator-color="#fff">
-                        <block wx:for="{{swiperList}}" wx:key='{{item.id}}' wx:if="{{swiperList && swiperList.length > 0}}">
-                            <swiper-item>
-                                <image src="{{item.imgUrl}}" class="slide-image" mode="widthFix" />
-                            </swiper-item>
-                        </block>
-                    </swiper>
+                <!-- 最新动态 -->
+                <view wx:if="{{!activeFlag}}">
+                    <view>1</view>
                 </view>
-                <!-- 团队成员 邀请团队成员 -->
-                <view class="team-member">
-                    <view class="team-member-sum">
-                        <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/tuandui.png?sign=3c355bac764d568bfccefad980650141&t=1654149575"></image>
-                        <text>团队成员</text>
-                        <text class="team-member-counts">（2人）</text>
-                    </view>
-                    <view class="team-member-items">
-                        <view class="team-member-item" wx:for="{{danceTeamInfo.member}}" wx:key="{{item.id}}">
-                            <view class="team-leader" wx:if="{{!item.status}}">队长</view>
-                            <view class="team-member-item-pic">
-                                <image mode="aspectFill" src="{{item.memberIcon}}"></image>
-                                <text>{{item.memberNickName}}</text>
-                            </view>
-                        </view>
-                        <!-- 邀请成员 -->
-                        <view class="team-member-item invitate">
-                            <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/jiajianzujianjiahao.png?sign=9945d88dc9c431569c17e62943f92460&t=1654173313"></image>
-                        </view>
-                    </view>
-
-                </view>
-                <!-- 团队的舞团的动态 -->
-                <view class="team-dynamic">
-                    <view class="team-dynamic-category">
-                        <text bindtap="activeClick" class="{{!activeFlag?'team-dynamic-category-active':''}}">最新动态</text>
-                        <text bindtap="activeClick" class="{{activeFlag?'team-dynamic-category-active':''}}">视频</text>
-                    </view>
-                    <!-- 最新动态 -->
-                    <view wx:if="{{!activeFlag}}">
-                        <view>1</view>
-                    </view>
-                    <!-- 视频 -->
-                    <view wx:if="{{activeFlag}}">
-                        <view>2</view>
-                    </view>
+                <!-- 视频 -->
+                <view wx:if="{{activeFlag}}">
+                    <view>2</view>
                 </view>
             </view>
         </view>
-    </block>
+    </view>
+</block>

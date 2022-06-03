@@ -1,10 +1,10 @@
 {
     "pages": [
+        "pages/dynamic/dynamic",
         "pages/index/index",
         "pages/index/classDetail/classDetail",
-        "pages/dynamic/dynamic",
         "pages/index/actDetail/actDetail",
-
+        
         "pages/public/public",
         "pages/public/publicPic/publicPic",
         "pages/public/publicVid/publicVid",

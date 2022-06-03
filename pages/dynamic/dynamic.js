@@ -52,7 +52,8 @@ Page({
         ],
         navTitleID: 2,
         navHeight: '',
-        menuHeight: ''
+        menuHeight: '',
+        activeFlag: false
     },
     onLoad: function (options) {
         this.setData({
@@ -123,5 +124,17 @@ Page({
                     }
                 })
             })
+    },
+    // 切换最新动态和视频的页面
+    activeClick: function() {
+        if(!this.data.activeFlag){
+            this.setData({
+                activeFlag: true
+            })
+        }else if(this.data.activeFlag) {
+            this.setData({
+                activeFlag: false
+            })
+        }
     }
 })
