@@ -30,7 +30,7 @@
                     <block wx:for='{{videoList}}' wx:key='{{item.id}}' wx:if="{{videoList && videoList.length > 0}}">
                         <view class='list-item' wx:if="{{x===index}}">
                             <view class='list-item-content'>
-                                <video src='{{item.link}}'></video>
+                                <video object-fit="cover" src='{{item.link}}'></video>
                                 <view class="shipin-title">{{item.title}}</view>
                                 <view class="shipin-bofangshu">{{item.click}}次播放</view>
                             </view>

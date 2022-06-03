@@ -1,6 +1,6 @@
 <view>
     <!-- 顶部导航栏 -->
-    <view class="dynamic-dance-nav" style="height: {{navHeight}}px; padding-top: {{menuHeight}}px;">
+    <view class="dynamic-dance-nav" style="height: {{navHeight}}px; padding-top: {{menuHeight}}px; z-index: 999;">
         <block wx:for="{{navTitleName}}" wx:key="{{item.id}}">
             <view data-id='{{item.id}}' class="nav-item {{item.id == navTitleID? 'nav-title-active':''}}" bindtap='navTitleNameClick'>
                 {{item.name}}
@@ -36,7 +36,8 @@
                 <!-- 动态 -->
                 <view class="latest-dynamic-con">
                     <text class="latest-dynamic-con-text">{{item.con}}</text>
-                    <image wx:if="{{item.tempFilePaths}}" mode="aspectFill" src="{{item.tempFilePaths}}"></image>
+                    <image wx:if="{{item.tempFilePaths&&item.FileType===0}}" mode="aspectFill" src="{{item.tempFilePaths}}"></image>
+                    <video wx:if="{{item.tempFilePaths&&item.FileType===1}}" src="{{item.tempFilePaths}}"></video>
                     <view class="dianzan-fenxiang">
                         <view class="dainzan" bindtap="dianZanClick" data-id="{{item._id}}">
                             <image mode="aspectFit" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/dianzan.png?sign=eebe3bb3f097dc656bf959f659108a44&t=1654149516"></image>
@@ -44,7 +45,7 @@
                         </view>
                         <view class="fenxiang">
                             <image mode="aspectFit" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/fenxiang.png?sign=3bcb3c514ee3dc4ddb0516cfa0d336c4&t=1654149527"></image>
-                            <text>分享</text>
+                            <button open-type="share">分享</button>
                         </view>
                     </view>
                 </view>
@@ -114,9 +115,9 @@
                     </view>
                 </view>
                 <!-- 邀请成员 -->
-                <view class="team-member-item invitate">
+                <button open-type="share" class="team-member-item invitate">
                     <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/jiajianzujianjiahao.png?sign=9945d88dc9c431569c17e62943f92460&t=1654173313"></image>
-                </view>
+                </button>
             </view>
 
         </view>

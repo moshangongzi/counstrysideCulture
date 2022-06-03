@@ -8,7 +8,7 @@ Page({
         // 文字和照片是必须有的，在提交之前要判断该两项内容是否为空
         content: {},
         tname: '',
-        dynamicPicVidID: 0,
+        dID: 0,
     },
 
     onLoad: function (options) {
@@ -68,33 +68,49 @@ Page({
     },
 
     chooseWxVideo: function (type) {
-        wx.chooseVideo({
+        // let that = this
+        wx.chooseMedia({
+            count: 9,
+            mediaType: ['video'],
             sourceType: [type],
-            maxDuration: 60,
-            camera: 'back',
+            maxDuration: 3,
+            // camera: 'back',
             success: res => {
+                console.log('res1====', res);
+                console.log(res.tempFiles[0].tempFilePath)
+                console.log(res.tempFiles[0].size)
                 this.setData({
-                    tempFilePaths: res.tempFilePaths[0],
+                    tempFilePaths: res.tempFiles[0].tempFilePath,
                 })
-                this.saveVideo(res.tempFilePaths[0])
-                // console.log(this.data.content);
+                this.saveVideo(res.tempFiles[0].tempFilePath)
             }
         })
     },
 
+    // 随机生成文件的后缀id
+    getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值 
+    },
+
     // 将视频存入云存储
     saveVideo: function (tempFilePaths) {
-        this.data.dynamicPicVidID += 1
-        let dID = this.data.dynamicPicVidID
+        this.setData({
+            dID: this.getRandomIntInclusive(1, 1234567)
+        })
         wx.cloud.uploadFile({
-            cloudPath: `dynamicVideo/dynamicVideo${dID}.mp4`, // 上传至云端的路径
+            cloudPath: `dynamicVideo/dynamicVideo${this.data.dID}.mp4`, // 上传至云端的路径
             filePath: tempFilePaths, // 小程序临时文件路径
             success: res => {
                 // 返回文件 ID
                 console.log(res.fileID)
                 this.setData({
                     'content.tempFilePaths': res.fileID,
+                    // 1代表视频文件
+                    'content.FileType': 1,
                 })
+                console.log('saveVideo', this.data.content)
             },
             fail: console.error
         })
@@ -115,7 +131,7 @@ Page({
             'content.time': currentTime,
             'content.dianzan': 0,
         })
-        console.log(this.data.content);
+        console.log('confirmPublic', this.data.content);
         // 1、判断内容是否为空，为空给出提示
         if (!this.data.content.con) {
             wx.showToast({
@@ -125,7 +141,17 @@ Page({
             })
             return
         }
+        this.saveContent()
 
+        // 3、跳转到动态页面
+        wx.switchTab({
+            url: '/pages/dynamic/dynamic',
+        })
+    },
+
+    // 为了解决异步问题，将content存入数据库这一步拿出来
+    saveContent: function () {
+        let that = this
         // 2、将content存入云数据库
         db.collection("allUserDynamics").add({
             // data 字段表示需新增的 JSON 数据
@@ -134,11 +160,7 @@ Page({
             .then(res => {
                 console.log(res)
             })
-        // 3、跳转到动态页面
-        wx.switchTab({
-            url: '/pages/dynamic/dynamic',
-        })
-    },
+    }
 
 
 })

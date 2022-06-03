@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/public/publicVid/publicVid",
         "pages/dynamic/dynamic",
         "pages/index/index",
         "pages/index/classDetail/classDetail",
@@ -7,7 +8,6 @@
         
         "pages/public/public",
         "pages/public/publicPic/publicPic",
-        "pages/public/publicVid/publicVid",
 
         "pages/my/my",
         "pages/my/edit/edit",
