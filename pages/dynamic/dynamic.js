@@ -50,7 +50,7 @@ Page({
             { id: 1, imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/banner1.jpg?sign=f043c8067fac26fedf75e0c1be1f88ba&t=1654149383' },
             { id: 2, imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/banner3.jpg?sign=c1f219fe5f28f00495494d36e748debf&t=1654149391' },
         ],
-        navTitleID: 2,
+        navTitleID: 1,
         navHeight: '',
         menuHeight: '',
         activeFlag: false
@@ -66,9 +66,9 @@ Page({
     onShow: function () {
         // this.showDynamic()
         //  1、获取数据库allUserDynamics中的所有数据，存入dynamicList
-         db.collection('allUserDynamics').get().then(res => {
+        db.collection('allUserDynamics').get().then(res => {
             // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
-            console.log(res.data)
+            console.log('donshow', res.data)
             this.setData({
                 dynamicList: res.data
             })
@@ -111,7 +111,7 @@ Page({
             .then(res => {
                 // console.log(res.data)
                 dz = res.data.dianzan + 1
-                console.log(dz);
+                // console.log(dz);
                 db.collection('allUserDynamics').doc(e.currentTarget.dataset.id).update({
                     // data 传入需要局部更新的数据
                     data: {
@@ -119,22 +119,25 @@ Page({
                         dianzan: dz
                     },
                     success: res => {
-                        console.log(res)
+                        // console.log(res)
                         this.showDynamic()
                     }
                 })
             })
     },
+
     // 切换最新动态和视频的页面
-    activeClick: function() {
-        if(!this.data.activeFlag){
+    activeClick: function () {
+        if (!this.data.activeFlag) {
             this.setData({
                 activeFlag: true
             })
-        }else if(this.data.activeFlag) {
+        } else if (this.data.activeFlag) {
             this.setData({
                 activeFlag: false
             })
         }
     }
+
+
 })

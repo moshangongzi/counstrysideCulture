@@ -12,7 +12,7 @@ Page({
         // 文字和照片是必须有的，在提交之前要判断该两项内容是否为空
         content: {},
         tname: '',
-        dynamicPicVidID: 0,
+        dID: 0,
     },
 
     /**
@@ -92,18 +92,28 @@ Page({
         })
     },
 
+    // 随机生成文件的后缀id
+    getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值 
+      },
+
     // 将图片存入云存储
     savePic: function (tempFilePaths) {
-        this.data.dynamicPicVidID += 1
-        let dID = this.data.dynamicPicVidID
+        this.setData({
+            dID:this.getRandomIntInclusive(1,1234567)
+        })
         wx.cloud.uploadFile({
-            cloudPath: `dynamicImages/dynamicImg${dID}.png`, // 上传至云端的路径
+            cloudPath: `dynamicImages/dynamicImg${this.data.dID}.png`, // 上传至云端的路径
             filePath: tempFilePaths, // 小程序临时文件路径
             success: res => {
                 // 返回文件 ID
                 console.log(res.fileID)
                 this.setData({
                     'content.tempFilePaths': res.fileID,
+                     // 0代表图片文件
+                     'content.FileType': 0,
                 })
             },
             fail: console.error
