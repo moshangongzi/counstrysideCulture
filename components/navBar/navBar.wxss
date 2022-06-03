@@ -14,7 +14,7 @@
 
 .dynamic-dance-nav image {
     position: absolute;
-    top: 80rpx;
+    top: 33px;
     left: 12rpx;
     width: 50rpx;
     height: 50rpx;

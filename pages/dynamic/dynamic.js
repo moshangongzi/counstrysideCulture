@@ -1,8 +1,8 @@
 const App = getApp();
 const db = wx.cloud.database()
 Page({
-
     data: {
+        state:'',
         navTitleName: [
             { id: 1, name: '动态', },
             { id: 2, name: '我的舞团', },
@@ -55,12 +55,9 @@ Page({
         menuHeight: '',
         activeFlag: false
     },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
     onLoad: function (options) {
         this.setData({
+            state:wx.getStorageSync('userinfo')=='',
             navHeight: App.globalData.navHeight,
             menuHeight: App.globalData.menuHeight
         })

@@ -1,3 +1,4 @@
+<navBar showBackIcon="{{true}}" navBarTitle="客服帮助" />
 <text class="online">
     在线时间：周一至周五9:00-17:00
 </text>

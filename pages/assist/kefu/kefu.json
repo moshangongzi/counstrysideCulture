@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "客服帮助"
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "navBar": "/components/navBar/navBar"
+  }
 }

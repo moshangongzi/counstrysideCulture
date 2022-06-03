@@ -7,7 +7,6 @@
             </view>
         </block>
     </view>
-
     <!-- 动态 -->
     <view class="dynamic" style="display: {{navTitleID===1?'block':'none'}};">
         <!-- 发布照片 上传视频 -->
@@ -21,11 +20,11 @@
                 <text>上传视频</text>
             </view>
         </view>
-        <!-- 最新动态 -->
+        <!-- 最新动态 -->
         <view class="latest-dynamic">
             <view class="latest-dynamic-text">最新动态</view>
             <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="{{item._id}}">
-                <!-- 用户头像 -->
+                <!-- 用户头像  -->
                 <view class="user-info">
                     <image mode="aspectFill" src="{{item.userImg}}"></image>
                     <view class="nickname-time">
@@ -84,9 +83,9 @@
             </view>
             <view class="team-memory-item">
                 <view class="team-memory-icon team-memory-icon3">
-                    <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/my/%E8%AF%81%E4%B9%A6.png"></image>
+                    <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/my/%E8%AF%81%E4%B9%A6.png?sign=c5c0466713c3435298990ded30e0a8e5&t=1654241155"></image>
                 </view>
-                <text>荣誉证书</text>
+                <text>荣誉</text>
             </view>
         </view>
         <!-- 轮播图 -->
@@ -115,17 +114,16 @@
                     </view>
                 </view>
                 <!-- 邀请成员 -->
-                <button open-type="share" class="team-member-item invitate">
+                <view class="team-member-item invitate">
                     <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/jiajianzujianjiahao.png?sign=9945d88dc9c431569c17e62943f92460&t=1654173313"></image>
-                </button>
+                </view>
             </view>
-
         </view>
         <!-- 团队的舞团的动态 -->
         <view class="team-dynamic">
             <view class="team-dynamic-category">
-                <text bindtap="activeClick" class="{{!activeFlag?'team-dynamic-category-active':''}}">最新动态</text>
-                <text bindtap="activeClick" class="{{activeFlag?'team-dynamic-category-active':''}}">视频</text>
+               <text bindtap="activeClick" class="{{!activeFlag?'team-dynamic-category-active':''}}">最新动态</text>
+               <text bindtap="activeClick" class="{{activeFlag?'team-dynamic-category-active':''}}">视频</text>
             </view>
             <!-- 最新动态 -->
             <view wx:if="{{!activeFlag}}">

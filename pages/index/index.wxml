@@ -54,6 +54,7 @@
             </view>
         </view>
     </view>
+    
     <!-- 分类主体内容 -->
     <view class="category-view" style="display: {{tapID===3?'block':'none'}};">
         <!-- 一级分类 -->

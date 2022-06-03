@@ -1,7 +1,13 @@
 Page({
     data: {
         id: '113143',
-        tel: '11122223333'
+        tel: '13323440987',
+        state:''
+    },
+    onLoad(){
+        this.setData({
+            state:wx.getStorageSync('userinfo')=='',
+        })
     },
     loginout() {
         wx.showModal({

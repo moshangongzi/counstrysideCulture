@@ -1,3 +1,4 @@
+<navBar navBarTitle="个人中心" />
 <view class="user">
   <view wx:if="{{!loginShow}}">
     <image src="{{userImg}}" class="bg" mode="aspectFill"></image>

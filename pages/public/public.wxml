@@ -1,22 +1,29 @@
-<navBar navBarTitle="发布" />
-<!-- 上传视频 照片 -->
-<view class="pic-shipin">
-    <text class="tips">分享我的动态...</text>
-    <view class="shangchuan-shipin" bindtap="fabuVidClick">
-        <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/public/icon-shipinguanli.png?sign=9a919fc9f6d2b8085ec12d4e7f9bf249&t=1654149239"></image>
-        <text>上传视频</text>
+<block wx:if="{{state}}">
+    <navigator url="/pages/my/my" open-type="switchTab">
+        <van-empty image="error" description="请先登录" />
+    </navigator>
+</block>
+<block wx:else>
+    <navBar navBarTitle="发布" />
+    <!-- 上传视频 照片 -->
+    <view class="pic-shipin">
+        <text class="tips">分享我的动态...</text>
+        <view class="shangchuan-shipin" bindtap="fabuVidClick">
+            <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/public/icon-shipinguanli.png?sign=9a919fc9f6d2b8085ec12d4e7f9bf249&t=1654149239"></image>
+            <text>上传视频</text>
+        </view>
+        <view class="fabu-pic" bindtap="fabuPicClick">
+            <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/public/tupian.png?sign=e5f067c2417f76a07967ec184b2be20c&t=1654149256"></image>
+            <text>发布照片</text>
+        </view>
     </view>
-    <view class="fabu-pic" bindtap="fabuPicClick">
-        <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/public/tupian.png?sign=e5f067c2417f76a07967ec184b2be20c&t=1654149256"></image>
-        <text>发布照片</text>
-    </view>
-</view>
 
-<!-- 更多玩法 -->
-<view class="more">
-    <text class="tips">更多玩法</text>
-    <view class="canjia" bindtap="joinActivity">
-        <view>参加活动</view>
-        <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/public/gongneng_jiaruhangkongchanye.png?sign=e7db6a9eb2da37f1a450cfff8a42d995&t=1654149268"></image>
+    <!-- 更多玩法 -->
+    <view class="more">
+        <text class="tips">更多玩法</text>
+        <view class="canjia" bindtap="joinActivity">
+            <view>参加活动</view>
+            <image src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/public/gongneng_jiaruhangkongchanye.png?sign=e7db6a9eb2da37f1a450cfff8a42d995&t=1654149268"></image>
+        </view>
     </view>
-</view>
+</block>

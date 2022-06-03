@@ -1,6 +1,7 @@
 {
+  "navigationStyle": "custom",
   "usingComponents": {
+    "navBar": "/components/navBar/navBar",
     "van-empty": "@vant/weapp/empty/index"
-  },
-  "navigationBarTitleText": "荣誉证书"
+  }
 }
