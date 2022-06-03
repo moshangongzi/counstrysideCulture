@@ -5,6 +5,7 @@ text {
 
 .online {
   margin: 15rpx;
+  margin-top: 55px;
   font-size: 47rpx;
   font-weight: 700;
 }

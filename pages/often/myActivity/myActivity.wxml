@@ -1,21 +1,24 @@
-<block wx:if="{{!wx.getStorage('userinfo')}}">
-  <navigator url="/pages/my/my" open-type="switchTab">
-    <van-empty image="error" description="请先登录" />
-  </navigator>
-</block>
-<block wx:else>
-  <van-tabs animated sticky line-width='60px'>
-    <van-tab title="我参与的">
-      <van-empty image="search" description="暂无相关数据" />
-    </van-tab>
-    <van-tab title="我发布的">
-      <van-empty image="search" description="暂无相关数据" />
-    </van-tab>
-    <van-tab title="我申请的">
-      <van-empty image="search" description="暂无相关数据" />
-    </van-tab>
-    <van-tab title="我管理的">
-      <van-empty image="search" description="暂无相关数据" />
-    </van-tab>
-  </van-tabs>
-</block>
+<navBar showBackIcon="{{true}}" navBarTitle="活动管理" />
+<view style="margin-top:64px">
+  <block wx:if="{{state}}">
+    <navigator url="/pages/my/my" open-type="switchTab">
+      <van-empty image="error" description="请先登录" />
+    </navigator>
+  </block>
+  <block wx:else>
+    <van-tabs animated sticky line-width='60px'>
+      <van-tab title="我参与的">
+        <van-empty image="search" description="暂无相关数据" />
+      </van-tab>
+      <van-tab title="我发布的">
+        <van-empty image="search" description="暂无相关数据" />
+      </van-tab>
+      <van-tab title="我申请的">
+        <van-empty image="search" description="暂无相关数据" />
+      </van-tab>
+      <van-tab title="我管理的">
+        <van-empty image="search" description="暂无相关数据" />
+      </van-tab>
+    </van-tabs>
+  </block>
+</view>

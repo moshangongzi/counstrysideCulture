@@ -3,7 +3,7 @@ Page {
 }
 
 .id {
-    margin-top: 50rpx;
+    margin-top: 9px;
 }
 
 .bind,

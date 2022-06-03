@@ -1,8 +1,10 @@
-// pages/my/cert/cert.js
 Page({
     data: {
+        state:'',
     },
-    onLoad() {
-        console.log(!wx.getStorageSync('userinfo')=='')
-    }
+    onLoad(){
+        this.setData({
+            state:wx.getStorageSync('userinfo')=='',
+        })
+    }  
 })
