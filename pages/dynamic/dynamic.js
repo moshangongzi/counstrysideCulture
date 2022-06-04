@@ -141,7 +141,7 @@ Page({
     },
     getDanceTeam() {
         wx.cloud.database().collection('danceTeam')
-            .doc('8f75309d629ad43d06f2766147c7a2d8')
+            .doc('10fb47c3629b34f0056a6a0b6c5d8b06')
             .get()
             .then(res => {
                 this.setData({
