@@ -4,15 +4,14 @@ Page({
         video:{},
         testList: [],
         videoList: [],
-        collList: [
-            '61e9c47162971dda01efb05f05a67d50', '61e9c47162971dda01efb06003c1d371','128f646562986624006fc5bb36278578']
+        collList: []
     },
     onLoad: function () {
         this.setData({
             state: wx.getStorageSync('userinfo') == '',
         });
         if(!this.data.state){
-            this.getVideo();
+            this.getopenid();      
         }      
     },
     getVideo() {
@@ -33,5 +32,30 @@ Page({
                 console.log('获取视频数据库失败', res)
             })
         }
+    },
+    getopenid() {
+        wx.cloud.callFunction({
+            name: 'getOpenid'
+        }).then(res => {
+            this.setData({ openid: res.result.openid });
+            this. getUserAct();
+            console.log('获取openid函数成功', res.result.openid);
+        }).catch(res => {
+            console.log('获取openid函数失败', res)
+        });
+    },
+    getUserAct(){
+        wx.cloud.database().collection('user')
+            .doc(this.data.openid)
+            .get()
+            .then(res=>{
+                this.setData({
+                    collList:res.data.active
+                })
+                this.getVideo();   
+            })
+            .catch(res=>{
+                console.log('获取登录用户信息失败',res)
+            })
     }
 })

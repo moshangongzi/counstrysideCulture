@@ -43,7 +43,7 @@
                     <image wx:if="{{item.tempFilePaths&&item.FileType===0}}" mode="aspectFill" src="{{item.tempFilePaths}}"></image>
                     <video wx:if="{{item.tempFilePaths&&item.FileType===1}}" src="{{item.tempFilePaths}}"></video>
                     <view class="dianzan-fenxiang">
-                        <view class="dainzan" bindtap="dianZanClick" data-id="{{item._id}}">
+                        <view class="dianzan" bindtap="dianZanClick" data-id="{{item._id}}">
                             <image mode="aspectFit" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/dianzan.png?sign=eebe3bb3f097dc656bf959f659108a44&t=1654149516"></image>
                             <text>点赞（{{item.dianzan}}）</text>
                         </view>

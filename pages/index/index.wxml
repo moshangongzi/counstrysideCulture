@@ -3,7 +3,7 @@
     <!-- 导航栏 -->
     <view class='header'>
         <view class='header-panel'>
-            <block wx:for='{{headerTitleName}}' wx:key='{{item.id}}'>
+            <block wx:for='{{headerTitleName}}' wx:key='id'>
                 <view data-id='{{item.id}}' class="header-title {{item.id == tapID? 'header-title-active':''}}" bindtap='headerTitleClick'>
                     {{item.name}}
                 </view>
@@ -17,7 +17,7 @@
             <!-- 轮播图 -->
             <view class='content-top-pic'>
                 <swiper class="swiper" bindchange='handleSwiperChange' autoplay="true" interval="3000" circular="true" indicator-dots indicator-active-color="#d83232" indicator-color="#fff">
-                    <block wx:for="{{swiperList}}" wx:key='{{item.id}}' wx:if="{{swiperList && swiperList.length > 0}}">
+                    <block wx:for="{{swiperList}}" wx:key="id" wx:if="{{swiperList && swiperList.length > 0}}">
                         <swiper-item bindtap='viewDetail' data-newsurl='{{item.imgUrl}}'>
                             <image src="{{item.imgUrl}}" class="slide-image" mode="aspectFill" />
                         </swiper-item>
@@ -26,13 +26,23 @@
             </view>
             <!-- 推荐视频列表 -->
             <view class='content-list'>
-                <block wx:for="{{randomArray}}" wx:for-item="x">
-                    <block wx:for='{{videoList}}' wx:key='{{item.id}}' wx:if="{{videoList && videoList.length > 0}}">
+                <block wx:for="{{randomArray}}" wx:for-item="x" wx:key="id">
+                    <block wx:for='{{videoList}}' wx:key="id">
                         <view class='list-item' wx:if="{{x===index}}">
                             <view class='list-item-content'>
                                 <video object-fit="cover" src='{{item.link}}'></video>
                                 <view class="shipin-title">{{item.title}}</view>
                                 <view class="shipin-bofangshu">{{item.click}}次播放</view>
+                            </view>
+                            <view class="dianzan-shoucang">
+                                <view class="dianzan" bindtap="dianzanClick" data-id="{{item._id}}">
+                                    <image mode="aspectFit" src="{{dianzanSrc}}"></image>
+                                    <text>点赞</text>
+                                </view>
+                                <view class="shoucang" bindtap="shoucangClick" data-id="{{item._id}}">
+                                    <image mode="aspectFit" src="{{shoucangSrc}}"></image>
+                                    <text>收藏</text>
+                                </view>
                             </view>
                         </view>
                     </block>
@@ -44,28 +54,28 @@
     <!-- 活动主体内容 -->
     <view style="display: {{tapID===2?'block':'none'}};">
         <view class="activity-view">
-            <view wx:for="{{activityList}}" wx:key="{{item.id}}">
+            <navigator url="/pages/index/actDetail/actDetail?aid={{item._id}}" wx:for="{{actList}}" wx:key="id">
                 <view class="activity-view-item">
                     <view class="activity-view-item-pic">
-                        <image mode="aspectFit" src="{{item.imgUrl}}"></image>
+                        <image mode="aspectFit" src="{{item.actImg}}"></image>
                     </view>
                     <view class="activity-view-item-title">{{item.title}}</view>
                 </view>
-            </view>
+            </navigator>
         </view>
     </view>
-    
+
     <!-- 分类主体内容 -->
     <view class="category-view" style="display: {{tapID===3?'block':'none'}};">
         <!-- 一级分类 -->
-        <view wx:for="{{categoryList}}" wx:for-item="firstCate" wx:key="{{firstCate.id}}">
+        <view wx:for="{{categoryList}}" wx:for-item="firstCate" wx:key="id">
             <view class="first-cate-view">{{firstCate.firstCateName}}</view>
             <!-- 二级分类 -->
             <view class="second-cate-view">
                 <!-- <view class="second-cate-view-item" wx:for="{{firstCate.secondCate}}" wx:for-item="secondCate" wx:key="{{secondCate.id}}">
                     {{secondCate.name}}
                 </view> -->
-                <navigator url="/pages/index/classDetail/classDetail?kind={{secondCate.id}}" class="second-cate-view-item" wx:for="{{firstCate.secondCate}}" wx:for-item="secondCate" wx:key="{{secondCate.id}}">
+                <navigator url="/pages/index/classDetail/classDetail?kind={{secondCate.id}}" class="second-cate-view-item" wx:for="{{firstCate.secondCate}}" wx:for-item="secondCate" wx:key="id">
                     {{secondCate.name}}
                 </navigator>
             </view>

@@ -124,7 +124,7 @@ video {
     background-color: rgb(240, 240, 240);
 }
 
-.dainzan,
+.dianzan,
 .fenxiang {
     display: flex;
     align-items: center;

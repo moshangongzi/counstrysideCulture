@@ -43,7 +43,8 @@ page {
     font-weight: 700;
 }
 .c {
-    margin-top:50rpx ;
+    margin-top:20rpx;
+    margin-bottom: 40px;
     font-size: 35rpx;
     line-height: 62rpx;
     white-space: pre-wrap;
