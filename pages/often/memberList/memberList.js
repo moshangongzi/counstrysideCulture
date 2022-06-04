@@ -1,15 +1,42 @@
 Page({
     data: {
+        openid: '',
+        teamId: '',
         isShow: true,
         memberList: [],
     },
     onLoad() {
-        this.getMember()
+        this.getopenid()
+    },
+    // 获取当前用户的id
+    getopenid() {
+        wx.cloud.callFunction({
+            name: 'getOpenid'
+        }).then(res => {
+            this.setData({ openid: res.result.openid });
+            this.getTid()
+        }).catch(res => {
+            console.log('获取openid函数失败', res)
+        });
+    },
+    getTid() {
+        wx.cloud.database().collection('user')
+            .doc(this.data.openid)
+            .get()
+            .then(res => {
+                this.setData({
+                    teamId: res.data.teamId
+                })
+                this.getMember()
+            })
+            .catch(res => {
+                console.log('获取用户的舞团id失败', res)
+            })
     },
     //获取舞团成员
     getMember() {
         wx.cloud.database().collection('danceTeam')
-            .doc('10fb47c3629b34f0056a6a0b6c5d8b06')
+            .doc(this.data.teamId)
             .get()
             .then(res => {
                 this.setData({
