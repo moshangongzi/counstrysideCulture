@@ -129,7 +129,7 @@
         <!-- 团队的舞团的动态 -->
         <view class="team-dynamic">
             <view class="team-dynamic-category">
-                <text bindtap="activeClick" class="team-dynamic-category-active'}}">最新动态</text>
+                <text class="team-dynamic-category-active'}}">最新动态</text>
             </view>
             <!-- 最新动态 -->
             <view wx:if="{{!activeFlag}}">

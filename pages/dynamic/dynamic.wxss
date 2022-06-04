@@ -135,7 +135,7 @@ video {
     width: 65rpx;
     padding: 0;
     background-color: transparent;
-    outline: none; 
+    outline: none;
     font-size: 30rpx;
 }
 
@@ -271,6 +271,11 @@ video {
     margin-top: 20rpx;
     border-radius: 8rpx;
     overflow: hidden;
+}
+
+.swiper-view image {
+    width: 100%;
+    height: 100%;
 }
 
 .team-member-sum {

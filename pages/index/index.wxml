@@ -36,8 +36,7 @@
                             </view>
                             <view class="dianzan-shoucang">
                                 <view class="dianzan" bindtap="dianzanClick" data-id="{{item._id}}">
-                                   
-                                        <image mode="aspectFit" src="{{item.dianzan?dianzanSrc2:dianzanSrc1}}"></image>
+                                    <image mode="aspectFit" src="{{item.dianzan?dianzanSrc2:dianzanSrc1}}"></image>
                                     <text>点赞</text>
                                 </view>
                                 <view class="shoucang" bindtap="shoucangClick" data-id="{{item._id}}">
@@ -51,7 +50,6 @@
             </view>
         </view>
     </scroll-view-refresh-load>
-
     <!-- 活动主体内容 -->
     <view style="display: {{tapID===2?'block':'none'}};">
         <view class="activity-view">
@@ -65,7 +63,6 @@
             </navigator>
         </view>
     </view>
-
     <!-- 分类主体内容 -->
     <view class="category-view" style="display: {{tapID===3?'block':'none'}};">
         <!-- 一级分类 -->

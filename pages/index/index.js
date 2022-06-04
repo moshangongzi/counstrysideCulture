@@ -4,7 +4,7 @@ Page({
     data: {
         openid: '',
         aid: '',
-        actArr: [],
+        collArr: [],
         headerTitleName: [
             { name: '推荐', id: 1 },
             { name: '活动', id: 2 },
@@ -120,9 +120,9 @@ Page({
         ],
         actList: [],
         dianzan: false,
-        dianzanID: 0,     // 每一次点赞的id
+        dianzanID: 0, // 每一次点赞的id
         dianzanList: [],
-        dianzanIDList: [],    // 记录点赞过的视频id
+        dianzanIDList: [], // 记录点赞过的视频id
         dianzanSrc1: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/dianzan.png',
         dianzanSrc2: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/%E7%82%B9%E8%B5%9E.png',
         shoucang: false,
@@ -170,7 +170,6 @@ Page({
         }
     },
     getVideo() {
-        // console.log('getVideo');
         wx.cloud.callFunction({
             name: 'getVideo'
         })
@@ -178,12 +177,12 @@ Page({
                 this.setData({
                     videoList: res.result.data
                 })
-                // console.log('获取视频数据库成功', res.result.data)
             })
             .catch(res => {
                 console.log('获取视频数据库失败', res)
             })
     },
+    //获取活动
     getAct() {
         wx.cloud.database().collection('activities').get()
             .then(res => {
@@ -219,56 +218,69 @@ Page({
                 }
             })
         })
-       
+
     },
     shoucangClick(e) {
-        if (this.data.shoucang) {
-            this.setData({
-                shoucang: false,
-                shoucangSrc1: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/shoucang.png'
+        let flag = true
+        db.collection('video').doc(e.currentTarget.dataset.id).get().then(res => {
+            if (res.data.shoucang) {
+                flag = false
+            } else {
+                this.setData({
+                    coll: e.currentTarget.dataset.id
+                });
+                this.data.collArr.push(this.data.coll);
+                wx.cloud.database().collection('user')
+                    .doc(this.data.openid)
+                    .update({
+                        data: {
+                            collection: this.data.collArr
+                        }
+                    })
+                    .then(res => {
+                        console.log('修改成功', res)
+                    })
+                    .catch(res => {
+                        console.log('修改失败', res)
+                    })
+            }
+            db.collection('video').doc(e.currentTarget.dataset.id).update({
+                // data 传入需要局部更新的数据
+                data: {
+                    shoucang: flag
+                },
+                success: res => {
+                    this.getVideo()
+                }
             })
-        } else {
-            this.setData({
-                shoucang: true,
-                shoucangSrc2: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/%E6%94%B6%E8%97%8F.png',
-                active: e.currentTarget.dataset.id
-            })
-            this.data.actArr.push(this.data.active);
-            wx.cloud.database().collection('user')
-                .doc(this.data.openid)
-                .update({
-                    data: {
-                        active: this.data.actArr
-                    }
-                })
-                .then(res => {
-                    console.log('修改成功', res)
-                })
-                .catch(res => {
-                    console.log('修改失败', res)
-                })
-        }
+        })
     },
     getopenid() {
         wx.cloud.callFunction({
             name: 'getOpenid'
         }).then(res => {
             this.setData({ openid: res.result.openid });
-            this.getUserAct();
+            this.getUserColl();
             console.log('获取openid函数成功', res.result.openid);
         }).catch(res => {
             console.log('获取openid函数失败', res)
         });
     },
-    getUserAct() {
+    //获取用户收藏
+    getUserColl() {
         wx.cloud.database().collection('user')
             .doc(this.data.openid)
             .get()
             .then(res => {
-                this.setData({
-                    actArr: res.data.active
-                })
-                console.log('获取登录用户信息成功', res.data.active)
+                if (res.data.collection) {
+                    this.setData({
+                        collArr: res.data.collection
+                    })
+                    console.log('获取登录用户信息成功', res.data.collection)
+                } else {
+                    console.log('用户收藏夹为空')
+                }
+
             })
             .catch(res => {
                 console.log('获取登录用户信息失败', res)

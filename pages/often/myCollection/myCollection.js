@@ -38,19 +38,19 @@ Page({
             name: 'getOpenid'
         }).then(res => {
             this.setData({ openid: res.result.openid });
-            this. getUserAct();
+            this. getUserColl();
             console.log('获取openid函数成功', res.result.openid);
         }).catch(res => {
             console.log('获取openid函数失败', res)
         });
     },
-    getUserAct(){
+    getUserColl(){
         wx.cloud.database().collection('user')
             .doc(this.data.openid)
             .get()
             .then(res=>{
                 this.setData({
-                    collList:res.data.active
+                    collList:res.data.collection
                 })
                 this.getVideo();   
             })

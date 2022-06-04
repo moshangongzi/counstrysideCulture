@@ -23,7 +23,7 @@ Page({
         dianzanSrc1: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/dianzan.png',
         dianzanSrc2: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/%E7%82%B9%E8%B5%9E.png',
     },
-    onLoad: function (options) {
+    onLoad: function () {
         this.setData({
             state: wx.getStorageSync('userinfo') == '',
             navHeight: App.globalData.navHeight,
@@ -50,9 +50,9 @@ Page({
     },
     // 切换动态和我的舞团页面
     navTitleNameClick: function (e) {
-        console.log(e);
+        // console.log(e);
         this.setData({ navTitleID: e.target.dataset.id })
-        console.log(this.data.navTitleID);
+        // console.log(this.data.navTitleID);
     },
     fabuPicClick: function (e) {
         wx.navigateTo({
@@ -121,6 +121,7 @@ Page({
         }).then(res => {
             this.setData({ openid: res.result.openid });
             this.getUserAct();
+            this.getDanceTeam()
             console.log('获取openid函数成功', res.result.openid);
         }).catch(res => {
             console.log('获取openid函数失败', res)
@@ -149,18 +150,28 @@ Page({
         })
     },
 
-    // 切换我的舞团最新动态和视频的页面
-    activeClick: function () {
-        if (!this.data.activeFlag) {
-            this.setData({
-                activeFlag: true
+    getDanceTeam() {
+        wx.cloud.database().collection('danceTeam')
+            .doc('10fb47c3629b34f0056a6a0b6c5d8b06')
+            .get()
+            .then(res => {
+                this.setData({
+                    danceTeamInfo: res.data,
+                });
+                console.log('获取舞团信息cg', res)
+                this.slice()
             })
-        } else if (this.data.activeFlag) {
-            this.setData({
-                activeFlag: false
+            .catch(res => {
+                console.log('获取舞团信息失败', res)
             })
-        }
+    },
+    slice() {
+        var member = this.data.danceTeamInfo.member
+        member = member.slice(0, 2);
+        console.log(member)
+        this.setData({
+            ['danceTeamInfo.member']: member
+        })
     }
-
 
 })

@@ -34,15 +34,12 @@
     },
     "condition": {
         "plugin": {
-            "current": -1,
             "list": []
         },
         "game": {
-            "current": -1,
             "list": []
         },
         "gamePlugin": {
-            "current": -1,
             "list": []
         },
         "miniprogram": {
@@ -67,6 +64,20 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/often/memberList/memberList",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/my/edit/edit",
+                    "query": "",
+                    "scene": null,
+                    "launchMode": "default"
                 }
             ]
         }

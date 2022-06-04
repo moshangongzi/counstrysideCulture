@@ -18,17 +18,29 @@
 
 .item text {
     display: inline-block;
-    width: 325rpx;
+    width: 338rpx;
     font-size: 36rpx;
     margin-left: 30rpx;
 }
 
 .item button {
-    border: 1px solid #d83232;
-    margin-left: 25rpx;
     display: inline-block;
-    width: 132rpx;
-    height: 90rpx;
+    width: 115rpx;
+    height: 73rpx;
+    margin-left: 25rpx;
+    padding: 0rpx;
+    font-size: 30rpx;
+    line-height: 65rpx;
+    color: #d83232;
+    border: 1px solid #d83232;
     vertical-align: middle;
-    color:#d83232;
+    outline: none;
+    background: transparent;
+
+}
+
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
 }

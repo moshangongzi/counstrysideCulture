@@ -9,29 +9,33 @@
     <van-tabs sticky animated>
       <van-tab title="我加入的">
         <view wx:if="{{isShow}}">
-          <navigator class="ditem" wx:for="{{dance}}" wx:key="id" url="../../menu/space/space">
+          <navigator class="ditem" wx:for="{{danceTeam}}" wx:key="id" url="../../menu/space/space">
             <view class="dimg">
-              <image mode="aspectFill" src="{{item.imgSrc}}"></image>
+              <image mode="aspectFill" src="{{item.teamIcon}}"></image>
             </view>
-            <text>{{item.dname}}</text>
+            <text>{{item.teamName}}</text>
           </navigator>
+          <button type="warn" class="footer">加入舞团</button>
         </view>
         <view wx:if="{{!isShow}}">
           <van-empty image="search" description="暂无相关内容" />
+          <button type="warn" class="footer">加入舞团</button>
         </view>
       </van-tab>
       <van-tab title="我管理的">
         <view wx:if="{{isShow}}">
-          <navigator class="ditem" wx:for="{{dance}}" wx:key="id" url="../memberList/memberList">
+          <navigator class="ditem" wx:for="{{danceTeam}}" wx:key="id" url="../memberList/memberList">
             <view class="dimg">
-              <image mode="aspectFill" src="{{item.imgSrc}}"></image>
+              <image mode="aspectFill" src="{{item.teamIcon}}"></image>
             </view>
-            <text>{{item.dname}}</text>
+            <text>{{item.teamName}}</text>
             <button>管理</button>
           </navigator>
+          <button type="warn" class="footer">创建舞团</button>
         </view>
         <view wx:if="{{!isShow}}">
           <van-empty image="search" description="暂无相关内容" />
+          <button type="warn" class="footer">创建舞团</button>
         </view>
       </van-tab>
     </van-tabs>

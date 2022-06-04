@@ -1,5 +1,7 @@
 {
+  "navigationStyle": "custom",
   "usingComponents": {
+    "navBar": "/components/navBar/navBar",
     "van-cell": "@vant/weapp/cell/index",
     "van-cell-group": "@vant/weapp/cell-group/index",
     "van-radio": "@vant/weapp/radio/index",
