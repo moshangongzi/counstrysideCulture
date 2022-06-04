@@ -64,7 +64,7 @@
                 <image mode="aspectFill" src="{{danceTeamInfo.teamIcon}}"></image>
                 <text>{{danceTeamInfo.teamName}}</text>
             </view>
-            <button wx:if="{{!status}}" catchtap="manageClick">管理</button>
+            <button wx:if="{{status}}" catchtap="manageClick">管理</button>
         </view>
         <!-- <button bindtap="onTapmanageClick">12</button> -->
         <!-- 作品 成员人数 全国排名 -->
