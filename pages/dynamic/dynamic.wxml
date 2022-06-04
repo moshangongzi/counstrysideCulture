@@ -1,12 +1,18 @@
-<view>
-    <!-- 顶部导航栏 -->
-    <view class="dynamic-dance-nav" style="height: {{navHeight}}px; padding-top: {{menuHeight}}px; z-index: 999;">
-        <block wx:for="{{navTitleName}}" wx:key="{{item.id}}">
-            <view data-id='{{item.id}}' class="nav-item {{item.id == navTitleID? 'nav-title-active':''}}" bindtap='navTitleNameClick'>
-                {{item.name}}
-            </view>
-        </block>
-    </view>
+<!-- 顶部导航栏 -->
+<view class="dynamic-dance-nav" style="height: {{navHeight}}px; padding-top: {{menuHeight}}px; z-index: 999;">
+    <block wx:for="{{navTitleName}}" wx:key="{{item.id}}">
+        <view data-id='{{item.id}}' class="nav-item {{item.id == navTitleID? 'nav-title-active':''}}" bindtap='navTitleNameClick'>
+            {{item.name}}
+        </view>
+    </block>
+</view>
+
+<block wx:if="{{state}}">
+    <navigator url="/pages/my/my" open-type="switchTab">
+        <van-empty image="error" description="请先登录" />
+    </navigator>
+</block>
+<block wx:else>
     <!-- 动态 -->
     <view class="dynamic" style="display: {{navTitleID===1?'block':'none'}};">
         <!-- 发布照片 上传视频 -->
@@ -122,8 +128,8 @@
         <!-- 团队的舞团的动态 -->
         <view class="team-dynamic">
             <view class="team-dynamic-category">
-               <text bindtap="activeClick" class="{{!activeFlag?'team-dynamic-category-active':''}}">最新动态</text>
-               <text bindtap="activeClick" class="{{activeFlag?'team-dynamic-category-active':''}}">视频</text>
+                <text bindtap="activeClick" class="{{!activeFlag?'team-dynamic-category-active':''}}">最新动态</text>
+                <text bindtap="activeClick" class="{{activeFlag?'team-dynamic-category-active':''}}">视频</text>
             </view>
             <!-- 最新动态 -->
             <view wx:if="{{!activeFlag}}">
@@ -135,4 +141,4 @@
             </view>
         </view>
     </view>
-</view>
+</block>
