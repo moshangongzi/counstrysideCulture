@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     height: 600rpx;
-    margin-top: 64rpx;
+    margin-top: 62rpx;
 }
 
 .user-avatar .user-avatar-bg {
@@ -31,7 +31,83 @@
     z-index: 99;
 }
 
+/* 我的动态 */
+/* 最新动态 */
 .latest-dynamic {
+    height: 100%;
+}
+
+.latest-dynamic-text {
+    margin-left: 25rpx;
+    font-weight: 700;
+}
+
+.latest-dynamic-list {
+    /* height: 0; */
+    margin: 25rpx 25rpx 20rpx 25rpx;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    height: 120rpx;
+    padding: 0;
+    margin-bottom: 12rpx;
+    border-bottom: 2rpx solid #ebe7e7;
+}
+
+.user-info .public-time {
+    margin-top: 5rpx;
+    margin-left: 5rpx;
+    font-size: 44rpx;
+}
+
+.latest-dynamic-con {
+    margin-left: 120rpx;
+    /* height: 400rpx; */
+    /* background-color: pink; */
+}
+
+.latest-dynamic-con-text {
+    font-size: 35rpx;
+}
+
+.latest-dynamic-con image,
+video {
+    width: 100%;
+    height: 400rpx;
+    margin-top: 20rpx;
+    /* z-index: -1; */
+}
+
+.latest-dynamic-con .dianzan-fenxiang {
+    position: relative;
+    /* display: flex;
+    justify-content:right; */
+    width: 100%;
+    height: 80rpx;
+    margin-top: 30rpx;
+    /* border: 1rpx solid #a9a9a9; */
+    /* background-color: rgb(240, 240, 240); */
+}
+
+.dianzan{
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+}
+
+.dianzan-fenxiang image {
+    width: 50rpx;
+    height: 50rpx;
+    vertical-align: top;
+    margin: 0rpx;
+    margin-right: 20rpx;
+}
+
+/* .latest-dynamic {
     height: 100%;
 }
 
@@ -85,7 +161,7 @@
     height: 50rpx;
     margin-right: 10rpx;
     vertical-align: middle;
-}
+} */
 
 
 

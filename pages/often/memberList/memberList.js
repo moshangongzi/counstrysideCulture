@@ -9,7 +9,7 @@ Page({
     //获取舞团成员
     getMember() {
         wx.cloud.database().collection('danceTeam')
-            .doc('8f75309d629ad43d06f2766147c7a2d8')
+            .doc('10fb47c3629b34f0056a6a0b6c5d8b06')
             .get()
             .then(res => {
                 this.setData({
@@ -29,7 +29,7 @@ Page({
                 if (res.confirm) {
                     that.remove(that.data.memberList, e.currentTarget.dataset.id)
                     that.setData({
-                        memberList: memberList
+                        memberList: that.data.memberList
                     })
                     console.log(that.data.memberList);
                     that.updateMember()
@@ -42,7 +42,7 @@ Page({
     //数据库更新成员信息
     updateMember() {
         wx.cloud.database().collection('danceTeam')
-            .doc('8f75309d629ad43d06f2766147c7a2d8')
+            .doc('10fb47c3629b34f0056a6a0b6c5d8b06')
             .update({
                 data: {
                     member: this.data.memberList

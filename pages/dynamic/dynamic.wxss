@@ -165,6 +165,11 @@ video {
     /* background-color: skyblue; */
 }
 
+.team-avatar-name {
+    display: flex;
+    align-items: center;
+}
+
 .teamName image {
     width: 110rpx;
     height: 110rpx;
@@ -176,7 +181,7 @@ video {
     height: 60rpx;
     padding: 0rpx;
     margin-right: 25rpx;
-    z-index: -99;
+    /* z-index: -99; */
     font-size: 30rpx;
     line-height: 60rpx;
     outline: none;

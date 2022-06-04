@@ -1,18 +1,18 @@
 {
     "pages": [
-        "pages/index/index",
-        "pages/public/publicVid/publicVid",
         "pages/dynamic/dynamic",
+        "pages/index/index",
         "pages/index/classDetail/classDetail",
         "pages/index/actDetail/actDetail",
         
         "pages/public/public",
         "pages/public/publicPic/publicPic",
-
+        "pages/public/publicVid/publicVid",
+        
         "pages/my/my",
         "pages/my/edit/edit",
-        "pages/menu/myDynamic/myDynamic",
         "pages/menu/cert/cert",
+        "pages/menu/myDynamic/myDynamic",
         "pages/often/myActivity/myActivity",
         "pages/often/myDanceTeam/myDanceTeam",
         "pages/often/myCollection/myCollection",
