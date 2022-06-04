@@ -1,51 +1,16 @@
 const App = getApp();
 const db = wx.cloud.database()
+const _ = db.command
 Page({
     data: {
-        state:'',
+        state: '',
         navTitleName: [
             { id: 1, name: '动态', },
             { id: 2, name: '我的舞团', },
         ],
         dynamicList: [],
         // 舞团信息
-        danceTeamInfo: {
-            id: 1,
-            teamName: '最炫民族风',
-            teamIcon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/activity1.jpg?sign=c1e1505fa38eee71f775352be5b1ad2a&t=1654149347',
-            teamInfo: [
-                {
-                    name: '作品',
-                    number: 5
-                },
-                {
-                    name: '成员',
-                    number: 2
-                },
-                {
-                    name: '全国排名',
-                    number: 168431
-                },
-                {
-                    name: '访客',
-                    number: 523
-                },
-            ],
-            member: [
-                {
-                    id: 1,
-                    memberIcon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/activity1.jpg?sign=35ffbaf83f6b7c7aed0cff89c0f51e82&t=1654149364',
-                    memberNickName: '最美舞者',
-                    status: 0,
-                },
-                {
-                    id: 2,
-                    memberIcon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/activity1.jpg?sign=35ffbaf83f6b7c7aed0cff89c0f51e82&t=1654149364',
-                    memberNickName: '最帅舞者',
-                    status: 1,
-                }
-            ]
-        },
+        danceTeamInfo: {},
         swiperList: [
             { id: 1, imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/banner1.jpg?sign=f043c8067fac26fedf75e0c1be1f88ba&t=1654149383' },
             { id: 2, imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/banner3.jpg?sign=c1f219fe5f28f00495494d36e748debf&t=1654149391' },
@@ -53,26 +18,23 @@ Page({
         navTitleID: 1,
         navHeight: '',
         menuHeight: '',
-        activeFlag: false
+        openid: '',
+        status: '',
+        dianzanSrc1: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/dianzan.png',
+        dianzanSrc2: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/%E7%82%B9%E8%B5%9E.png',
     },
     onLoad: function (options) {
         this.setData({
-            state:wx.getStorageSync('userinfo')=='',
+            state: wx.getStorageSync('userinfo') == '',
             navHeight: App.globalData.navHeight,
             menuHeight: App.globalData.menuHeight
         })
+        this.getDanceTeamInfo()
+        this.getopenid()
     },
 
     onShow: function () {
-        // this.showDynamic()
-        //  1、获取数据库allUserDynamics中的所有数据，存入dynamicList
-        db.collection('allUserDynamics').get().then(res => {
-            // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
-            console.log('donshow', res.data)
-            this.setData({
-                dynamicList: res.data
-            })
-        })
+        this.showDynamic()
     },
 
     // 动态数据渲染
@@ -86,7 +48,7 @@ Page({
             })
         })
     },
-
+    // 切换动态和我的舞团页面
     navTitleNameClick: function (e) {
         console.log(e);
         this.setData({ navTitleID: e.target.dataset.id })
@@ -102,31 +64,92 @@ Page({
             url: '../public/publicVid/publicVid',
         })
     },
-
     // 点赞
     dianZanClick: function (e) {
-        let dz = null
-        console.log(e.currentTarget.dataset.id);
-        db.collection('allUserDynamics').doc(e.currentTarget.dataset.id).get()
-            .then(res => {
-                // console.log(res.data)
-                dz = res.data.dianzan + 1
-                // console.log(dz);
+        db.collection('allUserDynamics').doc(e.currentTarget.dataset.id).get().then(res => {
+            // 如果dianzanFlag为false，改成true
+            // 点赞加1
+            if (!res.data.dianzanFlag) {
                 db.collection('allUserDynamics').doc(e.currentTarget.dataset.id).update({
                     // data 传入需要局部更新的数据
                     data: {
                         // 表示将 done 字段置为 true
-                        dianzan: dz
+                        dianzan: _.inc(1),
+                        dianzanFlag: true
                     },
                     success: res => {
                         console.log(res)
                         this.showDynamic()
                     }
                 })
+            } else if (res.data.dianzanFlag) {
+                let dz = null
+                db.collection('allUserDynamics').doc(e.currentTarget.dataset.id).get()
+                    .then(res => {
+                        dz = res.data.dianzan - 1
+                        db.collection('allUserDynamics').doc(e.currentTarget.dataset.id).update({
+                            // data 传入需要局部更新的数据
+                            data: {
+                                dianzan: dz,
+                                dianzanFlag: false
+                            },
+                            success: res => {
+                                // console.log(res)
+                                this.showDynamic()
+                            }
+                        })
+                    })
+            }
+        })
+    },
+    // 获取我的舞团信息
+    getDanceTeamInfo: function (e) {
+        db.collection('danceTeam').get({
+            success: res => {
+                // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
+                console.log('获取舞团信息', res.data[0])
+                this.setData({
+                    danceTeamInfo: res.data[0]
+                })
+            }
+        })
+    },
+    // 获取当前用户的id
+    getopenid() {
+        wx.cloud.callFunction({
+            name: 'getOpenid'
+        }).then(res => {
+            this.setData({ openid: res.result.openid });
+            this.getUserAct();
+            console.log('获取openid函数成功', res.result.openid);
+        }).catch(res => {
+            console.log('获取openid函数失败', res)
+        });
+    },
+    // 获取当前用户的status
+    getUserAct() {
+        wx.cloud.database().collection('user')
+            .doc(this.data.openid)
+            .get()
+            .then(res => {
+                this.setData({
+                    status: res.data.status
+                })
+                console.log('status', this.data.status)
+            })
+            .catch(err => {
+                console.log('获取status失败', err)
             })
     },
+    // 点击管理
+    manageClick: function (e) {
+        console.log('ok');
+        wx.navigateTo({
+            url: '../often/memberList/memberList',
+        })
+    },
 
-    // 切换最新动态和视频的页面
+    // 切换我的舞团最新动态和视频的页面
     activeClick: function () {
         if (!this.data.activeFlag) {
             this.setData({

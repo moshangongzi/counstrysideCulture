@@ -1,5 +1,5 @@
 <navBar showBackIcon="{{true}}" navBarTitle="我的动态" />
-<view style="margin-top:64px">
+<view style="margin-top:60px">
     <block wx:if="{{state}}">
         <navigator url="/pages/my/my" open-type="switchTab">
             <van-empty image="error" description="请先登录" />
@@ -13,12 +13,33 @@
             <image class="user-avatar-small" src="{{userimg}}"></image>
         </view>
         <view class="latest-dynamic">
-            <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="{{item.id}}">
+            <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="_id">
+                <!-- 用户头像 -->
+                <view class="user-info">
+                    <view class="public-time">{{item.time}}</view>
+                </view>
                 <!-- 动态 -->
                 <view class="latest-dynamic-con">
-                    <view class="public-time">{{item.public_time}}分钟前</view>
-                    <text class="latest-dynamic-con-text">{{item.text}}</text>
-                    <image class="latest-dynamic-con-img" mode="aspectFill" src="{{item.img_video_url}}"></image>
+                    <text class="latest-dynamic-con-text">{{item.con}}</text>
+                    <image wx:if="{{item.tempFilePaths&&item.FileType===0}}" mode="aspectFill" src="{{item.tempFilePaths}}"></image>
+                    <video wx:if="{{item.tempFilePaths&&item.FileType===1}}" src="{{item.tempFilePaths}}"></video>
+                    <view class="dianzan-fenxiang">
+                        <view class="dianzan" bindtap="dianZanClick" data-id="{{item._id}}">
+                            <image mode="aspectFit" src="{{item.dianzanFlag?dianzanSrc2:dianzanSrc1}}"></image>
+                            <text>点赞（{{item.dianzan}}）</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- <view class="latest-dynamic"> -->
+
+        <!-- <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="{{item.id}}">
+               
+                <view class="latest-dynamic-con">
+                    <view class="public-time">{{item.time}}</view>
+                    <text class="latest-dynamic-con-text">{{item.con}}</text>
+                    <image class="latest-dynamic-con-img" mode="aspectFill" src="{{item.tempFilePaths}}"></image>
                     <view class="dianzan-pic">
                         <view class="dianzan">
                             <image class="dianzan-img" mode="aspectFit" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/dianzan.png?sign=b0c48eb5304f953e01f8f808760d4250&t=1654149673"></image>
@@ -26,7 +47,7 @@
                         </view>
                     </view>
                 </view>
-            </view>
-        </view>
+            </view> -->
+        <!-- </view> -->
     </block>
 </view>

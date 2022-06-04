@@ -133,6 +133,7 @@ Page({
         that.setData({
             'content.time': currentTime,
             'content.dianzan': 0,
+            'content.dianzanFlag': false,
         })
         console.log(this.data.content);
 

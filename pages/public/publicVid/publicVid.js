@@ -130,6 +130,7 @@ Page({
         that.setData({
             'content.time': currentTime,
             'content.dianzan': 0,
+            'content.dianzanFlag': false,
         })
         console.log('confirmPublic', this.data.content);
         // 1、判断内容是否为空，为空给出提示
