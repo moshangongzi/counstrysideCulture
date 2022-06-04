@@ -45,7 +45,7 @@ Page({
         // 1、获取数据库allUserDynamics中的所有数据，存入dynamicList
         db.collection('allUserDynamics').get().then(res => {
             // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
-            console.log('allUserDynamics', res.data)
+            // console.log('allUserDynamics', res.data)
             this.setData({
                 dynamicList: res.data.reverse()
             })
@@ -114,7 +114,7 @@ Page({
             this.getUserAct();
             this.getTid()
             this.getDanceTeam();
-            console.log('获取openid函数成功', res.result.openid);
+            // console.log('获取openid函数成功', res.result.openid);
         }).catch(res => {
             console.log('获取openid函数失败', res)
         });
@@ -128,7 +128,7 @@ Page({
                 this.setData({
                     status: res.data.status
                 })
-                console.log('status', this.data.status)
+                // console.log('status', this.data.status)
             })
             .catch(err => {
                 console.log('获取status失败', err)
@@ -166,9 +166,10 @@ Page({
                     danceTeamInfo: res.data,
                 });
                 this.slice()
+                // console.log('获取舞团信息chengon');
             })
             .catch(res => {
-                console.log('获取舞团信息失败', res)
+                // console.log('获取舞团信息失败', )
             })
     },
     slice() {

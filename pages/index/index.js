@@ -190,7 +190,7 @@ Page({
                 this.setData({
                     actList: res.data
                 })
-                console.log('获取活动数据库成功', res.data)
+                // console.log('获取活动数据库成功', res.data)
             })
             .catch(err => {
                 console.log('获取活动数据库失败', err)
@@ -282,7 +282,7 @@ Page({
         }).then(res => {
             this.setData({ openid: res.result.openid });
             this.getUserColl();
-            console.log('获取openid函数成功', res.result.openid);
+            // console.log('获取openid函数成功', res.result.openid);
         }).catch(res => {
             console.log('获取openid函数失败', res)
         });

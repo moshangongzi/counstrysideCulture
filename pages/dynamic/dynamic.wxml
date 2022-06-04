@@ -151,7 +151,7 @@
                             <video wx:if="{{item.tempFilePaths&&item.FileType===1}}" src="{{item.tempFilePaths}}"></video>
                             <view class="dianzan-fenxiang">
                                 <view class="dianzan" bindtap="dianZanClick" data-id="{{item._id}}">
-                                    <image mode="aspectFit" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/dianzan.png?sign=eebe3bb3f097dc656bf959f659108a44&t=1654149516"></image>
+                                    <image mode="aspectFit" src="{{item.dianzanFlag?dianzanSrc2:dianzanSrc1}}"></image>
                                     <text>点赞（{{item.dianzan}}）</text>
                                 </view>
                                 <view class="fenxiang">
