@@ -104,7 +104,7 @@ Page({
       tel: e.detail.value.tel,
       address: e.detail.value.address,
       selfInfo: e.detail.value.selfInfo,
-    })
+    });
     this.updateUser();
   },
   //更新至数据库

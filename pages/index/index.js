@@ -4,7 +4,7 @@ Page({
     data: {
         openid: '',
         aid: '',
-        actArr: [],
+        collArr: [],
         headerTitleName: [
             { name: '推荐', id: 1 },
             { name: '活动', id: 2 },
@@ -19,104 +19,104 @@ Page({
         videoList: [],
         randomArray: [],
         categoryList: [{
-                id: 1,
-                firstCateName: '广场舞',
-                secondCate: [{
-                        id: '1_1',
-                        name: '16步',
-                    },
-                    {
-                        id: '1_2',
-                        name: '32步'
-                    },
-                    {
-                        id: '1_3',
-                        name: '步子舞'
-                    },
-                    {
-                        id: '1_4',
-                        name: '中三舞'
-                    }
-                ]
+            id: 1,
+            firstCateName: '广场舞',
+            secondCate: [{
+                id: '1_1',
+                name: '16步',
             },
             {
-                id: 2,
-                firstCateName: '健身',
-                secondCate: [{
-                        id: '2_1',
-                        name: '健身操',
-                    },
-                    {
-                        id: '2_2',
-                        name: '瘦肚子舞'
-                    },
-                    {
-                        id: '2_3',
-                        name: '形体'
-                    },
-                    {
-                        id: '2_4',
-                        name: '懒人操'
-                    },
-                    {
-                        id: '2_5',
-                        name: '颈椎舞',
-                    },
-                    {
-                        id: '2_6',
-                        name: '瑜伽'
-                    },
-                    {
-                        id: '2_7',
-                        name: '全身暴汗'
-                    },
-                    {
-                        id: '2_8',
-                        name: '拍打操'
-                    },
-                ]
+                id: '1_2',
+                name: '32步'
             },
             {
-                id: 3,
-                firstCateName: '流行舞',
-                secondCate: [{
-                        id: '3_1',
-                        name: '水兵舞',
-                    },
-                    {
-                        id: '3_2',
-                        name: '鬼步舞'
-                    },
-                    {
-                        id: '3_3',
-                        name: '爵士舞'
-                    },
-                    {
-                        id: '3_4',
-                        name: '现代舞'
-                    },
-                    {
-                        id: '3_5',
-                        name: '肚皮舞',
-                    },
-                    {
-                        id: '3_6',
-                        name: '形体舞'
-                    },
-                    {
-                        id: '3_7',
-                        name: '古典舞'
-                    },
-                    {
-                        id: '3_8',
-                        name: '恰恰舞'
-                    },
-                    {
-                        id: '3_9',
-                        name: '拉丁舞'
-                    },
-                ]
+                id: '1_3',
+                name: '步子舞'
             },
+            {
+                id: '1_4',
+                name: '中三舞'
+            }
+            ]
+        },
+        {
+            id: 2,
+            firstCateName: '健身',
+            secondCate: [{
+                id: '2_1',
+                name: '健身操',
+            },
+            {
+                id: '2_2',
+                name: '瘦肚子舞'
+            },
+            {
+                id: '2_3',
+                name: '形体'
+            },
+            {
+                id: '2_4',
+                name: '懒人操'
+            },
+            {
+                id: '2_5',
+                name: '颈椎舞',
+            },
+            {
+                id: '2_6',
+                name: '瑜伽'
+            },
+            {
+                id: '2_7',
+                name: '全身暴汗'
+            },
+            {
+                id: '2_8',
+                name: '拍打操'
+            },
+            ]
+        },
+        {
+            id: 3,
+            firstCateName: '流行舞',
+            secondCate: [{
+                id: '3_1',
+                name: '水兵舞',
+            },
+            {
+                id: '3_2',
+                name: '鬼步舞'
+            },
+            {
+                id: '3_3',
+                name: '爵士舞'
+            },
+            {
+                id: '3_4',
+                name: '现代舞'
+            },
+            {
+                id: '3_5',
+                name: '肚皮舞',
+            },
+            {
+                id: '3_6',
+                name: '形体舞'
+            },
+            {
+                id: '3_7',
+                name: '古典舞'
+            },
+            {
+                id: '3_8',
+                name: '恰恰舞'
+            },
+            {
+                id: '3_9',
+                name: '拉丁舞'
+            },
+            ]
+        },
         ],
         actList: [],
         dianzan: false,
@@ -134,7 +134,7 @@ Page({
         navHeight: ''
     },
 
-    onLoad: function() {
+    onLoad: function () {
         this.setData({
             navHeight: App.globalData.navHeight,
         });
@@ -144,7 +144,7 @@ Page({
         this.getAct();
     },
 
-    onShow: function() {
+    onShow: function () {
         if (App.globalData.tapID) {
             this.setData({
                 tapID: App.globalData.tapID,
@@ -153,11 +153,11 @@ Page({
     },
 
     // headerBar 点击
-    headerTitleClick: function(e) {
+    headerTitleClick: function (e) {
         this.setData({ tapID: e.target.dataset.id })
     },
 
-    handleSwiperChange: function(e) {
+    handleSwiperChange: function (e) {
         this.setData({
             swiperIndex: `${e.detail.current + 1}/4`
         })
@@ -170,20 +170,19 @@ Page({
         }
     },
     getVideo() {
-        // console.log('getVideo');
         wx.cloud.callFunction({
-                name: 'getVideo'
-            })
+            name: 'getVideo'
+        })
             .then(res => {
                 this.setData({
-                        videoList: res.result.data
-                    })
-                    // console.log('获取视频数据库成功', res.result.data)
+                    videoList: res.result.data
+                })
             })
             .catch(res => {
                 console.log('获取视频数据库失败', res)
             })
     },
+    //获取活动
     getAct() {
         wx.cloud.database().collection('activities').get()
             .then(res => {
@@ -222,53 +221,66 @@ Page({
 
     },
     shoucangClick(e) {
-        if (this.data.shoucang) {
-            this.setData({
-                shoucang: false,
-                shoucangSrc1: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/shoucang.png'
+        let flag = true
+        db.collection('video').doc(e.currentTarget.dataset.id).get().then(res => {
+            if (res.data.shoucang) {
+                flag = false
+            } else {
+                this.setData({
+                    coll: e.currentTarget.dataset.id
+                });
+                this.data.collArr.push(this.data.coll);
+                wx.cloud.database().collection('user')
+                    .doc(this.data.openid)
+                    .update({
+                        data: {
+                            collection: this.data.collArr
+                        }
+                    })
+                    .then(res => {
+                        console.log('修改成功', res)
+                    })
+                    .catch(res => {
+                        console.log('修改失败', res)
+                    })
+            }
+            db.collection('video').doc(e.currentTarget.dataset.id).update({
+                // data 传入需要局部更新的数据
+                data: {
+                    shoucang: flag
+                },
+                success: res => {
+                    this.getVideo()
+                }
             })
-        } else {
-            this.setData({
-                shoucang: true,
-                shoucangSrc2: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/%E6%94%B6%E8%97%8F.png',
-                active: e.currentTarget.dataset.id
-            })
-            this.data.actArr.push(this.data.active);
-            wx.cloud.database().collection('user')
-                .doc(this.data.openid)
-                .update({
-                    data: {
-                        active: this.data.actArr
-                    }
-                })
-                .then(res => {
-                    console.log('修改成功', res)
-                })
-                .catch(res => {
-                    console.log('修改失败', res)
-                })
-        }
+        })
     },
     getopenid() {
         wx.cloud.callFunction({
             name: 'getOpenid'
         }).then(res => {
             this.setData({ openid: res.result.openid });
-            this.getUserAct();
+            this.getUserColl();
             console.log('获取openid函数成功', res.result.openid);
         }).catch(res => {
             console.log('获取openid函数失败', res)
         });
     },
-    getUserAct() {
+    //获取用户收藏
+    getUserColl() {
         wx.cloud.database().collection('user')
             .doc(this.data.openid)
             .get()
             .then(res => {
-                this.setData({
-                    actArr: res.data.active
-                })
-                console.log('获取登录用户信息成功', res.data.active)
+                if (res.data.collection) {
+                    this.setData({
+                        collArr: res.data.collection
+                    })
+                    console.log('获取登录用户信息成功', res.data.collection)
+                } else {
+                    console.log('用户收藏夹为空')
+                }
+
             })
             .catch(res => {
                 console.log('获取登录用户信息失败', res)

@@ -18,14 +18,13 @@
 
 .item text {
     display: inline-block;
-    width: 325rpx;
+    width: 338rpx;
     font-size: 36rpx;
     margin-left: 30rpx;
 }
 
 .item button {
     display: inline-block;
-    z-index: -99;
     width: 115rpx;
     height: 73rpx;
     margin-left: 25rpx;

@@ -2,7 +2,8 @@ Page {
     background-color: #f7f7f7;
 }
 .usermsg {
-    margin-top: 50rpx;
+    margin-top: 75px;
+    margin-bottom: 60px;
 }
 
 .headimg {

@@ -55,7 +55,7 @@ Page({
         menuHeight: '',
         activeFlag: false
     },
-    onLoad: function (options) {
+    onLoad: function () {
         this.setData({
             state: wx.getStorageSync('userinfo') == '',
             navHeight: App.globalData.navHeight,
@@ -145,12 +145,20 @@ Page({
             .get()
             .then(res => {
                 this.setData({
-                    danceTeamInfo: res.data
-                })
+                    danceTeamInfo: res.data,
+                });
+                this.slice()
             })
             .catch(res => {
                 console.log('获取舞团信息失败', res)
             })
+    },
+    slice() {
+        var member = this.data.danceTeamInfo.member
+        member = member.slice(0, 2);
+        this.setData({
+            ['danceTeamInfo.member']: member
+        })
     }
 
 })
