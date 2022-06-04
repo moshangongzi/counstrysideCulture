@@ -6,7 +6,6 @@
         </view>
     </block>
 </view>
-
 <block wx:if="{{state}}">
     <navigator url="/pages/my/my" open-type="switchTab">
         <van-empty image="error" description="请先登录" />
@@ -26,11 +25,11 @@
                 <text>上传视频</text>
             </view>
         </view>
-        <!-- 最新动态 -->
+        <!-- 最新动态 -->
         <view class="latest-dynamic">
             <view class="latest-dynamic-text">最新动态</view>
             <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="{{item._id}}">
-                <!-- 用户头像  -->
+                <!-- 用户头像 -->
                 <view class="user-info">
                     <image mode="aspectFill" src="{{item.userImg}}"></image>
                     <view class="nickname-time">
@@ -57,7 +56,6 @@
             </view>
         </view>
     </view>
-
     <!-- 我的舞团 -->
     <view class="my-dance-team" style="display: {{navTitleID===2?'block':'none'}};">
         <!-- 舞团信息 -->
