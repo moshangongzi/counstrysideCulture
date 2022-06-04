@@ -41,8 +41,7 @@
             "list": []
         },
         "miniprogram": {
-            "list": [
-                {
+            "list": [{
                     "name": "动态",
                     "pathName": "pages/dynamic/dynamic",
                     "query": "",
