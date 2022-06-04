@@ -36,11 +36,12 @@
                             </view>
                             <view class="dianzan-shoucang">
                                 <view class="dianzan" bindtap="dianzanClick" data-id="{{item._id}}">
-                                    <image mode="aspectFit" src="{{dianzanSrc}}"></image>
+                                   
+                                        <image mode="aspectFit" src="{{item.dianzan?dianzanSrc2:dianzanSrc1}}"></image>
                                     <text>点赞</text>
                                 </view>
                                 <view class="shoucang" bindtap="shoucangClick" data-id="{{item._id}}">
-                                    <image mode="aspectFit" src="{{shoucangSrc}}"></image>
+                                    <image mode="aspectFit" src="{{item.shoucang?shoucangSrc2:shoucangSrc1}}"></image>
                                     <text>收藏</text>
                                 </view>
                             </view>

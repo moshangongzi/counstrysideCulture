@@ -28,20 +28,25 @@
         },
         "disableUseStrict": false,
         "useCompilerPlugins": false,
-        "ignoreUploadUnusedFiles": false
+        "ignoreUploadUnusedFiles": false,
+        "minifyWXML": true
     },
     "condition": {
         "plugin": {
+            "current": -1,
             "list": []
         },
         "game": {
+            "current": -1,
             "list": []
         },
         "gamePlugin": {
+            "current": -1,
             "list": []
         },
         "miniprogram": {
-            "list": [{
+            "list": [
+                {
                     "name": "动态",
                     "pathName": "pages/dynamic/dynamic",
                     "query": "",
@@ -59,8 +64,8 @@
                     "name": "",
                     "pathName": "pages/index/index",
                     "query": "",
-                    "scene": null,
-                    "launchMode": "default"
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

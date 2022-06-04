@@ -119,7 +119,7 @@ Page({
                         dianzan: dz
                     },
                     success: res => {
-                        // console.log(res)
+                        console.log(res)
                         this.showDynamic()
                     }
                 })

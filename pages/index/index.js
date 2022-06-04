@@ -1,9 +1,10 @@
 const App = getApp()
+const db = wx.cloud.database()
 Page({
     data: {
-        openid:'',
-        aid:'',
-        actArr:[],
+        openid: '',
+        aid: '',
+        actArr: [],
         headerTitleName: [
             { name: '推荐', id: 1 },
             { name: '活动', id: 2 },
@@ -119,9 +120,14 @@ Page({
         ],
         actList: [],
         dianzan: false,
-        dianzanSrc: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/dianzan.png',
+        dianzanID: 0,     // 每一次点赞的id
+        dianzanList: [],
+        dianzanIDList: [],    // 记录点赞过的视频id
+        dianzanSrc1: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/dianzan.png',
+        dianzanSrc2: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/%E7%82%B9%E8%B5%9E.png',
         shoucang: false,
-        shoucangSrc: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/shoucang.png',
+        shoucangSrc1: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/shoucang.png',
+        shoucangSrc2: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/%E6%94%B6%E8%97%8F.png',
         swiperIndex: '1/4',
         topPic: [],
         tapID: 1, // 判断是否选中
@@ -164,6 +170,7 @@ Page({
         }
     },
     getVideo() {
+        // console.log('getVideo');
         wx.cloud.callFunction({
             name: 'getVideo'
         })
@@ -189,45 +196,57 @@ Page({
                 console.log('获取活动数据库失败', err)
             })
     },
-    dianzanClick() {
-        if (this.data.dianzan) {
-            this.setData({
-                dianzan: false,
-                dianzanSrc: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/dianzan.png'
+    // 点赞和取消点赞
+    dianzanClick(e) {
+        // 获取点赞的视频的id，
+        // console.log(e.currentTarget.dataset.id);
+        // 根据点赞视频的id，更新视频的点赞属性为true
+        let flag = true
+        db.collection('video').doc(e.currentTarget.dataset.id).get().then(res => {
+            // 如果dianzan为true，改成false
+            if (res.data.dianzan) {
+                flag = false
+            }
+
+            db.collection('video').doc(e.currentTarget.dataset.id).update({
+                // data 传入需要局部更新的数据
+                data: {
+                    dianzan: flag
+                },
+                success: res => {
+                    console.log(res)
+                    this.getVideo()
+                }
             })
-        } else {
-            this.setData({
-                dianzan: true,
-                dianzanSrc: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/%E7%82%B9%E8%B5%9E.png'
-            })
-        }
+        })
+       
     },
-    shoucangClick(e){
+    shoucangClick(e) {
         if (this.data.shoucang) {
             this.setData({
                 shoucang: false,
-                shoucangSrc: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/shoucang.png'
+                shoucangSrc1: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/shoucang.png'
             })
         } else {
             this.setData({
                 shoucang: true,
-                shoucangSrc: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/%E6%94%B6%E8%97%8F.png',
-                active:e.currentTarget.dataset.id
+                shoucangSrc2: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/%E6%94%B6%E8%97%8F.png',
+                active: e.currentTarget.dataset.id
             })
             this.data.actArr.push(this.data.active);
             wx.cloud.database().collection('user')
-            .doc(this.data.openid)
-            .update({
-                data:{
-                    active:this.data.actArr
-                }
-            })
-            .then(res=>{
-                console.log('修改成功',res)
-            })
-            .catch(res=>{
-                console.log('修改失败',res)
-            })
+                .doc(this.data.openid)
+                .update({
+                    data: {
+                        active: this.data.actArr
+                    }
+                })
+                .then(res => {
+                    console.log('修改成功', res)
+                })
+                .catch(res => {
+                    console.log('修改失败', res)
+                })
         }
     },
     getopenid() {
@@ -235,24 +254,24 @@ Page({
             name: 'getOpenid'
         }).then(res => {
             this.setData({ openid: res.result.openid });
-            this. getUserAct();
+            this.getUserAct();
             console.log('获取openid函数成功', res.result.openid);
         }).catch(res => {
             console.log('获取openid函数失败', res)
         });
     },
-    getUserAct(){
+    getUserAct() {
         wx.cloud.database().collection('user')
             .doc(this.data.openid)
             .get()
-            .then(res=>{
+            .then(res => {
                 this.setData({
-                    actArr:res.data.active
+                    actArr: res.data.active
                 })
-                console.log('获取登录用户信息成功',res)
+                console.log('获取登录用户信息成功', res.data.active)
             })
-            .catch(res=>{
-                console.log('获取登录用户信息失败',res)
+            .catch(res => {
+                console.log('获取登录用户信息失败', res)
             })
     }
 
