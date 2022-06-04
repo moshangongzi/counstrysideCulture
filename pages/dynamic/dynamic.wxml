@@ -28,7 +28,7 @@
         <!-- 最新动态 -->
         <view class="latest-dynamic">
             <view class="latest-dynamic-text">最新动态</view>
-            <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="id">
+            <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="_id">
                 <!-- 用户头像 -->
                 <view class="user-info">
                     <image mode="aspectFill" src="{{item.userImg}}"></image>
