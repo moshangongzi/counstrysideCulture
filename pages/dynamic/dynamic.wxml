@@ -28,7 +28,7 @@
         <!-- 最新动态 -->
         <view class="latest-dynamic">
             <view class="latest-dynamic-text">最新动态</view>
-            <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="{{item._id}}">
+            <view class="latest-dynamic-list" wx:for="{{dynamicList}}" wx:key="id">
                 <!-- 用户头像 -->
                 <view class="user-info">
                     <image mode="aspectFill" src="{{item.userImg}}"></image>
@@ -43,7 +43,7 @@
                     <image wx:if="{{item.tempFilePaths&&item.FileType===0}}" mode="aspectFill" src="{{item.tempFilePaths}}"></image>
                     <video wx:if="{{item.tempFilePaths&&item.FileType===1}}" src="{{item.tempFilePaths}}"></video>
                     <view class="dianzan-fenxiang">
-                        <view class="dainzan" bindtap="dianZanClick" data-id="{{item._id}}">
+                        <view class="dianzan" bindtap="dianZanClick" data-id="{{item._id}}">
                             <image mode="aspectFit" src="https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/dianzan.png?sign=eebe3bb3f097dc656bf959f659108a44&t=1654149516"></image>
                             <text>点赞（{{item.dianzan}}）</text>
                         </view>
@@ -126,12 +126,8 @@
         <!-- 团队的舞团的动态 -->
         <view class="team-dynamic">
             <view class="team-dynamic-category">
-                <text bindtap="activeClick" class="{{!activeFlag?'team-dynamic-category-active':''}}">
-                    最新动态
-                </text>
-                <text bindtap="activeClick" class="{{activeFlag?'team-dynamic-category-active':''}}">
-                    视频
-                </text>
+                <text bindtap="activeClick" class="{{!activeFlag?'team-dynamic-category-active':''}}">最新动态</text>
+                <text bindtap="activeClick" class="{{activeFlag?'team-dynamic-category-active':''}}">视频</text>
             </view>
             <!-- 最新动态 -->
             <view wx:if="{{!activeFlag}}">

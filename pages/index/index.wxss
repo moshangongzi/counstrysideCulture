@@ -78,9 +78,9 @@
 }
 
 .list-item {
-  height: 400rpx;
+  height: 200px;
   width: 100%;
-  margin-bottom: 25rpx;
+  margin-bottom: 30px;
   box-sizing: border-box;
 }
 
@@ -113,6 +113,29 @@
   left: 545rpx;
   font-size: 30rpx;
   color: #fff;
+}
+/* 点赞收藏 */
+.dianzan-shoucang { 
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 37px;
+  margin-top: -10px;
+}
+
+.dianzan,
+.shoucang {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+}
+
+.dianzan-shoucang image {
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: top;
+  margin: 0rpx;
+  margin-right: 20rpx;
 }
 
 /* 活动主体内容 */
