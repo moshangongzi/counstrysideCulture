@@ -114,7 +114,7 @@
             </view>
             <view class="team-member-items">
                 <view class="team-member-item" wx:for="{{danceTeamInfo.member}}" wx:key="id">
-                    <view class="team-leader" wx:if="{{!item.status}}">队长</view>
+                    <view class="team-leader" wx:if="{{item.status}}">队长</view>
                     <view class="team-member-item-pic">
                         <image mode="aspectFill" src="{{item.memberIcon}}"></image>
                         <text>{{item.memberNickName}}</text>
