@@ -6,6 +6,7 @@
         <text>{{item.name}}</text>
         <button>删除</button>
       </navigator>
+      <button type="warn" class="footer">解散舞团</button>
     </view>
     <view wx:if="{{!isShow}}">
       <van-empty image="search" description="暂无相关内容" />

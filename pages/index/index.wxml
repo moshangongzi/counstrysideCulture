@@ -35,7 +35,7 @@
                                 <view class="shipin-bofangshu">{{item.click}}次播放</view>
                             </view>
                             <view class="dianzan-shoucang">
-                                <view class="dianzan" bindtap="dianzanClick" data-id="{{item._id}}">
+                                <view class="dianzan" bindtap="dianzanClick">
                                     <image mode="aspectFit" src="{{dianzanSrc}}"></image>
                                     <text>点赞</text>
                                 </view>

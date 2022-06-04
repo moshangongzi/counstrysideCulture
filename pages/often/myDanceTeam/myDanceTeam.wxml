@@ -15,6 +15,7 @@
             </view>
             <text>{{item.dname}}</text>
           </navigator>
+          <button type="warn" class="footer">加入舞团</button>
         </view>
         <view wx:if="{{!isShow}}">
           <van-empty image="search" description="暂无相关内容" />
@@ -29,6 +30,7 @@
             <text>{{item.dname}}</text>
             <button>管理</button>
           </navigator>
+          <button type="warn" class="footer">创建舞团</button>
         </view>
         <view wx:if="{{!isShow}}">
           <van-empty image="search" description="暂无相关内容" />

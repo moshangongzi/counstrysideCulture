@@ -41,7 +41,8 @@
             "list": []
         },
         "miniprogram": {
-            "list": [{
+            "list": [
+                {
                     "name": "动态",
                     "pathName": "pages/dynamic/dynamic",
                     "query": "",
@@ -58,6 +59,13 @@
                 {
                     "name": "",
                     "pathName": "pages/index/index",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/often/memberList/memberList",
                     "query": "",
                     "scene": null,
                     "launchMode": "default"

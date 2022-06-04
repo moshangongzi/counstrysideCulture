@@ -1,6 +1,6 @@
 <!-- 顶部导航栏 -->
 <view class="dynamic-dance-nav" style="height: {{navHeight}}px; padding-top: {{menuHeight}}px; z-index: 999;">
-    <block wx:for="{{navTitleName}}" wx:key="{{item.id}}">
+    <block wx:for="{{navTitleName}}" wx:key="id">
         <view data-id='{{item.id}}' class="nav-item {{item.id == navTitleID? 'nav-title-active':''}}" bindtap='navTitleNameClick'>
             {{item.name}}
         </view>
@@ -66,7 +66,7 @@
         </view>
         <!-- 作品 成员人数 全国排名 -->
         <view class="team-info">
-            <view class="team-info-item" wx:for="{{danceTeamInfo.teamInfo}}" wx:key="{{item.name}}">
+            <view class="team-info-item" wx:for="{{danceTeamInfo.teamInfo}}" wx:key="name">
                 <text class="team-info-number">{{item.number}}</text>
                 <text>{{item.name}}</text>
             </view>
@@ -95,7 +95,7 @@
         <!-- 轮播图 -->
         <view class="swiper-view">
             <swiper autoplay="true" interval="3000" circular="true" indicator-dots indicator-active-color="#d83232" indicator-color="#fff">
-                <block wx:for="{{swiperList}}" wx:key='{{item.id}}' wx:if="{{swiperList && swiperList.length > 0}}">
+                <block wx:for="{{swiperList}}" wx:key='id' wx:if="{{swiperList && swiperList.length > 0}}">
                     <swiper-item>
                         <image src="{{item.imgUrl}}" class="slide-image" mode="widthFix" />
                     </swiper-item>
@@ -110,7 +110,7 @@
                 <text class="team-member-counts">（2人）</text>
             </view>
             <view class="team-member-items">
-                <view class="team-member-item" wx:for="{{danceTeamInfo.member}}" wx:key="{{item.id}}">
+                <view class="team-member-item" wx:for="{{danceTeamInfo.member}}" wx:key="id">
                     <view class="team-leader" wx:if="{{!item.status}}">队长</view>
                     <view class="team-member-item-pic">
                         <image mode="aspectFill" src="{{item.memberIcon}}"></image>

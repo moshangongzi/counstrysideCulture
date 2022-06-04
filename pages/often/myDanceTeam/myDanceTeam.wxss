@@ -43,3 +43,8 @@
     margin-left: 25rpx;
     display: inline-block;
 }
+.footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+}

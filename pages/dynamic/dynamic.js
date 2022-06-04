@@ -2,7 +2,7 @@ const App = getApp();
 const db = wx.cloud.database()
 Page({
     data: {
-        state:'',
+        state: '',
         navTitleName: [
             { id: 1, name: '动态', },
             { id: 2, name: '我的舞团', },
@@ -10,41 +10,41 @@ Page({
         dynamicList: [],
         // 舞团信息
         danceTeamInfo: {
-            id: 1,
-            teamName: '最炫民族风',
-            teamIcon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/activity1.jpg?sign=c1e1505fa38eee71f775352be5b1ad2a&t=1654149347',
-            teamInfo: [
-                {
-                    name: '作品',
-                    number: 5
-                },
-                {
-                    name: '成员',
-                    number: 2
-                },
-                {
-                    name: '全国排名',
-                    number: 168431
-                },
-                {
-                    name: '访客',
-                    number: 523
-                },
-            ],
-            member: [
-                {
-                    id: 1,
-                    memberIcon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/activity1.jpg?sign=35ffbaf83f6b7c7aed0cff89c0f51e82&t=1654149364',
-                    memberNickName: '最美舞者',
-                    status: 0,
-                },
-                {
-                    id: 2,
-                    memberIcon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/activity1.jpg?sign=35ffbaf83f6b7c7aed0cff89c0f51e82&t=1654149364',
-                    memberNickName: '最帅舞者',
-                    status: 1,
-                }
-            ]
+            // id: 1,
+            // teamName: '最炫民族风',
+            // teamIcon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/activity1.jpg?sign=c1e1505fa38eee71f775352be5b1ad2a&t=1654149347',
+            // teamInfo: [
+            //     {
+            //         name: '作品',
+            //         number: 5
+            //     },
+            //     {
+            //         name: '成员',
+            //         number: 2
+            //     },
+            //     {
+            //         name: '全国排名',
+            //         number: 168431
+            //     },
+            //     {
+            //         name: '访客',
+            //         number: 523
+            //     },
+            // ],
+            // member: [
+            //     {
+            //         id: 1,
+            //         memberIcon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/activity1.jpg?sign=35ffbaf83f6b7c7aed0cff89c0f51e82&t=1654149364',
+            //         memberNickName: '最美舞者',
+            //         status: 0,
+            //     },
+            //     {
+            //         id: 2,
+            //         memberIcon: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/activity1.jpg?sign=35ffbaf83f6b7c7aed0cff89c0f51e82&t=1654149364',
+            //         memberNickName: '最帅舞者',
+            //         status: 1,
+            //     }
+            // ]
         },
         swiperList: [
             { id: 1, imgUrl: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/images/index/banner1.jpg?sign=f043c8067fac26fedf75e0c1be1f88ba&t=1654149383' },
@@ -57,10 +57,11 @@ Page({
     },
     onLoad: function (options) {
         this.setData({
-            state:wx.getStorageSync('userinfo')=='',
+            state: wx.getStorageSync('userinfo') == '',
             navHeight: App.globalData.navHeight,
             menuHeight: App.globalData.menuHeight
-        })
+        });
+        this.getDanceTeam();
     },
 
     onShow: function () {
@@ -68,7 +69,7 @@ Page({
         //  1、获取数据库allUserDynamics中的所有数据，存入dynamicList
         db.collection('allUserDynamics').get().then(res => {
             // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
-            console.log('donshow', res.data)
+            // console.log('donshow', res.data)
             this.setData({
                 dynamicList: res.data
             })
@@ -88,9 +89,9 @@ Page({
     },
 
     navTitleNameClick: function (e) {
-        console.log(e);
+        // console.log(e);
         this.setData({ navTitleID: e.target.dataset.id })
-        console.log(this.data.navTitleID);
+        // console.log(this.data.navTitleID);
     },
     fabuPicClick: function (e) {
         wx.navigateTo({
@@ -137,7 +138,19 @@ Page({
                 activeFlag: false
             })
         }
+    },
+    getDanceTeam() {
+        wx.cloud.database().collection('danceTeam')
+            .doc('8f75309d629ad43d06f2766147c7a2d8')
+            .get()
+            .then(res => {
+                this.setData({
+                    danceTeamInfo: res.data
+                })
+            })
+            .catch(res => {
+                console.log('获取舞团信息失败', res)
+            })
     }
-
 
 })

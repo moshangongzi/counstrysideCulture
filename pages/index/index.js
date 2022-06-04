@@ -189,7 +189,7 @@ Page({
                 console.log('获取活动数据库失败', err)
             })
     },
-    dianzanClick() {
+    dianzanClick(e) {
         if (this.data.dianzan) {
             this.setData({
                 dianzan: false,
