@@ -139,12 +139,13 @@ Page({
             navHeight: App.globalData.navHeight,
         });
         this.getopenid();
-        this.getVideo();
+        // this.getVideo();
         this.random();
         this.getAct();
     },
 
     onShow: function () {
+        this.getVideo();
         if (App.globalData.tapID) {
             this.setData({
                 tapID: App.globalData.tapID,
@@ -220,11 +221,29 @@ Page({
         })
 
     },
+
     shoucangClick(e) {
         let flag = true
         db.collection('video').doc(e.currentTarget.dataset.id).get().then(res => {
+            // 如果shoucang为true,改成false，将视频从收藏夹删掉
+            // 否则shoucang为false,改成true，将视频放进收藏夹
             if (res.data.shoucang) {
                 flag = false
+                this.data.collArr.splice(this.data.collArr.indexOf(e.currentTarget.dataset.id), 1);
+                wx.cloud.database().collection('user')
+                    .doc(this.data.openid)
+                    .update({
+                        data: {
+                            collection: this.data.collArr
+                        }
+                    })
+                    .then(res => {
+                        console.log('修改成功', res)
+                    })
+                    .catch(res => {
+                        console.log('修改失败', res)
+                    })
+
             } else {
                 this.setData({
                     coll: e.currentTarget.dataset.id
@@ -244,6 +263,8 @@ Page({
                         console.log('修改失败', res)
                     })
             }
+
+            // 改变数据库中shoucang状态
             db.collection('video').doc(e.currentTarget.dataset.id).update({
                 // data 传入需要局部更新的数据
                 data: {

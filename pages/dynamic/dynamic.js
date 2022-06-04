@@ -19,12 +19,12 @@ Page({
         navHeight: '',
         menuHeight: '',
         openid: '',
-        teamId: '',//舞团id
+        teamId: '', //舞团id
         status: '',
         dianzanSrc1: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/dianzan.png',
         dianzanSrc2: 'https://636c-cloud1-4g8zgsp8753a10d4-1311372251.tcb.qcloud.la/icons/dynamic/%E7%82%B9%E8%B5%9E.png',
     },
-    onLoad: function () {
+    onLoad: function() {
         this.setData({
             state: wx.getStorageSync('userinfo') == '',
             navHeight: App.globalData.navHeight,
@@ -36,39 +36,39 @@ Page({
 
     },
 
-    onShow: function () {
+    onShow: function() {
         this.showDynamic()
     },
 
     // 动态数据渲染
-    showDynamic: function () {
+    showDynamic: function() {
         // 1、获取数据库allUserDynamics中的所有数据，存入dynamicList
         db.collection('allUserDynamics').get().then(res => {
             // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
-            console.log(res.data)
+            console.log('allUserDynamics', res.data)
             this.setData({
-                dynamicList: res.data
+                dynamicList: res.data.reverse()
             })
         })
     },
     // 切换动态和我的舞团页面
-    navTitleNameClick: function (e) {
+    navTitleNameClick: function(e) {
         // console.log(e);
         this.setData({ navTitleID: e.target.dataset.id })
-        // console.log(this.data.navTitleID);
+            // console.log(this.data.navTitleID);
     },
-    fabuPicClick: function (e) {
+    fabuPicClick: function(e) {
         wx.navigateTo({
             url: '../public/publicPic/publicPic',
         })
     },
-    fabuVidClick: function (e) {
+    fabuVidClick: function(e) {
         wx.navigateTo({
             url: '../public/publicVid/publicVid',
         })
     },
     // 点赞
-    dianZanClick: function (e) {
+    dianZanClick: function(e) {
         db.collection('allUserDynamics').doc(e.currentTarget.dataset.id).get().then(res => {
             // 如果dianzanFlag为false，改成true
             // 点赞加1
@@ -135,7 +135,7 @@ Page({
             })
     },
     // 点击管理
-    manageClick: function (e) {
+    manageClick: function(e) {
         console.log('ok');
         wx.navigateTo({
             url: '../often/memberList/memberList',
@@ -144,17 +144,17 @@ Page({
     //获取舞团id
     getTid() {
         wx.cloud.database().collection('user')
-        .doc(this.data.openid)
-        .get()
-        .then(res=>{
-            this.setData({
-                teamId:res.data.teamId
+            .doc(this.data.openid)
+            .get()
+            .then(res => {
+                this.setData({
+                    teamId: res.data.teamId
+                })
+                this.getDanceTeam()
             })
-            this.getDanceTeam()
-        })
-        .catch(res=>{
-            console.log('获取用户的舞团id失败',res)
-        })
+            .catch(res => {
+                console.log('获取用户的舞团id失败', res)
+            })
     },
     //获取舞团信息
     getDanceTeam() {

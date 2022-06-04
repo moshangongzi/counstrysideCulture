@@ -8,7 +8,7 @@
 .list-item {
   height: 400rpx;
   width: 100%;
-  margin-bottom: 25rpx;
+  margin-bottom: 50rpx;
   box-sizing: border-box;
 }
 
@@ -41,4 +41,22 @@
   left: 545rpx;
   font-size: 30rpx;
   color: #fff;
+}
+
+/* 点赞收藏 */
+.shoucang {
+  position: absolute;
+  right: 55rpx;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  height: 20px;
+}
+
+.shoucang image {
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: top;
+  margin: 0rpx;
+  margin-right: 20rpx;
 }

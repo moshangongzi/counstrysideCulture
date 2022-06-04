@@ -12,6 +12,12 @@
                 <view class="shipin-title">{{item.title}}</view>
                 <view class="shipin-bofangshu">{{item.click}}次播放</view>
             </view>
+
+            <view class="shoucang" bindtap="shoucangClick" data-id="{{item._id}}">
+                <image mode="aspectFit" src="{{shoucangSrc2}}"></image>
+                <text>已收藏</text>
+            </view>
+
         </view>
     </view>
 </block>
