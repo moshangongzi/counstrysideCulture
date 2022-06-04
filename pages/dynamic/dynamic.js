@@ -29,7 +29,6 @@ Page({
             navHeight: App.globalData.navHeight,
             menuHeight: App.globalData.menuHeight
         })
-        this.getDanceTeamInfo()
         this.getopenid()
     },
 
@@ -42,9 +41,9 @@ Page({
         // 1、获取数据库allUserDynamics中的所有数据，存入dynamicList
         db.collection('allUserDynamics').get().then(res => {
             // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
-            console.log(res.data)
+            console.log('allUserDynamics',res.data)
             this.setData({
-                dynamicList: res.data
+                dynamicList: res.data.reverse()
             })
         })
     },
@@ -99,18 +98,6 @@ Page({
                             }
                         })
                     })
-            }
-        })
-    },
-    // 获取我的舞团信息
-    getDanceTeamInfo: function (e) {
-        db.collection('danceTeam').get({
-            success: res => {
-                // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
-                console.log('获取舞团信息', res.data[0])
-                this.setData({
-                    danceTeamInfo: res.data[0]
-                })
             }
         })
     },

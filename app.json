@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/often/myCollection/myCollection",
         "pages/dynamic/dynamic",
         "pages/index/index",
         "pages/index/classDetail/classDetail",
@@ -15,7 +16,6 @@
         "pages/menu/myDynamic/myDynamic",
         "pages/often/myActivity/myActivity",
         "pages/often/myDanceTeam/myDanceTeam",
-        "pages/often/myCollection/myCollection",
         "pages/assist/kefu/kefu",
         "pages/assist/setUp/setUp",
         "pages/assist/message/message",
