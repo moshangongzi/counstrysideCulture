@@ -23,7 +23,9 @@
                     <text class="latest-dynamic-con-text">{{item.con}}</text>
                     <image wx:if="{{item.tempFilePaths&&item.FileType===0}}" mode="aspectFill" src="{{item.tempFilePaths}}"></image>
                     <video wx:if="{{item.tempFilePaths&&item.FileType===1}}" src="{{item.tempFilePaths}}"></video>
-                    <view class="dianzan-fenxiang">
+                    <view class="dianzan-delete">
+                        <text class="delete" bindtap="deleteClick" data-id="{{item._id}}">删除</text>
+                        <van-dialog id="van-dialog" />
                         <view class="dianzan" bindtap="dianZanClick" data-id="{{item._id}}">
                             <image mode="aspectFit" src="{{item.dianzanFlag?dianzanSrc2:dianzanSrc1}}"></image>
                             <text>点赞（{{item.dianzan}}）</text>

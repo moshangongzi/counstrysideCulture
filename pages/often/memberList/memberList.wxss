@@ -1,5 +1,6 @@
 .item {
-    margin: 50rpx;
+    margin: 30rpx;
+    padding-bottom: 20rpx;
     border-bottom: 1px solid #ccc;
 }
 
@@ -30,12 +31,12 @@
     margin-left: 25rpx;
     padding: 0rpx;
     font-size: 30rpx;
-    line-height: 65rpx;
-    color: #d83232;
-    border: 1px solid #d83232;
+    line-height: 73rpx;
+    color: #fff;
     vertical-align: middle;
     outline: none;
     background: transparent;
+    background-color: #d83232;
 
 }
 
