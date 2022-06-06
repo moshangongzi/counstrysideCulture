@@ -1,4 +1,4 @@
-// pages/my/qiandao/qiandao.js
+import Dialog from '../../../miniprogram_npm/@vant/weapp/dialog/dialog'
 const db = wx.cloud.database()
 const _ = db.command
 Page({
@@ -102,4 +102,21 @@ Page({
             }
         })
     },
+
+    // 删除
+    deleteClick: function(e) {
+        Dialog.confirm({
+            message: '确认删除？',
+          })
+            .then(() => {
+                db.collection('allUserDynamics').doc(e.currentTarget.dataset.id).remove({
+                    success: res => {
+                      this.showDynamic()
+                    }
+                  })
+            })
+            .catch(() => {
+              // on cancel
+            });
+    }
 })

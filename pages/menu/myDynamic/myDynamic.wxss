@@ -42,12 +42,17 @@
     font-weight: 700;
 }
 
+.latest-dynamic view:first-child {
+    margin-top: 40rpx;
+}
+
 .latest-dynamic-list {
     /* height: 0; */
     margin: 25rpx 25rpx 20rpx 25rpx;
 }
 
 .user-info {
+    position: relative;
     display: flex;
     align-items: center;
     height: 120rpx;
@@ -57,13 +62,16 @@
 }
 
 .user-info .public-time {
+    position: absolute;
+    right: 0rpx;
     margin-top: 5rpx;
     margin-left: 5rpx;
-    font-size: 44rpx;
+    font-size: 36rpx;
+    color:  #858585;
 }
 
 .latest-dynamic-con {
-    margin-left: 120rpx;
+    /* margin-left: 120rpx; */
     /* height: 400rpx; */
     /* background-color: pink; */
 }
@@ -80,26 +88,31 @@ video {
     /* z-index: -1; */
 }
 
-.latest-dynamic-con .dianzan-fenxiang {
-    position: relative;
-    /* display: flex;
-    justify-content:right; */
+.latest-dynamic-con .dianzan-delete {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
     width: 100%;
     height: 80rpx;
     margin-top: 30rpx;
-    /* border: 1rpx solid #a9a9a9; */
-    /* background-color: rgb(240, 240, 240); */
+    padding: 0 60rpx;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #ebe7e7;
+    background-color: rgb(245, 244, 244);
+}
+
+.delete {
+    color: #d83232;
+    /* background-color: pink; */
 }
 
 .dianzan{
-    position: absolute;
-    right: 0;
     display: flex;
     align-items: center;
     font-size: 30rpx;
 }
 
-.dianzan-fenxiang image {
+.dianzan-delete image {
     width: 50rpx;
     height: 50rpx;
     vertical-align: top;

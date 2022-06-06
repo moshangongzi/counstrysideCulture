@@ -1,5 +1,6 @@
 .ditem {
-    margin: 50rpx;
+    margin: 30rpx;
+    padding-bottom: 20rpx;
     border-bottom: 1px solid #ccc;
 }
 

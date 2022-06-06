@@ -2,6 +2,7 @@
   "navigationStyle": "custom",
   "usingComponents": {
     "navBar": "/components/navBar/navBar",
-    "van-empty": "@vant/weapp/empty/index"
+    "van-empty": "@vant/weapp/empty/index",
+    "van-dialog": "@vant/weapp/dialog/index"
   }
 }
