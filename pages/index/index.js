@@ -2,6 +2,7 @@ const App = getApp()
 const db = wx.cloud.database()
 Page({
     data: {
+        state: null,
         openid: '',
         aid: '',
         collArr: [],
@@ -132,6 +133,7 @@ Page({
 
     onLoad: function () {
         this.setData({
+            state: wx.getStorageSync('userinfo') == '',
             navHeight: App.globalData.navHeight,
         });
         this.getopenid();
@@ -198,79 +200,98 @@ Page({
         // console.log(e.currentTarget.dataset.id);
         // 根据点赞视频的id，更新视频的点赞属性为true
         let flag = true
-        db.collection('video').doc(e.currentTarget.dataset.id).get().then(res => {
-            // 如果dianzan为true，改成false
-            if (res.data.dianzan) {
-                flag = false
-            }
-
-            db.collection('video').doc(e.currentTarget.dataset.id).update({
-                // data 传入需要局部更新的数据
-                data: {
-                    dianzan: flag
-                },
-                success: res => {
-                    console.log(res)
-                    this.getVideo()
+        if (!this.data.state) {
+            db.collection('video').doc(e.currentTarget.dataset.id).get().then(res => {
+                // 如果dianzan为true，改成false
+                if (res.data.dianzan) {
+                    flag = false
                 }
+
+                db.collection('video').doc(e.currentTarget.dataset.id).update({
+                    // data 传入需要局部更新的数据
+                    data: {
+                        dianzan: flag
+                    },
+                    success: res => {
+                        console.log(res)
+                        this.getVideo()
+                    }
+                })
             })
-        })
+        } else {
+            wx.showToast({
+                title: '请先登录',
+                icon: 'none',
+                duration: 2000
+            })
+            return
+        }
 
     },
 
     shoucangClick(e) {
         let flag = true
-        db.collection('video').doc(e.currentTarget.dataset.id).get().then(res => {
-            // 如果shoucang为true,改成false，将视频从收藏夹删掉
-            // 否则shoucang为false,改成true，将视频放进收藏夹
-            if (res.data.shoucang) {
-                flag = false
-                this.data.collArr.splice(this.data.collArr.indexOf(e.currentTarget.dataset.id), 1);
-                wx.cloud.database().collection('user')
-                    .doc(this.data.openid)
-                    .update({
-                        data: {
-                            collection: this.data.collArr
-                        }
-                    })
-                    .then(res => {
-                        console.log('修改成功', res)
-                    })
-                    .catch(res => {
-                        console.log('修改失败', res)
-                    })
+        if (!this.data.state) {
+            db.collection('video').doc(e.currentTarget.dataset.id).get().then(res => {
+                // 如果shoucang为true,改成false，将视频从收藏夹删掉
+                // 否则shoucang为false,改成true，将视频放进收藏夹
+                if (res.data.shoucang) {
+                    flag = false
+                    this.data.collArr.splice(this.data.collArr.indexOf(e.currentTarget.dataset.id), 1);
+                    wx.cloud.database().collection('user')
+                        .doc(this.data.openid)
+                        .update({
+                            data: {
+                                collection: this.data.collArr
+                            }
+                        })
+                        .then(res => {
+                            console.log('修改成功', res)
+                        })
+                        .catch(res => {
+                            console.log('修改失败', res)
+                        })
 
-            } else {
-                this.setData({
-                    coll: e.currentTarget.dataset.id
-                });
-                this.data.collArr.push(this.data.coll);
-                wx.cloud.database().collection('user')
-                    .doc(this.data.openid)
-                    .update({
-                        data: {
-                            collection: this.data.collArr
-                        }
-                    })
-                    .then(res => {
-                        console.log('修改成功', res)
-                    })
-                    .catch(res => {
-                        console.log('修改失败', res)
-                    })
-            }
-
-            // 改变数据库中shoucang状态
-            db.collection('video').doc(e.currentTarget.dataset.id).update({
-                // data 传入需要局部更新的数据
-                data: {
-                    shoucang: flag
-                },
-                success: res => {
-                    this.getVideo()
+                } else {
+                    this.setData({
+                        coll: e.currentTarget.dataset.id
+                    });
+                    this.data.collArr.push(this.data.coll);
+                    wx.cloud.database().collection('user')
+                        .doc(this.data.openid)
+                        .update({
+                            data: {
+                                collection: this.data.collArr
+                            }
+                        })
+                        .then(res => {
+                            console.log('修改成功', res)
+                        })
+                        .catch(res => {
+                            console.log('修改失败', res)
+                        })
                 }
+
+                // 改变数据库中shoucang状态
+                db.collection('video').doc(e.currentTarget.dataset.id).update({
+                    // data 传入需要局部更新的数据
+                    data: {
+                        shoucang: flag
+                    },
+                    success: res => {
+                        this.getVideo()
+                    }
+                })
             })
-        })
+        } else {
+            wx.showToast({
+                title: '请先登录',
+                icon: 'none',
+                duration: 2000
+            })
+            return
+        }
+
     },
     getopenid() {
         wx.cloud.callFunction({

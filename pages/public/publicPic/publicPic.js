@@ -47,7 +47,7 @@ Page({
                     })
                     .then(res => {
                         // 获取舞团的名字
-                        // console.log(res.data.tname)
+                        console.log(res.data.tname)
                         this.setData({
                             tname: res.data.tname,
                             'content.tname': res.data.tname,
