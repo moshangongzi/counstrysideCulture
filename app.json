@@ -42,7 +42,7 @@
             },
             {
                 "pagePath": "pages/dynamic/dynamic",
-                "text": "动态",
+                "text": "广场",
                 "iconPath": "./icons/dongtai1-copy.png",
                 "selectedIconPath": "./icons/select-dongtai1-copy.png"
             },

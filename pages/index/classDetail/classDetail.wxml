@@ -1,10 +1,21 @@
+<navBar showBackIcon="{{true}}" navBarTitle="分区视频" />
 <view class='content-list'>
-    <block wx:for='{{videoList}}' wx:key='{{item.id}}' wx:if="{{videoList && videoList.length > 0}}">
+    <block wx:for='{{videoList}}' wx:key="id">
         <view class='list-item'>
             <view class='list-item-content'>
-                <video src='{{item.link}}'></video>
+                <video object-fit="cover" src='{{item.link}}'></video>
                 <view class="shipin-title">{{item.title}}</view>
                 <view class="shipin-bofangshu">{{item.click}}次播放</view>
+            </view>
+            <view class="dianzan-shoucang">
+                <view class="dianzan" bindtap="dianzanClick" data-id="{{item._id}}">
+                    <image mode="aspectFit" src="{{item.dianzan?dianzanSrc2:dianzanSrc1}}"></image>
+                    <text>点赞</text>
+                </view>
+                <view class="shoucang" bindtap="shoucangClick" data-id="{{item._id}}">
+                    <image mode="aspectFit" src="{{item.shoucang?shoucangSrc2:shoucangSrc1}}"></image>
+                    <text>收藏</text>
+                </view>
             </view>
         </view>
     </block>
